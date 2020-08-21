@@ -10,18 +10,24 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |---|---| ---|
 |Day 1| Project Description | Incomplete
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
-|Day 2| Working RestAPI | Incomplete
-|Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|Day 2| Have landing page ready | Incomplete
+|Day 3| Have landing page ready | Incomplete
+|Day 3| Have review page up | Incomplete
+|Day 4| Deploy on netlify | Incomplete
 |Day 4| MVP & Bug Fixes | Incomplete
 |Day 5| Final Touches and Present | Incomplete
 
 ## Project Description
-
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+MUSIC JOURNAL
+An app that allows the blog owner to review new music and, the visitor to discover new music.
+USER STORY:
+The editor will login and have access to create, edit and destroy the music review. Users will be able to go on the app and view the content.
+POST MVP:
+Multiple visitors will be able to login and leave their coments on reviews. 
 
 ## Google Sheet
 
-Include link to your google sheet here.  Here is the sample [Suresh had used in class](https://docs.google.com/spreadsheets/d/1V1M3Eq1NXH2PNmeTlVviRhEjX9kenq769Vo2P5mMtro/edit#gid=0) 
+Include link to your google sheet here.  Here is the sample [Suresh had used in class](https://docs.google.com/spreadsheets/d/1GKj0dpDS6maIhMR8e5oU5CzS_rvlJuWESEXH36iDz6Q/edit#gid=0) 
 
 ## Wireframes
 
@@ -33,7 +39,6 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 
 Wireframing Resources:
 
-- [Mockflow](https://mockflow.com/app/#Wireframe)
 - [Figma](https://www.figma.com/)
 
 
@@ -53,14 +58,21 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 #### MVP (examples)
 
-- Pull data using google json api
-- Render data on page 
-- Allow user to choose favorites 
-- Save their choices in firebase
+- Render data from api
+- Make page responsive  
+- Toggles to see individual review
+- Carousel header
+- Deploy on netlify
+- Tags
 
 #### PostMVP 
 
-- Anything else that is not MVP
+- On-hover effects
+- Sticky header
+- Animations for scrolling
+- Footer on our savior Jeremy Rose
+- Genre searchability 
+- Sorting by date-added
 
 ## Functional Components
 
