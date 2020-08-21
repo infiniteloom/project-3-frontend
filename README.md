@@ -10,9 +10,9 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |---|---| ---|
 |Day 1| Project Description | Incomplete
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
-|Day 2| Have landing page ready | Incomplete
-|Day 3| Have landing page ready | Incomplete
-|Day 3| Have review page up | Incomplete
+|Day 2| Design landing page with bootstrap grid gallery | Incomplete
+|Day 3| Continue design of landing page with bootstrap grid gallery | Incomplete
+|Day 3| Design individual review view | Incomplete
 |Day 4| Deploy on netlify | Incomplete
 |Day 4| MVP & Bug Fixes | Incomplete
 |Day 5| Final Touches and Present | Incomplete
