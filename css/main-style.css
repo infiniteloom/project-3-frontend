@@ -34,13 +34,23 @@ body {
 
 /* Carousel Styling */
 .carousel{
-    height: 400px;
+
     text-align: center;
 }
-.carouselImg{
-    object-fit:cover;
-    height: 400px;
 
+
+
+
+/*Grid Gallery Styling*/
+.gallery{
+    padding: 50px;
+    text-align: center;
 }
 
 
+
+/*Footer styling*/
+
+.page-footer{
+    position: relative;
+}

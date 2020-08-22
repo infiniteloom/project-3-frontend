@@ -103,6 +103,7 @@ Once complete tally up the time and determine how long the project will take to 
     - Brand logo links to home page
     - 'Reviews' jumps down the page to 'Recent Reviews'
     - 'About' renders 'About' view (post-MVP)
+    
 - Footer with social links and return to top 
 
 #### MVP
