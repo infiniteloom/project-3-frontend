@@ -16,14 +16,21 @@ body {
 /* Nav Bar Styling (Bootstrap) */
 
 /* This is used to override Boostrap default styles and push the brand logo to center of page */
+@media (min-width: 990px) {
 
-.navbar-nav {
-    justify-content: space-between;
+    .navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
-
-
-
-
+.navbar-nav{
+    float:right;
+}
+.navbar-expand-lg, .navbar-collapse{
+    justify-content: flex-end;
+    /*justify-content: space-between;*/
+}
 
 /* Carousel Styling */
 .carousel{

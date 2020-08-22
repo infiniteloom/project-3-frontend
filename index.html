@@ -15,25 +15,42 @@
 
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a href="./index.html" class="nav-brand">A Music Journal.</a>
+<!--    <nav class="navbar navbar-expand-sm navbar-light bg-light">-->
+<!--        <a href="./index.html" class="nav-brand">A Music Journal.</a>-->
 
-<!--        This is the burger menu-->
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="#gallery">Reviews</a>
-                </li>
-<!--                How to link this nav item to change the view to 'about page' view?-->
-                <li class="nav-item">
-                   About
-                </li>
+<!--&lt;!&ndash;        This is the burger menu&ndash;&gt;-->
+<!--        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarMenu">-->
+<!--            <ul class="navbar-nav ml-auto">-->
+<!--                <li class="nav-item">-->
+<!--                    <a href="#gallery">Reviews</a>-->
+<!--                </li>-->
+<!--&lt;!&ndash;                How to link this nav item to change the view to 'about page' view?&ndash;&gt;-->
+<!--                <li class="nav-item">-->
+<!--                   About-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>
+-->
+    <nav id="topNav" class="navbar fixed-to navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand mx-auto" href="/">
+        A Music Journal
+    </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"> <a class="nav-link" href="#gallery">Reviews</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
             </ul>
         </div>
     </nav>
+
+
+
+
 </header>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -44,9 +61,11 @@
         </div>
         <div class="carousel-item" id="carousel2">
             <!-- second image in carousel randomly selected from db -->
+            <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
         </div>
         <div class="carousel-item" id="carousel3">
             <!-- third image in carousel randomly selected from db -->
+            <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

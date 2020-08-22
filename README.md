@@ -8,12 +8,12 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 |  Day | Deliverable | Status
 |---|---| ---|
+|Day 1| Deploy on netlify | Complete
 |Day 1| Project Description | Incomplete
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
 |Day 2| Design landing page with bootstrap grid gallery | Incomplete
 |Day 3| Continue design of landing page with bootstrap grid gallery | Incomplete
 |Day 3| Design individual review view | Incomplete
-|Day 4| Deploy on netlify | Incomplete
 |Day 4| MVP & Bug Fixes | Incomplete
 |Day 5| Final Touches and Present | Incomplete
 
@@ -21,14 +21,15 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Project Description
 MUSIC JOURNAL
-An app that allows the blog owner to review new music and, the visitor to discover new music.
+An app to help visitors discover new music, featuring reviews of albums and interviews with artists. 
 
 USER STORY:
-- The editor/blog admin will be able to login and have access to create, edit and destroy the music review. 
-- Users will be able to go on the app and view the content.
+- The editor/blog admin will be able to login and have access to create, edit and destroy articles. 
+- Users will visit the public-facing side of the site and browse articles on new music. 
+- Users can click through the landing page gallery items to view individual articles.
 
 POST MVP:
-Multiple visitors will be able to login and leave their coments on reviews. 
+- Multiple visitors will be able to create accounts, login and leave their comments on reviews. 
 
 
 INSPIRATION: 
@@ -36,19 +37,22 @@ Pitchfork.com
 https://www.goldflakepaint.co.uk/
 
 
-## Google Sheet
-
+## App Build-out Links 
+Front-end deployed URL:  a-music-journal.netlify.app
+Front-end GitHub: https://github.com/infiniteloom/project-3-frontend
+Back-end deployed URL:
+Back-end repo: https://github.com/infiniteloom/project-3-backend
 
 
 ## Wireframes
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.  
 
-[Mobile](https://git.generalassemb.ly/SEIR-629/project-1-portfolio/blob/master/readme-assets/mobile.png)
+[Mobile]
 - Landing Page: https://res.cloudinary.com/infiniteloom/image/upload/v1598057061/Unit%2003%20-%20Project/Mobile/landing-page_mobile_udci8u.png
 - Logged in, post view:  https://res.cloudinary.com/infiniteloom/image/upload/v1598057060/Unit%2003%20-%20Project/Mobile/album-review_mobile_uhrizd.png
 
-[Tablet](https://git.generalassemb.ly/SEIR-629/project-1-portfolio/blob/master/readme-assets/nav-highlight.gif)
+[Tablet]
 - Landing Page: https://res.cloudinary.com/infiniteloom/image/upload/v1598057061/Unit%2003%20-%20Project/Mobile/landing-page_mobile_udci8u.png
 - Logged in, edit post view https://res.cloudinary.com/infiniteloom/image/upload/v1598047547/Unit%2003%20-%20Project/Web/logged-in-edit-post_ame8wn.png
 
@@ -73,33 +77,33 @@ Now create a separate list starting with A and assign it one of the features.  C
 
 Once complete tally up the time and determine how long the project will take to complete. Now break those features into MVP and PostMVP so you can guarantee you will have a fully functioning project to demo. 
 
-### MVP/PostMVP - 5min
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
+#### MVP
 
-#### MVP (examples)
-
+- Sticky header
+- Menu item/gallery item on:hover effects
 - Render data from api
-- Make page responsive  
-- Toggles to see individual review
-- Carousel header
+- Make page mobile responsive  
+- Toggle view from grid gallery /landing page to individual review view
+- Carousel gallery header
 - Deploy on netlify
 - Tags
 
 #### PostMVP 
 
-- On-hover effects
-- Sticky header
-- Animations for scrolling
-- Footer on our savior Jeremy Rose
+- Staggering the gallery so images are not square grids? 
+- On:scroll animation effects CSS
+- About page, listing site contributors and mission
+- Footer with social links and return to top
 - Genre searchability 
-- Sorting by date-added
+- Sorting by date-added, artist name
 
 ## Functional Components
-
-Based on the initial logic defined in the previous sections try and breakdown the logic further into functional components, and by that we mean functions.  Try and capture what logic would need to be defined if the game was broken down into the following categories.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
+- Sticky header nav bar with links 
+    - Brand logo links to home page
+    - 'Reviews' jumps down the page to 'Recent Reviews'
+    - 'About' renders 'About' view (post-MVP)
+- Footer with social links and return to top 
 
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
