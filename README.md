@@ -40,7 +40,7 @@ https://www.goldflakepaint.co.uk/
 ## App Build-out Links 
 Front-end deployed URL:  a-music-journal.netlify.app
 Front-end GitHub: https://github.com/infiniteloom/project-3-frontend
-Back-end deployed URL:
+Back-end deployed URL: https://amusicjournal.herokuapp.com/
 Back-end repo: https://github.com/infiniteloom/project-3-backend
 
 
@@ -69,14 +69,7 @@ Wireframing Resources:
 
 ## Time/Priority Matrix 
 
-Include a full list of features that have been [prioritized](https://res.cloudinary.com/doaftkgbv/image/upload/v1583773146/ValueVSComplexity_u2inhx.png) based on the `Time and Priority` Matix.  This involves drawing a a square.  In the middle of the square, on the x axis draw a line.  The most left part of the line should start with 0hrs and the end of the line should include 2hrs.  This line will be used to estimate how much time any one feature will take to complete. 
-
-Now draw a vertical line on the y axis.  The top of this line should have `High` and the bottom `Low`.  This line will be used to assign a priority to to each feature you wish to include in the project.  
-
-Now create a separate list starting with A and assign it one of the features.  Continue to assign each feature a letter.  Once complete add each letter to the matrix assigning based on what your feel it's prioirty is an how long it will take to implement. If any one feature takes longer than 2hrs to complete than break it down into smaller tasks and reassign them a new letter. 
-
-Once complete tally up the time and determine how long the project will take to complete. Now break those features into MVP and PostMVP so you can guarantee you will have a fully functioning project to demo. 
-
+Link to Cloudinary: 
 
 #### MVP
 
@@ -104,31 +97,40 @@ Once complete tally up the time and determine how long the project will take to 
     - 'Reviews' jumps down the page to 'Recent Reviews'
     - 'About' renders 'About' view (post-MVP)
     
-- Footer with social links and return to top 
+- Submit / Edit / Delete / Create Buttons For blog posts when signed in
+
+- Footer with project info and 'return to top'
+
+VIEWS:
+- Login view for blog admin
+- Intro/landing page
+- Regular view of blog posts without log-in
+- Create a new blog post form
+- Create AWS /image upload drop field (work with backend to configure)
+
 
 #### MVP
-| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Hamburger | H | 1hr | 1.5hr | -hr|
-| Project Previews | H | 3hr | -hr | -hr|
-| Regular Nav | H | H | -hr | -hr|
-| Adding Form | H | 1.5hr| -hr | -hr |
-| Other sections and flex| M | 4hr | 2hr | -hr|
-| Working with API | H | 3hrs| 2hr | -hr |
-| Responsive | H | 3hr | -hr | -hr|
-| Social Media Icons | L | 1hr | -hr | -hr|
-| Total | H | 15.5hrs| -hrs | -hrs |
+| Hamburger Mobile | H | .5hr | .5hr | .5hr|
+| Bootstrap Grid Gallery w/Rendered Data | H | 3hr | -hr | -hr|
+| Bootstrap Responsive Nav | H | 2H | -hr | -hr|
+| Bootstrap Carousel Header w/rendered Data | H | 3hrs| -hr | -hr |
+| Toggling views for logged-in/not logged-in | H | 3hr | -hr | -hr|
+| Create views for create new post window | H | 2hrs| -hrs | -hrs |
+| Create AWS /image upload drop field | M | 2hrs | -hrs | -hrs |
+| Create-a-blog post form | H | 2hrs | -hrs | -hrs |
+| Create randomizing images for carousel function in app.js | L | 1rs| -hrs | -hrs |
+| Edit Footer | L | 1hr | -hr | -hr|
+| Total | H | 20hrs| -hrs | -hrs |
 
 #### PostMVP
-| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Project Hover | L | 3hr | -hr | -hr|
-| Banner letters wiggle | L | 1hr | -hr | -hr|
-| Interactive Banner | M | 4hr | -hr | -hr|
-| Materialize | H | 4hr | -hr | -hr|
-| Bootstrap | H | 4hr | -hr | -hr|
-| Make own icon | L | 4hr | -hr | -hr|
-| Total | H | 20hrs| -hrs | -hrs |
+| Create About Project Page | L | 1hr | -hr | -hr|
+| Sorting Functions | L | 3hr | -hr | -hr|
+| Stylizing the Gallery on Landing Page | L | 2hr | -hr | -hr|
+| Total | H | 6hrs| -hrs | -hrs |
 
 ## Additional Libraries
 - Vue
