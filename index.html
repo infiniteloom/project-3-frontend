@@ -72,11 +72,10 @@
 
 <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
 <div class="gallery" id="gallery">
-    <div v-for="review of reviews">
-        <img :src="review.img_url">
+    <div v-for="review of reviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
+        <img :src="review.img_url" width="100%">
         <p>{{review.artist_name}} </p>
         <h3 class="album-title">{{review.album_title}}</h3>
-
 
     </div>
 </div>

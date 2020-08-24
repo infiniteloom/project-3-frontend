@@ -49,11 +49,23 @@ body {
 
 /*Grid Gallery Styling*/
 .gallery{
-    padding: 50px;
+    /*padding: 50px;*/
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-start; /* This line fixes a height bug in Safari browsers */
+
 }
 .album-title{
     font-style: italic;
+}
+.gallery-item:hover{
+    filter: brightness(.8);
+}
+.col-md-4, .col-6{
+    padding-top: 25px;
 }
 
 
