@@ -17,6 +17,9 @@
 <body>
 <div id="app">
 
+    <div v-if="!loggedin" class="editorwindow">
+
+      
 
 <header>
     <nav id="topNav" class="navbar fixed-to navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand mx-auto" href="/">
@@ -121,9 +124,15 @@
             <!-- Grid row-->
         </div>
     </div>
+</div>
+
+<div id="nologin" v-if="loggedin">
+    <h1 class="text-uppercase font-weight-bold">This is the user area</h1>
+</div>
     <!-- Footer Links -->
     <div class="container text-center text-md-left mt-5">
 
+  
         <!-- Grid row -->
         <div class="row mt-3 dark-grey-text">
             <!-- Grid column -->
@@ -131,9 +140,12 @@
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">Company name</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                    consectetur
-                    adipisicing elit.</p>
+                <p>Here you can use rows and columns to organize your footer content. </p>
+                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <div id="nologin" v-if="!loggedin">
+                <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
+                </div>
+            
             </div>
             <!-- Grid column -->
             <!-- Grid column -->
@@ -187,6 +199,7 @@
                     <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
                 <p>
                     <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                  
             </div>
             <!-- Grid column -->
         </div>
