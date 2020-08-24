@@ -4,3 +4,4 @@ const app = new Vue({
         hello: "Hello world"
     }
 })
+

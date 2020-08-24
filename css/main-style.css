@@ -62,3 +62,7 @@ footer .container{
     color: white;
     width: 100%;
 }
+.footer-copyright{
+    color: grey;
+    font-size: .8em;
+}
