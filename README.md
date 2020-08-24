@@ -5,8 +5,8 @@
 |  Day | Deliverable | Status
 |---|---| ---|
 |Day 1| Deploy on netlify | Complete
-|Day 1| Project Description | Incomplete
-|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
+|Day 1| Project Description | Complete
+|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
 |Day 2| Design landing page with bootstrap grid gallery | Incomplete
 |Day 3| Continue design of landing page with bootstrap grid gallery | Incomplete
 |Day 3| Design individual review view | Incomplete
@@ -34,28 +34,26 @@ https://www.goldflakepaint.co.uk/
 
 
 ## App Build-out Links 
-Front-end deployed URL:  a-music-journal.netlify.app
-Front-end GitHub: https://github.com/infiniteloom/project-3-frontend
-Back-end deployed URL: https://amusicjournal.herokuapp.com/
-Back-end repo: https://github.com/infiniteloom/project-3-backend
+Front-end deployed URL:  (a-music-journal.netlify.app)
+[Front-end GitHub Repo](https://github.com/infiniteloom/project-3-frontend)
+Back-end deployed URL: (https://amusicjournal.herokuapp.com/)
+[Back-end GitHub Repo](https://github.com/infiniteloom/project-3-backend)
 
 
 ## Wireframes
 
-Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.  
-
 [Mobile]
-- Landing Page: https://res.cloudinary.com/infiniteloom/image/upload/v1598057061/Unit%2003%20-%20Project/Mobile/landing-page_mobile_udci8u.png
-- Logged in, post view:  https://res.cloudinary.com/infiniteloom/image/upload/v1598057060/Unit%2003%20-%20Project/Mobile/album-review_mobile_uhrizd.png
+[Landing Page](https://res.cloudinary.com/infiniteloom/image/upload/v1598057061/Unit%2003%20-%20Project/Mobile/landing-page_mobile_udci8u.png)
+[Logged in, post view](https://res.cloudinary.com/infiniteloom/image/upload/v1598057060/Unit%2003%20-%20Project/Mobile/album-review_mobile_uhrizd.png)
 
 [Tablet]
-- Landing Page: https://res.cloudinary.com/infiniteloom/image/upload/v1598057061/Unit%2003%20-%20Project/Mobile/landing-page_mobile_udci8u.png
-- Logged in, edit post view https://res.cloudinary.com/infiniteloom/image/upload/v1598047547/Unit%2003%20-%20Project/Web/logged-in-edit-post_ame8wn.png
+[Landing Page](https://res.cloudinary.com/infiniteloom/image/upload/v1598057061/Unit%2003%20-%20Project/Mobile/landing-page_mobile_udci8u.png)
+[Logged in, edit post view](https://res.cloudinary.com/infiniteloom/image/upload/v1598047547/Unit%2003%20-%20Project/Web/logged-in-edit-post_ame8wn.png)
 
 [Desktop]
-- Landing Page - https://res.cloudinary.com/infiniteloom/image/upload/v1598047549/Unit%2003%20-%20Project/Web/landing-page_dgtfq9.png
-- Logged in, edit post view https://res.cloudinary.com/infiniteloom/image/upload/v1598047547/Unit%2003%20-%20Project/Web/logged-in-edit-post_ame8wn.png
-- Logged in, view post view https://res.cloudinary.com/infiniteloom/image/upload/v1598047565/Unit%2003%20-%20Project/Web/logged-in-viewing-post_xua073.png
+[Landing Page](https://res.cloudinary.com/infiniteloom/image/upload/v1598047549/Unit%2003%20-%20Project/Web/landing-page_dgtfq9.png)
+[Logged in, edit post view](https://res.cloudinary.com/infiniteloom/image/upload/v1598047547/Unit%2003%20-%20Project/Web/logged-in-edit-post_ame8wn.png)
+[Logged in, view post view](https://res.cloudinary.com/infiniteloom/image/upload/v1598047565/Unit%2003%20-%20Project/Web/logged-in-viewing-post_xua073.png)
 
 
 Wireframing Resources:
@@ -65,7 +63,7 @@ Wireframing Resources:
 
 ## Time/Priority Matrix 
 
-Link to Cloudinary: 
+[Time and Priority Matrix](https://res.cloudinary.com/dinqukx6a/image/upload/v1598235735/Project%203/Music_Journal_Front_EndTPM_isr7ab.jpg)
 
 #### MVP
 
@@ -110,15 +108,17 @@ VIEWS:
 | --- | :---: |  :---: | :---: | :---: |
 | Hamburger Mobile | H | .5hr | .5hr | .5hr|
 | Bootstrap Grid Gallery w/Rendered Data | H | 3hr | -hr | -hr|
-| Bootstrap Responsive Nav | H | 2H | -hr | -hr|
-| Bootstrap Carousel Header w/rendered Data | H | 3hrs| -hr | -hr |
+| Bootstrap Cards for each review | H | 3hr | -hr | -hr|
+| Bootstrap Responsive Nav | H | 2H | .5hr | -hr|
+| Bootstrap Carousel Header w/rendered Data | H | 3hrs| .5hr | -hr |
 | Toggling views for logged-in/not logged-in | H | 3hr | -hr | -hr|
 | Create views for create new post window | H | 2hrs| -hrs | -hrs |
 | Create AWS /image upload drop field | M | 2hrs | -hrs | -hrs |
-| Create-a-blog post form | H | 2hrs | -hrs | -hrs |
-| Create randomizing images for carousel function in app.js | L | 1rs| -hrs | -hrs |
-| Edit Footer | L | 1hr | -hr | -hr|
-| Total | H | 20hrs| -hrs | -hrs |
+| Create-a-review post form | H | 2hrs | -hrs | -hrs |
+| Create randomizing images for carousel function in app.js | L | 1hr| -hrs | -hrs |
+| Edit Footer | L | 1hr | .5hr | -hr|
+| Troubleshooting/Research | H | 10hr | -hr | -hr|
+| Total | H | 32.5hrs| 1.5hrs | hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
