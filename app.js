@@ -1,7 +1,16 @@
 const app = new Vue({
     el: "#app",
     data: {
-        hello: "Hello world"
+        reviews: []
+    },
+    methods: {
+    },
+    beforeCreate: function(){
+        fetch('https://amusicjournal.herokuapp.com/reviews')
+            .then(response => response.json())
+            .then(data => {
+                this.reviews = data
+                console.log(data)
+            })
     }
 })
-

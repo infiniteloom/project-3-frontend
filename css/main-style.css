@@ -10,6 +10,7 @@ a:hover {
 body {
     width: 100%;
     margin: 0 auto;
+    /*padding-top: 70px;*/
 }
 
 
@@ -32,6 +33,11 @@ body {
     /*justify-content: space-between;*/
 }
 
+
+
+
+
+
 /* Carousel Styling */
 .carousel{
 
@@ -45,6 +51,9 @@ body {
 .gallery{
     padding: 50px;
     text-align: center;
+}
+.album-title{
+    font-style: italic;
 }
 
 
