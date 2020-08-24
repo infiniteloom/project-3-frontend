@@ -33,6 +33,11 @@ body {
     /*justify-content: space-between;*/
 }
 
+
+
+
+
+
 /* Carousel Styling */
 .carousel{
 
@@ -46,6 +51,9 @@ body {
 .gallery{
     padding: 50px;
     text-align: center;
+}
+.album-title{
+    font-style: italic;
 }
 
 
