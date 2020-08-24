@@ -54,3 +54,11 @@ body {
 .page-footer{
     position: relative;
 }
+footer {
+    background-color: #343a40;
+}
+footer .container{
+    background-color: #343a40;
+    color: white;
+    width: 100%;
+}
