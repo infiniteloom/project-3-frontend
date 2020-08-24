@@ -118,7 +118,7 @@ VIEWS:
 | Create randomizing images for carousel function in app.js | L | 1hr| -hrs | -hrs |
 | Edit Footer | L | 1hr | .5hr | -hr|
 | Troubleshooting/Research | H | 10hr | -hr | -hr|
-| Total | H | 32.5hrs| 1.5hrs | -hrs |
+| Total | H | 32.5hrs| 1.5hrs | hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
