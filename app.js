@@ -2,7 +2,7 @@ const app = new Vue({
     el: "#app",
     data: {
         loggedin: false,
-        JWT: "",
+        // JWT: "",
         createUN: "",
         createPW: "",
         devURL:'http://localhost:3000',
