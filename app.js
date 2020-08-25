@@ -29,18 +29,18 @@ const app = new Vue({
                 },
                 body: JSON.stringify(user),
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert("Invalid Username or Password. Please check your entry and try again.");
-                } else {
-                    this.user = data.user
-                    this.token = data.token
-                    this.loggedin = true;
-                    this.createPW = ""
-                    this.createUN = ""
-                }
-            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert("Invalid Username or Password. Please check your entry and try again.");
+                    } else {
+                        this.user = data.user
+                        this.token = data.token
+                        this.loggedin = true;
+                        this.createPW = ""
+                        this.createUN = ""
+                    }
+                })
         },
         handleLogout: function () {
             this.loggedin = false;
