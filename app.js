@@ -1,7 +1,10 @@
+const URL = this.prodURL ? this.prodURL : this.devURL
+
 const app = new Vue({
     el: "#app",
     data: {
         reviews: [],
+        singlereview: null,
         search: "", //defining the search property and empty value
         loggedin: false,
         // JWT: "",
@@ -10,7 +13,8 @@ const app = new Vue({
         devURL:'http://localhost:3000',
         prodURL:'https://amusicjournal.herokuapp.com',
         user:null,
-        token:null
+        token:null,
+
     },
     methods: {
         handleLogin: function (event) {
@@ -29,23 +33,34 @@ const app = new Vue({
                 },
                 body: JSON.stringify(user),
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert("Invalid Username or Password. Please check your entry and try again.");
-                } else {
-                    this.user = data.user
-                    this.token = data.token
-                    this.loggedin = true;
-                    this.createPW = ""
-                    this.createUN = ""
-                }
-            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert("Invalid Username or Password. Please check your entry and try again.");
+                    } else {
+                        this.user = data.user
+                        this.token = data.token
+                        this.loggedin = true;
+                        this.createPW = ""
+                        this.createUN = ""
+                    }
+                })
         },
         handleLogout: function () {
             this.loggedin = false;
             this.user = null;
             this.token = null;
+        },
+        // if logged in, watch ruby on rails and vue #6 video around minute 4 
+        openSingleReview: function (event) {
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            // console.log(`id number is ${event.target.id}`)
+            fetch(`${URL}/reviews/${event.target.id}`)
+            .then(response => response.json())
+            .then(data => {
+                this.singlereview = data
+                console.log(data)
+            })
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -53,7 +68,7 @@ const app = new Vue({
     // to be loaded (i.e. the variables prodURL and devURL used in this ternary) before the code block is run.
     beforeMount: function(){
         const URL = this.prodURL ? this.prodURL : this.devURL
-        console.log(URL)
+
         fetch(`${URL}/reviews`)
             .then(response => response.json())
             .then(data => {
