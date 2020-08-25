@@ -7,6 +7,7 @@ const app = new Vue({
         singlereview: null,
         search: "", //defining the search property and empty value
         loggedin: false,
+        loginerror: false,
         // JWT: "",
         createUN: "",
         createPW: "",
@@ -33,23 +34,26 @@ const app = new Vue({
                 },
                 body: JSON.stringify(user),
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert("Invalid Username or Password. Please check your entry and try again.");
-                    } else {
-                        this.user = data.user
-                        this.token = data.token
-                        this.loggedin = true;
-                        this.createPW = ""
-                        this.createUN = ""
-                    }
-                })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    this.loginerror = true
+                    
+                } else {
+                    this.loginerror = false
+                    this.user = data.user
+                    this.token = data.token
+                    this.loggedin = true;
+                    this.createPW = ""
+                    this.createUN = ""
+                }
+            })
         },
         handleLogout: function () {
             this.loggedin = false;
             this.user = null;
             this.token = null;
+            this.loginerror = false
         },
         // if logged in, watch ruby on rails and vue #6 video around minute 4 
         openSingleReview: function (event) {
