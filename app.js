@@ -27,11 +27,16 @@ methods: {
       })
       .then(response => response.json())
       .then(data => {
+          console.log(data)
+        if (data.error) {
+            alert("Invalid Username or Password. Please check your entry and try again.");
+          } else {
           this.user = data.user
           this.token = data.token
           this.loggedin = true;
           this.createPW = ""
           this.createUN = ""
+          }
     })
     },
     handleLogout: function(){
@@ -41,3 +46,4 @@ methods: {
     }
  }
 });
+
