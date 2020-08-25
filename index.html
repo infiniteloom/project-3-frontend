@@ -53,7 +53,7 @@
 
 
         <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div v-if="!singlereview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" id="carousel1">
                     <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
@@ -77,7 +77,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    <!-- </div> -->
 
 
         <!-- This would be the div that displays a single review -->
