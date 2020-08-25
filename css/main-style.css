@@ -42,7 +42,6 @@ body p{
 
 /* Carousel Styling */
 .carousel{
-
     text-align: center;
 }
 
@@ -108,6 +107,9 @@ body p{
     text-align: center;
     min-width: 250px;
 }
+.single-review-image img{
+    width:100%;
+}
 #single-review-title{
     font-style: oblique;
     font-weight: bold;
@@ -138,7 +140,10 @@ body p{
 .review-profile-pic {
     min-width: 200px;
     max-width: 400px;
-}        
+}      
+.review-profile-pic img {
+    width: 100%
+}  
     
 
 #return-link{
