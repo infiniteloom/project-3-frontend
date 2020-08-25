@@ -18,37 +18,14 @@
 </head>
 
 <body>
-<div id="app">
+    <div id="app">
 
-    <!--
-This is the condition to check for using Vue for any HTML element we want to show/hide if not logged in -->
-    <!--    <div v-if="!loggedin" class="editorwindow">-->
-    <!--    </div>-->
-
-
+        <!-- 
+    This is the condition to check for using Vue for any HTML element we want to show/hide if not logged in -->
+<!--    <div v-if="!loggedin" class="editorwindow">-->
+<!--    </div>-->
 
 
-
-
-
-    <!-- <header>
-        <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container"> -->
-    <!-- site brand /logo -->
-    <!-- <a class="navbar-brand mx-auto" href="/">
-    A Music Journal -->
-    <!-- </a> -->
-    <!--            burger mobile menu icon -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="navbar-toggler-icon"></span></button>
-    <div class="navbar-collapse collapse"> -->
-    <!-- menu items -->
-    <!-- <ul class="navbar-nav">
-        <li class="nav-item"> <a class="nav-link" href="#gallery">Reviews</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
-    </ul>
-</div>
-</div> -->
 
 
     <header>
@@ -101,26 +78,43 @@ This is the condition to check for using Vue for any HTML element we want to sho
         </a>
     </div>
 
-
-    <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-    <div class="gallery" id="gallery">
-        <!-- <h1>All Album Reviews</h1> -->
-        <!-- stores value of input, in this case, the search property -->
-        <input id="searchbox" type="text" v-model="search" placeholder="search" />
-        <!-- updated array, based on search term -->
-        <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
-            <img :src="review.img_url" width="100%">
-            <p>{{review.artist_name}} </p>
-            <h3 class="album-title">{{review.album_title}}</h3>
-
+        <!-- This would be the div that displays a single review 
+         -->
+         <div v-if="singlereview" class="single-review-container">
+            <div class="single-review-text">
+                <p>{{singlereview.artist_name}}<br>
+                {{singlereview.album_title}}<br>
+                {{singlereview.record_label}}<br>
+                {{singlereview.release_date}}</p>
+            </div>
+            <div class="single-review-image">
+                <img :src="singlereview.img_url" width="50%">
+            </div>
         </div>
-    </div>
+        <a v-on:click="()=>this.singlereview=null">Return to All Reviews</a>
 
 
-    <!-- Individual Review View (toggle on 'click' of any gallery image)-->
-    <!--    <div class="review-single" v-if>-->
 
-    <!--    </div>-->
+        <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
+        <div v-if="!singlereview" class="gallery" id="gallery">
+            <!-- <h1>All Album Reviews</h1> -->
+         <!-- stores value of input, in this case, the search property -->
+            <input id="searchbox" type="text" v-model="search" placeholder="search" />
+            <!-- updated array, based on search term -->
+            <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2" >
+                <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
+                <p>{{review.artist_name}} <br>
+               <span class="album-title"> {{review.album_title}}</span></p> 
+            </div>
+        </div>
+
+
+
+
+
+   <!-- <div v-if="!loggedin" class="editorwindow">-->
+<!--    </div> -->
+
 
 
 
@@ -268,16 +262,16 @@ This is the condition to check for using Vue for any HTML element we want to sho
 <!-- Footer -->
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 
-</body>
+    </body>
 
 </html>
