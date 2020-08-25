@@ -42,9 +42,12 @@ body p{
 
 /* Carousel Styling */
 .carousel{
+    /* padding-top: 80px; */
     text-align: center;
 }
-
+.carousel-item img{
+  max-height: 300px;
+}
 
 
 
@@ -140,11 +143,11 @@ body p{
 .review-profile-pic {
     min-width: 200px;
     max-width: 400px;
-}      
+}
 .review-profile-pic img {
     width: 100%
-}  
-    
+}
+
 
 #return-link{
     text-align: center;
