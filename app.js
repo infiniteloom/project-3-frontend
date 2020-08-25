@@ -7,9 +7,9 @@ const app = new Vue({
         createUN: "",
         createPW: "",
         devURL:'http://localhost:3000',
-        prodURL:null,
+        prodURL:'https://amusicjournal.herokuapp.com',
         user:null,
-        token:null  
+        token:null
     },
     methods: {
         handleLogin: function(event){
@@ -27,14 +27,15 @@ const app = new Vue({
             })
             .then(response => response.json())
             .then(data => {
-            if (data.error) {
-            alert("Invalid Username or Password. Please check your entry and try again.");
+                if (data.error) {
+                    alert("Invalid Username or Password. Please check your entry and try again.");
                 } else {
-                this.user = data.user
-                this.token = data.token
-                this.loggedin = true;
-                this.createPW = ""
-                this.createUN = ""
+                    this.user = data.user
+                    this.token = data.token
+                    this.loggedin = true;
+                    this.createPW = ""
+                    this.createUN = ""
+                }
             })
         },
         handleLogout: function(){
@@ -43,8 +44,13 @@ const app = new Vue({
             this.token=null;
         }
     },
-    beforeCreate: function(){
-        fetch('https://amusicjournal.herokuapp.com/reviews')
+    // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
+    // beforeCreate would trigger this code block before any other JS code even loads. beforeMount allows this app.js
+    // to be loaded (i.e. the variables prodURL and devURL used in this ternary) before the code block is run.
+    beforeMount: function(){
+        const URL = this.prodURL ? this.prodURL : this.devURL
+        console.log(URL)
+        fetch(`${URL}/reviews`)
             .then(response => response.json())
             .then(data => {
                 this.reviews = data
