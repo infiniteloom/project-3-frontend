@@ -104,3 +104,20 @@ footer .container{
     margin-top: 20px;
     width: 100%;
 }
+
+.quote-and-pic {
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+padding: 20px;
+
+}
+
+.quote {
+font-size: 30px;
+}
+
+.single-review-body {
+width: 80%;
+margin: 0 auto;
+}
