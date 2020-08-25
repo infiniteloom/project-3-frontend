@@ -3,7 +3,7 @@ const app = new Vue({
     data: {
         reviews: [],
         loggedin: false,
-        JWT: "",
+        // JWT: "",
         createUN: "",
         createPW: "",
         devURL:'http://localhost:3000',
@@ -27,6 +27,9 @@ const app = new Vue({
             })
             .then(response => response.json())
             .then(data => {
+            if (data.error) {
+            alert("Invalid Username or Password. Please check your entry and try again.");
+                } else {
                 this.user = data.user
                 this.token = data.token
                 this.loggedin = true;
@@ -49,3 +52,4 @@ const app = new Vue({
             })
     }    
 });
+
