@@ -51,7 +51,6 @@
 
 
 
-<<<<<<< HEAD
     
     <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
     <div v-if="!singlereview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -67,24 +66,6 @@
             <div class="carousel-item" id="carousel3">
                 <!-- third image in carousel randomly selected from db -->
                 <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
-=======
-
-        <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-        <div v-if="!singlereview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" id="carousel1">
-                    <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
-                    <!-- first image in carousel randomly selected from db -->
-                </div>
-                <div class="carousel-item" id="carousel2">
-                    <!-- second image in carousel randomly selected from db -->
-                    <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
-                </div>
-                <div class="carousel-item" id="carousel3">
-                    <!-- third image in carousel randomly selected from db -->
-                    <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
-                </div>
->>>>>>> 45ade7e14695bdd60eb44d14b95f6a873bf4353e
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -96,7 +77,6 @@
             </a>
         </div>
 
-<<<<<<< HEAD
 
 
         <!-- This would be the div that displays a single review -->
@@ -107,17 +87,6 @@
                     {{singlereview.artist_name}}<br>
                     <span id="single-review-title">{{singlereview.album_title}}</span><br>
                     </p>
-=======
-        <!-- This would be the div that displays a single review 
-         -->
-        <div v-if="singlereview" class="single-review-container">
-            <div class="single-review-data-display">
-                <div class="single-review-text">
-                    <p>{{singlereview.artist_name}}<br>
-                        {{singlereview.album_title}}<br>
-                        {{singlereview.record_label}}<br>
-                        {{singlereview.release_date}}</p>
->>>>>>> 45ade7e14695bdd60eb44d14b95f6a873bf4353e
                 </div>
                 <div class="single-review-image col-6">
                     <img :src="singlereview.img_url" width="100%">
