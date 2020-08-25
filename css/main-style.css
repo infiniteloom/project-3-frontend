@@ -10,7 +10,6 @@ a:hover {
 body {
     width: 100%;
     margin: 0 auto;
-    /*padding-top: 70px;*/
 }
 
 
@@ -30,7 +29,6 @@ body {
 }
 .navbar-expand-lg, .navbar-collapse{
     justify-content: flex-end;
-    /*justify-content: space-between;*/
 }
 
 
@@ -67,12 +65,20 @@ body {
 .col-md-4, .col-6{
     padding-top: 25px;
 }
-.single-review-container{
+.single-review-data-display{
     display:flex;
+    flex-wrap:wrap;
     justify-content: space-around;
     text-align: center;
     padding: 20px;
-    
+}
+#return-link{
+    text-align: center;
+    padding: 10px;
+    background-color: lightgray;
+}
+#return-link a:hover{
+    color: gray;
 }
 
 
@@ -93,10 +99,8 @@ footer .container{
     color: grey;
     font-size: .8em;
 }
-
 #searchbox {
     margin: auto;
     margin-top: 20px;
     width: 100%;
-
 }
