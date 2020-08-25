@@ -10,6 +10,7 @@ a:hover {
 body {
     width: 100%;
     margin: 0 auto;
+    /*padding-top: 70px;*/
 }
 
 
@@ -32,6 +33,11 @@ body {
     /*justify-content: space-between;*/
 }
 
+
+
+
+
+
 /* Carousel Styling */
 .carousel{
 
@@ -43,8 +49,23 @@ body {
 
 /*Grid Gallery Styling*/
 .gallery{
-    padding: 50px;
+    /*padding: 50px;*/
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-start; /* This line fixes a height bug in Safari browsers */
+
+}
+.album-title{
+    font-style: italic;
+}
+.gallery-item:hover{
+    filter: brightness(.8);
+}
+.col-md-4, .col-6{
+    padding-top: 25px;
 }
 
 
@@ -53,4 +74,16 @@ body {
 
 .page-footer{
     position: relative;
+}
+footer {
+    background-color: #343a40;
+}
+footer .container{
+    background-color: #343a40;
+    color: white;
+    width: 100%;
+}
+.footer-copyright{
+    color: grey;
+    font-size: .8em;
 }
