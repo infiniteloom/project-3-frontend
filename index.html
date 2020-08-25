@@ -51,7 +51,7 @@
 
 
 
-
+    
     <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
     <div v-if="!singlereview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -78,18 +78,21 @@
         </a>
     </div>
 
-        <!-- This would be the div that displays a single review 
-         -->
+
+
+        <!-- This would be the div that displays a single review -->
          <div v-if="singlereview" class="single-review-container">
             <div class="single-review-data-display">
-                <div class="single-review-text">
-                    <p>{{singlereview.artist_name}}<br>
-                    {{singlereview.album_title}}<br>
-                    {{singlereview.record_label}}<br>
-                    {{singlereview.release_date}}</p>
+                <div class="single-review-text col-6 ">
+                    <p>
+                    {{singlereview.artist_name}}<br>
+                    <span id="single-review-title">{{singlereview.album_title}}</span><br>
+                    </p>
                 </div>
-                <div class="single-review-image">
-                    <img :src="singlereview.img_url" width="50%">
+                <div class="single-review-image col-6">
+                    <img :src="singlereview.img_url" width="100%">
+                    <p class="review-image-caption">{{singlereview.record_label}} • 
+                    {{singlereview.release_date}}</p>
                 </div>
             </div>
             <div id="return-link">
