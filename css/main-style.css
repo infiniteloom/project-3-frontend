@@ -12,6 +12,10 @@ body {
     margin: 0 auto;
 }
 
+body p{
+    font-size: 12px;
+}
+
 
 /* Nav Bar Styling (Bootstrap) */
 
@@ -49,14 +53,12 @@ body {
 
 /*Grid Gallery Styling*/
 .gallery{
-    /*padding: 50px;*/
     text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     align-items: flex-start; /* This line fixes a height bug in Safari browsers */
-
 }
 .album-title{
     font-style: italic;
@@ -64,18 +66,36 @@ body {
 .gallery-item:hover{
     filter: brightness(.8);
 }
-.col-md-4, .col-6{
+.gallery-item .col-md-4, .gallery-item .col-6{
     padding-top: 25px;
 }
+
+
+
+
+
+
+
+
+
+/* SINGLE REVIEW VIEW */
 .single-review-container{
-    background-color: lightgray;
+    text-align: center;
+}
+
+/* Single review header */
+.single-review-data-display-container{
+    background-color: rgb(241, 240, 240);
+    width: 100%;
 }
 .single-review-data-display{
     display:flex;
     flex-wrap:wrap;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
+    margin: 0 auto;
     padding: 20px;
+    max-width: 700px;
 }
 .single-review-text{
     display: flex;
@@ -88,6 +108,10 @@ body {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    min-width: 250px;
+}
+.single-review-image img{
+    width:100%;
 }
 #single-review-title{
     font-style: oblique;
@@ -97,6 +121,34 @@ body {
     font-size: .6em;
     font-style: italic;
 }
+
+/* Single Review Body */
+.single-review-body {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.quote-and-pic {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.single-review-quote {
+    font-size: 1.6em;
+    min-width: 300px;
+}
+.review-profile-pic {
+    min-width: 200px;
+    max-width: 400px;
+}
+.review-profile-pic img {
+    width: 100%
+}
+
+
 #return-link{
     text-align: center;
     padding: 10px;
@@ -105,7 +157,14 @@ body {
 #return-link a:hover{
     color: gray;
 }
-
+@media (max-width: 400px) {
+    .single-review-body{
+        width: 90%;
+    }
+    .single-review-quote{
+        font-size: 1.3em;
+    }
+}
 
 /*Footer styling*/
 
@@ -130,14 +189,9 @@ footer .container{
     width: 100%;
 }
 
-.quote-and-pic {
-display: flex;
-justify-content: space-evenly;
-align-items: center;
-padding: 20px;
 
-}
 
+<<<<<<< HEAD
 .quote {
 font-size: 30px;
 }
@@ -146,3 +200,5 @@ font-size: 30px;
 width: 80%;
 margin: 0 auto;
 }
+=======
+>>>>>>> 5c027a83e1ca6faa0bb72235fcde735c651306e7

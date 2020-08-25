@@ -82,39 +82,48 @@
 
         <!-- This would be the div that displays a single review -->
          <div v-if="singlereview" class="single-review-container">
-            <div class="single-review-data-display">
-                <div class="single-review-text col-6 ">
-                    <p>
-                    {{singlereview.artist_name}}<br>
-                    <span id="single-review-title">{{singlereview.album_title}}</span><br>
-                    </p>
-                </div>
-                <div class="single-review-image col-6">
-                    <img :src="singlereview.img_url" width="100%">
-                    <p class="review-image-caption">{{singlereview.record_label}} •
-                    {{singlereview.release_date}}</p>
+
+            <div class="single-review-data-display-container">
+                <div class="single-review-data-display">
+                    <div class="single-review-text col-6">
+                        <p>
+                        {{singlereview.artist_name}}<br>
+                        <span id="single-review-title">{{singlereview.album_title}}</span><br>
+                        </p>
+                    </div>
+                    <div class="single-review-image col-6">
+                        <img :src="singlereview.img_url">
+                        <p class="review-image-caption">{{singlereview.record_label}} •
+                        {{singlereview.release_date}}</p>
+                    </div>
                 </div>
             </div>
+
             <div class="single-review-body">
                 <div class="review-text-pt1">
                     <p>{{singlereview.review_text}}</p>
                 </div>
 
+
                 <div class="quote-and-pic">
-                    <div class="quote">
+                    <div class="single-review-quote col-3">
                         <p><b><i>"This is the dopest part of the review, which is why it's on full display, duh" -
                                     Whoever</i></b></p>
                     </div>
-                    <div class="pic"></div>
-                    <img :src="singlereview.profile_pic_url" width="50%">
+                    <div class="review-profile-pic col-9">
+                       <img :src="singlereview.profile_pic_url">
+                    </div>
                 </div>
                 <div class="review-text-pt2">
                     <p>{{singlereview.review_text}}</p>
                 </div>
 
-                <div id="return-link">
-                    <a v-on:click="()=>this.singlereview=null">Return to All Reviews</a>
-                </div>
+
+
+            </div>
+
+            <div id="return-link">
+                <a v-on:click="()=>this.singlereview=null">Return to All Reviews</a>
             </div>
         </div>
 
