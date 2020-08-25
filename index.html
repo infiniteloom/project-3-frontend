@@ -20,7 +20,7 @@
 <body>
     <div id="app">
 
-        <!-- 
+        <!--
     This is the condition to check for using Vue for any HTML element we want to show/hide if not logged in -->
 <!--    <div v-if="!loggedin" class="editorwindow">-->
 <!--    </div>-->
@@ -82,14 +82,14 @@
                     <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
                     <!-- first image in carousel randomly selected from db -->
                 </div>
-                <div class="carousel-item" id="carousel2">
+                <div class="carousel-item"v-for="review of filteredReviews" id="carousel2">
                     <!-- second image in carousel randomly selected from db -->
-                    <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
+                    <img :src="review.img_url">
                 </div>
-                <div class="carousel-item" id="carousel3">
+                <!-- <div class="carousel-item" id="carousel3"> -->
                     <!-- third image in carousel randomly selected from db -->
-                    <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
-                </div>
+                    <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
+                </div> -->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -111,7 +111,8 @@
             <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                 <img :src="review.img_url" width="100%">
                 <p>{{review.artist_name}} </p>
-                <h3 class="album-title">{{review.album_title}}</h3> 
+                <!-- <p>{{review.review_text}}</p> -->
+                <h3 class="album-title">{{review.album_title}}</h3>
 
             </div>
         </div>
