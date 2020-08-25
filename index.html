@@ -61,7 +61,7 @@
                 </div>
                 <div class="carousel-item"v-for="review of reviews" id="carousel2">
                     <!-- second image in carousel randomly selected from db -->
-                    <img :src="review.img_url">
+                    <img :src="review.profile_pic_url">
                 </div>
                 <!-- <div class="carousel-item" id="carousel3"> -->
                     <!-- third image in carousel randomly selected from db -->
@@ -77,7 +77,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div>
+    <!-- </div> -->
 
 
         <!-- This would be the div that displays a single review -->
@@ -130,7 +130,7 @@
             <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                 <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
                 <p>{{review.artist_name}} <br>
-                    <span class="album-title"> {{review.album_title}}</span></p>
+                <span class="album-title"> {{review.album_title}}</span></p>
             </div>
         </div>
 

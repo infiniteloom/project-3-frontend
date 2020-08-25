@@ -41,7 +41,9 @@ body {
 
     text-align: center;
 }
-
+.carousel-item img{
+  max-height: 300px;
+}
 
 
 
