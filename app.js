@@ -70,5 +70,9 @@ const app = new Vue({
                 return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
             })
         }
-    }
+    //     filteredImages: function () {
+    //         //filtering through each review through the reviews array
+    //         return this.reviews.filter(image)
+    //     }
+     }
 });

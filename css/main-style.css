@@ -94,3 +94,7 @@ margin-top: 20px;
 width: 100%;
 
 }
+.carousel-inner > .item > img {
+  width:360px;
+  height:360px;
+}
