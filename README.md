@@ -5,9 +5,9 @@
 |  Day | Deliverable | Status
 |---|---| ---|
 |Day 1| Deploy on netlify | Complete
-|Day 1| Project Description | Incomplete
-|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
-|Day 2| Design landing page with bootstrap grid gallery | Incomplete
+|Day 1| Project Description | Complete
+|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
+|Day 2| Design landing page with bootstrap grid gallery | Complete
 |Day 3| Continue design of landing page with bootstrap grid gallery | Incomplete
 |Day 3| Design individual review view | Incomplete
 |Day 4| MVP & Bug Fixes | Incomplete
