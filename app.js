@@ -4,6 +4,7 @@ const app = new Vue({
         reviews: [],
         search: "", //defining the search property and empty value
         loggedin: false,
+        loginerror: false,
         // JWT: "",
         createUN: "",
         createPW: "",
@@ -32,8 +33,10 @@ const app = new Vue({
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
-                    alert("Invalid Username or Password. Please check your entry and try again.");
+                    this.loginerror = true
+                    
                 } else {
+                    this.loginerror = false
                     this.user = data.user
                     this.token = data.token
                     this.loggedin = true;
@@ -46,6 +49,7 @@ const app = new Vue({
             this.loggedin = false;
             this.user = null;
             this.token = null;
+            this.loginerror = false
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
