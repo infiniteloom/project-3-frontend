@@ -65,12 +65,35 @@ body {
 .col-md-4, .col-6{
     padding-top: 25px;
 }
+.single-review-container{
+    background-color: lightgray;
+}
 .single-review-data-display{
     display:flex;
     flex-wrap:wrap;
     justify-content: space-around;
     text-align: center;
     padding: 20px;
+}
+.single-review-text{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.single-review-image{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+#single-review-title{
+    font-style: oblique;
+    font-weight: bold;
+}
+.review-image-caption{
+    font-size: .6em;
+    font-style: italic;
 }
 #return-link{
     text-align: center;
