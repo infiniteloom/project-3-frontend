@@ -15,6 +15,9 @@ body {
 body p{
     font-size: 12px;
 }
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 
 /* Nav Bar Styling (Bootstrap) */
@@ -34,7 +37,10 @@ body p{
 .navbar-expand-lg, .navbar-collapse{
     justify-content: flex-end;
 }
-
+.navbar-brand{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+    text-transform: uppercase;
+}
 
 
 
