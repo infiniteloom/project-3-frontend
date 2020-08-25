@@ -38,7 +38,7 @@ body {
 
 /* Carousel Styling */
 .carousel{
-
+    /* padding-top: 80px; */
     text-align: center;
 }
 .carousel-item img{
