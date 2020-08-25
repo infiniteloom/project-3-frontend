@@ -92,6 +92,12 @@
                     <img :src="singlereview.img_url" width="50%">
                 </div>
             </div>
+
+            <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
+                <button id="delete" v-on:click="handleDelete" class="col-xs-12 col-sm-12 col-md-2">Delete Post</button>
+                <button id="edit" v-on:click="handleEdit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
+                
+            </div>
             <div id="return-link">
                 <a v-on:click="()=>this.singlereview=null">Return to All Reviews</a>
             </div>

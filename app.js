@@ -65,7 +65,39 @@ const app = new Vue({
                 this.singlereview = data
                 console.log(data)
             })
-        }
+        },
+
+        handleDelete: function (event) {
+            const URL = this.prodURL ? this.prodURL : this.devURL;
+            // console.log(`id number is ${event.target.id}`)
+            fetch(`${URL}/reviews/${event.target.id}`, {
+                method: "delete",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `bearer ${this.token}`,
+                },
+            }).then((response) => {
+                console.log(`${event.target.id}` + " deleted");
+            });
+        },
+        // handleEdit: function (event) {
+        //     const URL = this.prodURL ? this.prodURL : this.devURL
+
+        //     // console.log(`id number is ${event.target.id}`)
+        //     fetch(`${URL}/reviews/${event.target.id}`, {
+        //         method: "put",
+        //         headers: {
+        //         "Content-Type": "application/json",
+        //         "Authorization": `bearer ${this.token}`,
+        //     },
+        //     body: JSON.stringify(user),
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         this.singlereview = data
+        //         console.log(data)
+        //     });
+        // },
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
     // beforeCreate would trigger this code block before any other JS code even loads. beforeMount allows this app.js
