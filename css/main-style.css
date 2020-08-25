@@ -87,3 +87,10 @@ footer .container{
     color: grey;
     font-size: .8em;
 }
+
+#searchbox {
+margin: auto;
+margin-top: 20px;
+width: 100%;
+
+}
