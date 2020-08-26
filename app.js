@@ -1,3 +1,24 @@
+// const toggleShow = () =>{
+//     if(toggleEl){
+//         console.log('toggle has been hidden')
+//         toggleEl.hide()
+//     }
+//     else{
+//         console.log('toggle has been shown')
+//         toggleEl.show()
+//     }
+//     console.log('reaching the toggle show function')
+// }
+
+// const toggleEl = $('.toggle-element')
+// toggleEl.hide()
+// const createToggleLink = $('#toggle-show-create-form')
+// console.log(createToggleLink)
+// createToggleLink.on('click', toggleShow)
+
+
+
+
 const URL = this.prodURL ? this.prodURL : this.devURL
 
 const app = new Vue({
@@ -5,7 +26,7 @@ const app = new Vue({
     data: {
         reviews: [],
         singleReview: null,
-        createReview: false,
+        createReview: true,
         editReview: false,
         search: "", //defining the search property and empty value
         loggedin: false,
@@ -75,10 +96,15 @@ const app = new Vue({
                 console.log(data)
             })
         },
-        showCreateNewReview: function (event){
-            createReview = true
-        },
+        // showCreateNewReview: function () {
+        //     // createReview = true
+        //     let toggleelement = document.getElementById(toggle-show-create-form)
+        //     console.log('this is the show create new review ')
+        //     console.log(toggleelement)
+        //     toggleelement.style.display = 'block';
+        // },
         createNewReview: function (event) {
+            // toggleShow.show()
             const URL = this.prodURL ? this.prodURL : this.devURL
             const review = {
                 ...this.new_review,
