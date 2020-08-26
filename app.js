@@ -78,8 +78,7 @@ const app = new Vue({
                 },
             }).then((response) => {
                 this.reset();
-                console.log(`${ID}` + " deleted");
-                
+                console.log(`${ID}` + " deleted"); 
             });
         },
         reset: function () {
