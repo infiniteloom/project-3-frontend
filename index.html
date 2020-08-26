@@ -157,7 +157,18 @@
             </div>
             <div class="col 6">    
                 <label for="release-date-field">Release Date</label>
-                <input  v-model="new_review.release_date" type="date" class="form-control" id="release-date" placeholder="Enter release date">
+                <input  v-model="new_review.release_date" type="date" class="form-control" id="release-date">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col 6">
+                <label for="album-art-url-field">Album Art URL</label>
+                <input  v-model="new_review.img_url"  class="form-control" id="album-art-url" placeholder="http://www.albumarturl.com">
+            </div>
+            <div class="col 6">    
+                <label for="profile-pic-field">Profile Pic URL</label>
+                <input  v-model="new_review.profile_pic_url" type="text" class="form-control" id="profile-pic" placeholder="http://www.profilepic.com">
             </div>
         </div>
 

@@ -81,14 +81,15 @@ const app = new Vue({
                 review_text: quill.getText()
             }
             console.log(review)
-            // fetch(`${URL}/reviews`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type" : "application/json",
-            //         "Authorization" : `bearer ${this.token}`
-            //     },
-            //     body: JSON.stringify(review)
-            // })
+            fetch(`${URL}/reviews`, {
+                method: "POST",
+                headers: {
+                    "Content-Type" : "application/json",
+                    "Authorization" : `bearer ${this.token}`
+                },
+                body: JSON.stringify(review)
+            
+            })
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -113,10 +114,6 @@ const app = new Vue({
                 return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
             })
         }
-    //     filteredImages: function () {
-    //         //filtering through each review through the reviews array
-    //         return this.reviews.filter(image)
-    //     }
      }
 });
 
