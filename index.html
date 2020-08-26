@@ -103,7 +103,6 @@
                     <p>{{singlereview.review_text}}</p>
                 </div>
 
-
                 <div class="quote-and-pic">
                     <div class="single-review-quote col-3">
                         <p><b><i>"This is the dopest part of the review, which is why it's on full display, duh" -
@@ -117,21 +116,11 @@
                     <p>{{singlereview.review_text}}</p>
                 </div>
                 
-
                 <!-- Edit/Delete Buttons DIV -->
                 <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
-                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" 
-                    data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-
-
+                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
                     <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>   
-                    
-
                 </div>
-
-                
-
-
             </div>
 
             <div id="return-link">
@@ -140,13 +129,16 @@
         </div>
 
 
-
-
-        <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-        <div v-if="!singlereview" class="gallery" id="gallery">
-            <!-- <h1>All Album Reviews</h1> -->
-            <!-- stores value of input, in this case, the search property -->
+        <div class="recent-reviews-title">
+            <h4>RECENT REVIEWS</h4>
+        </div>
+           <!-- stores value of input, in this case, the search property -->
+        <div class="searchbox-container">
             <input id="searchbox" type="text" v-model="search" placeholder="search" />
+        </div>
+        <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
+        <div v-if="!singlereview" class="gallery" id="gallery">
+ 
             <!-- updated array, based on search term -->
             <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                 <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
@@ -177,9 +169,9 @@
             <div class="footer-color-bar">
                 <div class="container">
                     <!-- Grid row-->
-                    <div class="row py-4 d-flex align-items-center">
+                    <div class="row py-4 d-flex top-footer">
                         <!-- Grid column -->
-                        <div class="col-md-8 col-lg-8 text-center text-md-right">
+                        <div class="social-icons-container">
                             <!-- Facebook -->
                             <a class="fb-ic">
                                 <i class="fab fa-facebook-f white-text mr-4"> </i>
@@ -188,20 +180,16 @@
                             <a class="tw-ic">
                                 <i class="fab fa-twitter white-text mr-4"> </i>
                             </a>
-                            <!-- Google +-->
-                            <a class="gplus-ic">
-                                <i class="fab fa-google-plus-g white-text mr-4"> </i>
-                            </a>
-                            <!--Linkedin -->
-                            <a class="li-ic">
-                                <i class="fab fa-linkedin-in white-text mr-4"> </i>
-                            </a>
                             <!--Instagram-->
                             <a class="ins-ic">
                                 <i class="fab fa-instagram white-text"> </i>
                             </a>
                         </div>
                         <!-- Grid column -->
+                        <div class="return-top-link">
+                        <!-- Return to top  -->
+                            <a v-if="!singlereview" href="#app">Return to top</a>
+                        </div>
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -225,14 +213,13 @@
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
 
-                        <div id="yeslogin" v-if="loggedin">
-                            <h1 class="text-uppercase font-weight-bold">This is the user area</h1>
-                            <button v-on:click="handleLogout">Logout</button>
-                        </div>
-
-
 
                         <!-- EDITOR LOGIN-->
+                        <!-- show delete button if logged in -->
+                        <div id="yeslogin" v-if="loggedin">
+                            <button v-on:click="handleLogout">Logout</button>
+                        </div>
+                        <!-- show login fields and login button if not yet logged in -->
                         <div id="nologin" v-if="!loggedin">
                             <fieldset>
                                 <legend>
@@ -241,7 +228,9 @@
                                 <div id="loginform">
                                     <input type="text" placeholder="username" v-model="createUN">
                                     <input type="password" placeholder="password" v-model="createPW">
-                                    <button v-on:click="handleLogin">Login</button>
+                                    <div id="login-form-button-container">
+                                        <button id="login-form-button" v-on:click="handleLogin">Login</button>
+                                     </div>
                                 </div>
                             </fieldset>
                         </div>
