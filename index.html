@@ -12,11 +12,20 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="css/main-style.css">
+
+    <!-- Quill Theme included stylesheets -->
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="app.js" defer></script>
-</head>
+    <!-- Main Quill library -->
+    <script src="//cdn.quilljs.com/1.3.6/quill.min.js"defer></script>
+    <!-- Core Quill build with no theme, formatting, non-essential modules -->
+    <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+    <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script></head>
 
+    <script src="app.js" defer></script>
 <body>
     <div id="app">
 
@@ -125,6 +134,43 @@
                 <a v-on:click="()=>this.singlereview=null">Return to All Reviews</a>
             </div>
         </div>
+
+    
+
+
+
+    <form class="create-form-container">
+        <div class="form-group">
+            <div class="col 6">
+                <label for="artist-name-field">Artist Name</label>
+                <input v-model="new_review.artist_name"  class="form-control" id="artist-name-field" aria-describedby="emailHelp" placeholder="Enter artist name">
+            </div>
+            <div class="col 6">
+                <label for="album-title-field">Album Title</label>
+                <input v-model="new_review.album_title" class="form-control" id="album-title" placeholder="Enter album title">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col 6">
+                <label for="record-label-field">Record Label</label>
+                <input  v-model="new_review.record_label"  class="form-control" id="record-label" placeholder="Enter record label">
+            </div>
+            <div class="col 6">    
+                <label for="release-date-field">Release Date</label>
+                <input  v-model="new_review.release_date" type="date" class="form-control" id="release-date" placeholder="Enter release date">
+            </div>
+        </div>
+
+        <div class="editor-container" >
+            <div id="editor"  >
+            </div>
+        </div>
+     
+
+         <button v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
+    </form>
+
+
 
 
 

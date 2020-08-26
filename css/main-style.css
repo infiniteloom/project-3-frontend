@@ -172,6 +172,51 @@ p{
     }
 }
 
+
+
+
+
+
+
+
+/* Create new review view styling */
+.create-form-container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.form-group{
+    display:flex;
+    flex-wrap:wrap;
+}
+.editor-container{
+    padding: 20px;
+}
+
+
+
+#editor{
+    height: 200px;
+}
+.publish-post{
+    width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*Footer styling*/
 
 .page-footer{

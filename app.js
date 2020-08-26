@@ -8,14 +8,21 @@ const app = new Vue({
         search: "", //defining the search property and empty value
         loggedin: false,
         loginerror: false,
-        // JWT: "",
         createUN: "",
         createPW: "",
         devURL:'http://localhost:3000',
         prodURL:'https://amusicjournal.herokuapp.com',
         user:null,
         token:null,
-
+        new_review: {
+            // created_by: this.user && this.user.id,
+            artist_name: "",
+            album_title: "",
+            release_date: "",
+            record_label: "",
+            img_url: "",
+            profile_pic_url: ""
+        },
     },
     methods: {
         handleLogin: function (event) {
@@ -65,6 +72,23 @@ const app = new Vue({
                 this.singlereview = data
                 console.log(data)
             })
+        },
+        createNewReview: function (event) {
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            const review = {
+                ...this.new_review,
+                created_by: this.user.id,
+                review_text: quill.getText()
+            }
+            console.log(review)
+            // fetch(`${URL}/reviews`, {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type" : "application/json",
+            //         "Authorization" : `bearer ${this.token}`
+            //     },
+            //     body: JSON.stringify(review)
+            // })
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -95,3 +119,16 @@ const app = new Vue({
     //     }
      }
 });
+
+
+
+
+
+
+const options ={
+    theme: 'snow',
+    placeholder: 'Enter a new review...'
+}
+
+var quill = new Quill('#editor', options)
+
