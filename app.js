@@ -4,7 +4,9 @@ const app = new Vue({
     el: "#app",
     data: {
         reviews: [],
-        singlereview: null,
+        singleReview: null,
+        createReview: false,
+        editReview: false,
         search: "", //defining the search property and empty value
         loggedin: false,
         loginerror: false,
@@ -69,9 +71,12 @@ const app = new Vue({
             fetch(`${URL}/reviews/${event.target.id}`)
             .then(response => response.json())
             .then(data => {
-                this.singlereview = data
+                this.singleReview = data
                 console.log(data)
             })
+        },
+        showCreateNewReview: function (event){
+            createReview = true
         },
         createNewReview: function (event) {
             const URL = this.prodURL ? this.prodURL : this.devURL
@@ -90,6 +95,7 @@ const app = new Vue({
                 body: JSON.stringify(review)
             
             })
+        createreview = false;
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
