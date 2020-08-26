@@ -103,7 +103,6 @@
                     <p>{{singlereview.review_text}}</p>
                 </div>
 
-
                 <div class="quote-and-pic">
                     <div class="single-review-quote col-3">
                         <p><b><i>"This is the dopest part of the review, which is why it's on full display, duh" -
@@ -117,21 +116,11 @@
                     <p>{{singlereview.review_text}}</p>
                 </div>
                 
-
                 <!-- Edit/Delete Buttons DIV -->
                 <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
-                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" 
-                    data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-
-
+                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
                     <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>   
-                    
-
                 </div>
-
-                
-
-
             </div>
 
             <div id="return-link">
@@ -140,13 +129,16 @@
         </div>
 
 
-
-
-        <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-        <div v-if="!singlereview" class="gallery" id="gallery">
-            <!-- <h1>All Album Reviews</h1> -->
-            <!-- stores value of input, in this case, the search property -->
+        <div class="recent-reviews-title">
+            <h4>RECENT REVIEWS</h4>
+        </div>
+           <!-- stores value of input, in this case, the search property -->
+        <div class="searchbox-container">
             <input id="searchbox" type="text" v-model="search" placeholder="search" />
+        </div>
+        <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
+        <div v-if="!singlereview" class="gallery" id="gallery">
+ 
             <!-- updated array, based on search term -->
             <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                 <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">

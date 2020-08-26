@@ -27,6 +27,7 @@ p{
     font-size: .8em;
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
 }
 
 /* Nav Bar Styling (Bootstrap) */
@@ -67,17 +68,13 @@ p{
 
 
 
-/* Search box styling  */
-#searchbox {
-    margin: auto;
-    margin-top: 20px;
-    width: 100%;
-}
-
-
-
 
 /*Grid Gallery Styling*/
+.recent-reviews-title{
+    padding-top: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
 .gallery{
     margin: 0 auto;
     text-align: center;
@@ -85,7 +82,7 @@ p{
     flex-direction: row;
     flex-wrap: wrap;
     width: 90%;
-    padding: 30px 0 30px 0;
+    padding: 0 0 30px 0;
     align-items: flex-start; /* This line fixes a height bug in Safari browsers */
 }
 .album-title{
@@ -97,7 +94,15 @@ p{
 .gallery-item .col-md-4, .gallery-item .col-6{
     padding-top: 25px;
 }
-
+.searchbox-container{
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+#searchbox{
+    width: 33%;
+}
 
 
 
