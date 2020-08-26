@@ -265,7 +265,11 @@ footer .container{
 
 
 /* Login section styling */
+.login-container{
+    margin: 0 auto;
+}
 #loginform{
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -276,14 +280,25 @@ footer .container{
     height: 1.5em;
     border-radius: 3px;
     padding: 5px;
+    width: 200px;
 }
 #login-form-button-container{
     display: flex;
-    justify-content: flex-end;
-    width: 68%;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 5px;
 }
 #login-form-button{
-    width: 40%;
+    width: 200px;
     font-size: .8em;
     border-radius: 3px;
 }
+@media (max-width: 960px) {
+    #login-form-button-container{
+        justify-content: center;
+    }
+    #loginform{
+        align-items: center;
+    }
+}
+

@@ -216,11 +216,12 @@
 
                         <!-- EDITOR LOGIN-->
                         <!-- show delete button if logged in -->
-                        <div id="yeslogin" v-if="loggedin">
-                            <button v-on:click="handleLogout">Logout</button>
-                        </div>
+                        
                         <!-- show login fields and login button if not yet logged in -->
-                        <div id="nologin" v-if="!loggedin">
+                        <div class="login-container"  id="nologin" v-if="!loggedin">
+                            <div id="yeslogin" v-if="loggedin">
+                                <button v-on:click="handleLogout">Logout</button>
+                            </div>
                             <fieldset>
                                 <legend>
                                     <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
@@ -233,12 +234,13 @@
                                      </div>
                                 </div>
                             </fieldset>
+
+                            <div id="errorlogin" v-if="loginerror">
+                                <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
+                                    entry and try again.</h1>
+                            </div>
                         </div>
 
-                        <div id="errorlogin" v-if="loginerror">
-                            <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
-                                entry and try again.</h1>
-                        </div>
 
                     </div>
                     <!-- Grid column -->
