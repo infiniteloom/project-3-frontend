@@ -177,9 +177,9 @@
             <div class="footer-color-bar">
                 <div class="container">
                     <!-- Grid row-->
-                    <div class="row py-4 d-flex align-items-center">
+                    <div class="row py-4 d-flex top-footer">
                         <!-- Grid column -->
-                        <div class="col-md-8 col-lg-8 text-center text-md-right">
+                        <div class="social-icons-container">
                             <!-- Facebook -->
                             <a class="fb-ic">
                                 <i class="fab fa-facebook-f white-text mr-4"> </i>
@@ -188,20 +188,16 @@
                             <a class="tw-ic">
                                 <i class="fab fa-twitter white-text mr-4"> </i>
                             </a>
-                            <!-- Google +-->
-                            <a class="gplus-ic">
-                                <i class="fab fa-google-plus-g white-text mr-4"> </i>
-                            </a>
-                            <!--Linkedin -->
-                            <a class="li-ic">
-                                <i class="fab fa-linkedin-in white-text mr-4"> </i>
-                            </a>
                             <!--Instagram-->
                             <a class="ins-ic">
                                 <i class="fab fa-instagram white-text"> </i>
                             </a>
                         </div>
                         <!-- Grid column -->
+                        <div class="return-top-link">
+                        <!-- Return to top  -->
+                            <a v-if="!singlereview" href="#app">Return to top</a>
+                        </div>
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -225,14 +221,13 @@
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
 
-                        <div id="yeslogin" v-if="loggedin">
-                            <h1 class="text-uppercase font-weight-bold">This is the user area</h1>
-                            <button v-on:click="handleLogout">Logout</button>
-                        </div>
-
-
 
                         <!-- EDITOR LOGIN-->
+                        <!-- show delete button if logged in -->
+                        <div id="yeslogin" v-if="loggedin">
+                            <button v-on:click="handleLogout">Logout</button>
+                        </div>
+                        <!-- show login fields and login button if not yet logged in -->
                         <div id="nologin" v-if="!loggedin">
                             <fieldset>
                                 <legend>
@@ -241,7 +236,9 @@
                                 <div id="loginform">
                                     <input type="text" placeholder="username" v-model="createUN">
                                     <input type="password" placeholder="password" v-model="createPW">
-                                    <button v-on:click="handleLogin">Login</button>
+                                    <div id="login-form-button-container">
+                                        <button id="login-form-button" v-on:click="handleLogin">Login</button>
+                                     </div>
                                 </div>
                             </fieldset>
                         </div>
