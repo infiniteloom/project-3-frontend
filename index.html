@@ -47,7 +47,7 @@
                         <div class="navbar-collapse collapse">
                             <!-- menu items -->
                             <ul class="navbar-nav">
-                                <li class="nav-item"> <a class="nav-link" href="#gallery">Reviews</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="./index.html">Reviews</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
                                 <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-if="loggedin" href="#create-form">Create New Post</a></li>
                             </ul>
@@ -172,10 +172,10 @@
                 <input  v-model="new_review.profile_pic_url" type="text" class="form-control" id="profile-pic" placeholder="http://www.profilepic.com">
             </div>
         </div>
-        <div>
+        <!-- <div>
             <label for="review-text">Enter review text</label>
             <input  type="text">
-        </div>
+        </div> -->
 
 
         <!-- Quill editable field -->
@@ -184,7 +184,7 @@
             </div>
         </div>
 
-        
+
         <div class="publish-button-container">
             <button v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
         </div>
