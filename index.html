@@ -116,7 +116,20 @@
                 <div class="review-text-pt2">
                     <p>{{singlereview.review_text}}</p>
                 </div>
+                
 
+                <!-- Edit/Delete Buttons DIV -->
+                <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
+                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" 
+                    data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+
+
+                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>   
+                    
+
+                </div>
+
+                
 
 
             </div>
@@ -294,9 +307,43 @@
             <!-- Copyright -->
         </footer>
 
+
+              
+      <!-- Modal -->
+      <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div>{{user && user.username}}</div>             
+            </div>
+            <div class="modal-footer">
+                
+              <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
+              <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal" v-on:click="handleDelete">Yes, I'm sure</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <!-- Footer -->
+    
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button> -->
 
+
+    <!-- MODAL -->
+    <!-- <div id="modalVerify" class="modal modal-dialog modal-dialog-centered" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+        
+      </div> -->
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

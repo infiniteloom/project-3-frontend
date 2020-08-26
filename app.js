@@ -65,6 +65,32 @@ const app = new Vue({
                 this.singlereview = data
                 console.log(data)
             })
+        },
+        handleDelete: function (event) {
+            const URL = this.prodURL ? this.prodURL : this.devURL;
+            const ID = this.singlereview.id;
+            // console.log(`id number is ${event.target.id}`)
+            fetch(`${URL}/reviews/${ID}`, {
+                method: "delete",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `bearer ${this.token}`,
+                },
+            }).then((response) => {
+                this.reset();
+                console.log(`${ID}` + " deleted");
+                
+            });
+        },
+        reset: function () {
+            this.singlereview = false;
+            fetch(`${URL}/reviews`)
+                .then(response => response.json())
+                .then(data => {
+                    this.reviews = data
+                    console.log(data)
+                })
+            location.reload();
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
