@@ -323,6 +323,74 @@ body {
 
 
 
+/* ABOUT ME SECTION STYLING */
+.member {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.box {
+  width: 400px;
+}
+
+
+.team-title {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.andre-pic {
+  background-image: url(https://res.cloudinary.com/dfmeqlgua/image/upload/v1598494272/Screen_Shot_2020-08-26_at_10.10.13_PM_uc3z9i.png);
+  background-size: cover;
+  background-position: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+}
+
+.magda-pic {
+  background-image: url(https://res.cloudinary.com/dfmeqlgua/image/upload/v1598496391/Screen_Shot_2020-08-26_at_10.45.04_PM_vwnpp3.png);
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+}
+
+.kenal-pic {
+  background-image: url(https://res.cloudinary.com/dfmeqlgua/image/upload/v1598499486/Screen_Shot_2020-08-26_at_10.42.37_PM_wt77vr.png);
+  background-size: cover;
+  background-position-y: -25px;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+}
+
+.lea-pic {
+  background-image: url(https://res.cloudinary.com/dfmeqlgua/image/upload/v1598507486/Screen_Shot_2020-08-26_at_11.35.17_PM_uyk3uf.png);
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+}
+
+.biz-pic {
+  background-image: url(https://res.cloudinary.com/dfmeqlgua/image/upload/v1598507823/Besrat_Professional_Pic_bcwia4.jpg);
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+}
+
+.jeremy-pic {
+  background-image: url(https://res.cloudinary.com/dfmeqlgua/image/upload/v1598497699/Screen_Shot_2020-08-26_at_11.08.04_PM_vei4te.png);
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+}
+
 
 
 /* FOOTER */

@@ -16,13 +16,13 @@ const app = new Vue({
     el: "#app",
     components: {
     CarouselComponent,
-  },
-
+    },
     data: {
         reviews: [],
         singleReview: null,
         createReview: null,
         editReview: false,
+        aboutme: null,
         search: "", //defining the search property and empty value
         loggedin: false,
         loginerror: false,
@@ -89,6 +89,18 @@ const app = new Vue({
                 console.log(data)
             })
         },
+
+            // TEAM ABOUT ME PAGE
+            openAboutMe: function (event) {
+            this.aboutme= true
+            // console.log(`id number is ${event.target.id}`)
+            // fetch(`${URL}/reviews/${event.target.id}`)
+            // .then(response => response.json())
+            // .then(data => {
+            //     this.aboutme = data
+            //     console.log(data)
+            // })
+        },
         handleDelete: function (event) {
             console.log(`the id is ${this.singleReview.id}`)
 
@@ -106,6 +118,7 @@ const app = new Vue({
             });
         },
         reset: function () {
+            this.aboutme = false
             this.createReview = false;
             this.dash = false;
             this.singleReview = false;
@@ -115,7 +128,7 @@ const app = new Vue({
                     this.reviews = data
                     console.log(data)
                 })
-            location.reload;
+            // location.reload;
             window.scrollTo(0,0)
         },
    //      randomItem (items) {

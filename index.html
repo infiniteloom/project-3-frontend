@@ -35,14 +35,12 @@
         <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"defer></script>
         <!-- Core Quill build with no theme, formatting, non-essential modules -->
         <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
-        <script src="https://cdn.quilljs.com/1.3.6/quill.core.js"></script></head>
+        <script src="https://cdn.quilljs.com/1.3.6/quill.core.js"></script>
 
         <script src="app.js" defer></script>
+    </head>
     <body>
         <div id="app">
-
-
-
 
     <!-- Sticky nav bar -->
             <div class="sticky-top">
@@ -60,7 +58,9 @@
                                 <!-- menu items -->
                                 <ul class="navbar-nav">
                                     <li class="nav-item"> <a class="nav-link" href="./index.html" v-on:click="()=>this.createReview=false">Reviews</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" id="aM" href="#" v-on:click="openAboutMe">About</a> </li>
+                                    <!-- <li class="nav-item"> <a class="nav-link" id="aM" href="#"  v-on:click="openAboutMe">About</a> </li> -->
+
                                     <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li>
                                 </ul>
                             </div>
@@ -76,7 +76,7 @@
             <div>
                 <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
                 <div>
-                    <div v-if="!singleReview && !createReview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div v-if="!singleReview && !createReview" v-show="!aboutme"  id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
                                 <img :src="review.profile_pic_url">
@@ -102,7 +102,7 @@
             <!-- START QUILL DEBUG -->
             <div>
                 <!-- This would be the div that displays a single review -->
-                <div v-if="singleReview && !createReview" class="single-review-container">
+                <div v-if="singleReview && !createReview" v-show="!aboutme" class="single-review-container">
 
                     <!-- Single review header  -->
                     <div class="single-review-data-display-container">
@@ -131,7 +131,7 @@
                                             Whoever</i></b></p>
                             </div>
                             <div class="review-profile-pic col-9">
-                            <img :src="singleReview.profile_pic_url">
+                                <img :src="singleReview.profile_pic_url">
                             </div>
                         </div>
                         <div class="review-text-pt2">
@@ -202,13 +202,19 @@
                     <div id="editor">
                     </div>
                 </div>
+                <!-- Edit/Delete Buttons DIV -->
+                <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
+                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal"
+                        data-target="#modalVerify">Delete Post</button>
+                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
+                </div>
 
                 <!-- Publish button to create review -->
                 <div class="publish-button-container">
                     <button v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
                 </div>
             </div>
-        <!-- </div> -->
+
         
         
         <!-- QUILL DEBUG DIV -->
@@ -216,18 +222,19 @@
 
 
         <!-- SEARCH BOX stores value of input, in this case, the search property -->
-            <div v-if="!singleReview  && !createReview" >
+            <!-- <div class="recent-reviews-title" v-if="!singlereview" id="recent-reviews-title" v-show="!aboutme">
+                <h4>RECENT REVIEWS</h4>
+            </div> -->
+
+            <!-- stores value of input, in this case, the search property -->
+            <div class="searchbox-container" v-if="!singleReview" v-show="!aboutme">
                 <input id="searchbox" type="text" v-model="search" placeholder="search" />
             </div>
 
 
         <!-- GALLERY VIEW START  -->
             <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-            <div v-if="!singleReview  && !createReview" class="gallery" id="gallery">
-            
-        
-        
-
+            <div v-if="!singleReview  && !createReview"  v-show="!aboutme" class="gallery" id="gallery">
                 <!-- updated array, based on search term -->
                 <!-- RENDER REVIEWS FROM DATABASE  -->
                 <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
@@ -239,6 +246,103 @@
         <!-- END QUILL DEBUG DIV -->
         </div>
 
+        
+        
+        <!-- DIV THAT DISPLAYS TEAM ABOUT ME SECTION -->
+        <div v-show="aboutme" class="team-container">
+            <div class="team-title">
+                <h1><b>Meet the Team</b></h1>
+            </div>
+            <div class="andre member">
+                <div class="pic box">
+                    <div class="andre-pic">
+                    </div>
+                </div>
+                <div class="andre bio">
+                    <h2>Andre Heslop</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="magda member">
+                <div class="pic box">
+                    <div class="magda-pic">
+                    </div>
+                </div>
+                <div class="magda bio">
+                    <h2>Magdalena Krzyanowski</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="kenal member">
+                <div class="pic box">
+                    <div class="kenal-pic">
+                    </div>
+                </div>
+                <div class="kenal bio">
+                    <h2>Kenal Ortega</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="lea member">
+                <div class="pic box">
+                    <div class="lea-pic">
+                    </div>
+                </div>
+                <div class="lea bio">
+                    <h2>Lea Thomas</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="biz member">
+                <div class="pic box">
+                    <div class="biz-pic">
+                    </div>
+                </div>
+                <div class="biz bio">
+                    <h2>Besrat Zerehaimanot</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="jeremy member">
+                <div class="pic box">
+                    <div class="jeremy-pic">
+                    </div>
+                </div>
+                <div class="jeremy bio">
+                    <h2>Jeremy Rose</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+
+            <div id="return-link">
+                <a v-on:click="()=>this.aboutme=null">Return to All Reviews</a>
+            </div>
+        </div>
+
+ 
 
 
 
@@ -256,7 +360,9 @@
                                 <h4 id="footerTitle">A Music Journal</h4>
                                 <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
                                     artists.</p>
-                                <div class="post-blog-date">AUGUST 2020</div>
+                                <!-- <div class="post-blog-date">
+                                    <p>AUGUST 2020</p>
+                                </div> -->
                             </div>
 
                         </div>
@@ -276,11 +382,11 @@
                             <div class="col-sm-6 text-md-center">
                                 <h4>EDITOR LOGIN</h4>
                                 <div id="loginform">
-                                <form class="signUpNewsletter col-12 text-md-center">
-                                <input name="" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
-                                <input name="" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
-                                <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
-                                </form>
+                                    <form class="signUpNewsletter col-12 text-md-center">
+                                        <input name="" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
+                                        <input name="" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
+                                        <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                                    </form>
                                 </div>
 
 
@@ -304,21 +410,18 @@
                                 </div>
 
                             </div>
-
                         </div>
 
                         <div id="yeslogin" v-if="loggedin">
                             <button v-on:click="handleLogout">Logout</button>
                         </div>
-
-                       
-                        <div class="return-top-link">
-                                <!-- Return to top  -->
-                                <a v-if="!singleReview" href="#app">Return to top</a>
-                        </div>
-                    </div>
+                    </div>    
                 </div>
-
+                 <!-- Return to top  -->
+                <div class="return-top-link">
+                    <a v-if="!singleReview" href="#app">Return to top</a>
+                </div>
+                       
                 <!--     copyright -->
                 <div class="footer-bottom-layout">
                     <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
@@ -347,21 +450,30 @@
                             </p> -->
 
 
-
                             <!-- EDITOR LOGIN-->
 
                             <!-- logout button -->
                             <!-- <div id="yeslogin" v-if="loggedin">
-                                <button v-on:click="handleLogout">Logout</button>
-                            </div> -->
+                            <button v-on:click="handleLogout">Logout</button>
+                                </div> -->
 
-                            <!-- LOGIN SECTION-->
-                            <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
+                                <!-- LOGIN SECTION-->
+                                <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
 
                                 <!-- <fieldset>
-                                    <legend>
-                                        <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
-                                    </legend> -->
+                                <legend>
+                                    <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
+                                </legend> -->
+
+                                    <!-- login fields -->
+                                    <!-- <div id="loginform">
+                                    <input type="text" placeholder="username" v-model="createUN">
+                                    <input type="password" placeholder="password" v-model="createPW">
+                                    <div id="login-form-button-container">
+                                        <button id="login-form-button" v-on:click="handleLogin">Login</button>
+                                     </div>
+                                </div>
+                            </fieldset> -->
 
                                     <!-- login fields -->
                                     <!-- <div id="loginform">
@@ -443,20 +555,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Modal -->
 
 
@@ -496,16 +594,16 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-        </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 
-    </body>
+</body>
 
 </html>
