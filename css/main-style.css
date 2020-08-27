@@ -2,6 +2,8 @@
 html{
     scroll-behavior: smooth;
 }
+
+
 a {
     text-decoration: none;
     color: black;
@@ -13,7 +15,11 @@ a:hover {
 body {
     width: 100%;
     margin: 0 auto;
+    color: #666666;
+    font-family: "Open Sans",sans-serif;
+    line-height: 24px;
 }
+
 body p{
     font-size: 12px;
 }
@@ -30,24 +36,55 @@ p{
 
 
 /* Nav Bar Styling (Bootstrap) */
+#siteTitle {
+    color:rgb(255, 255, 255);
+    /* font-family: narly, sans-serif; */
+    font-family: 'DM Serif Display', serif;
+    /* font-family: 'Notable', sans-serif; */
+    font-size:38px;
+    /* opacity:1; */
+    z-index:300;
+    
+}
 /* This is used to override Boostrap default styles and push the brand logo to center of page */
 @media (min-width: 990px) {
 
     .navbar-brand {
+    
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        
     }
 }
 .navbar-nav{
+    border-top: 2px solid black;
     float:right;
+    
+}
+
+
+.navbar-toggler {
+
+    border: 0px solid black;
 }
 .navbar-expand-lg, .navbar-collapse{
+    border: 0px solid black;
     justify-content: flex-end;
+    /* margin-left:60px;
+    margin-right:60px; */
+    
 }
 .navbar-brand{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+}
+
+.navbar-dark {
+    /* background-color:rgba(0, 0, 0, 0.932); */
+    background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0.687));
+  
+    /* border-bottom:5px solid rgb(55, 0, 255); */
 }
 
 
@@ -221,8 +258,15 @@ p{
 
 
 
-/*Footer styling*/
-.top-footer{
+/* FOOTER */
+#footerTitle {
+    font-family: 'DM Serif Display', serif;
+    font-size:36px;
+}
+
+
+/* OLD FOOTER STYLING */
+/* .top-footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,19 +276,20 @@ p{
 .social-icons-container{
     margin-right: 10px;
 }
+
 .return-top-link{
-    width: 25%;
+    margin-top: 20px;
+    margin-bottom:-10px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
+    
 }
 .return-top-link a{
-    margin: 0;
+    
     color: white;
     font-size: 12px;
 }
+
+/*  
 .page-footer{
     position: relative;
 }
@@ -259,15 +304,41 @@ footer .container{
 .footer-copyright{
     color: grey;
     font-size: .8em;
-}
-.accent-3{
-    background-color: white;
-}
+} */
 
 
-/* Login section styling */
-.login-container{
+
+
+
+
+/* ACCORDION LOGIN SECTION */
+/* .login-container{
     margin: 0 auto;
+}
+.card{
+    border: none;
+    border-radius: 0px;
+}
+.card-header{
+    border:none;
+}
+.card-header:hover{
+    text-decoration: none;
+}
+#headingOne2{
+    background-color: #343a40;
+    padding: 0;
+    margin: 0;
+}
+#headingOne2 button{
+    color: white;
+    padding: 0;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#collapseOne2.collapse.show {
+    background-color: #343a40;
 }
 .card-body{
     margin: 0 auto;
@@ -275,6 +346,9 @@ footer .container{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    background-color: #343a40;
+    padding: 0;
+    border: none;
 }
 .card-body input{
     height: 1.5em;
@@ -303,38 +377,227 @@ footer .container{
     #loginform{
         align-items: center;
     }
+
+} */
+
+
+
+.footer-top-layout {
+    background: #1c1c1c none repeat scroll 0 0;
+    color: #ffffff;
+    padding: 40px 0;
 }
-#headingOne2{
-    background-color: #343a40;
-    padding: 0;
-    margin: 0;
+.OurBlog {
+    margin-bottom: 32px;
+    text-align: center;
 }
-#headingOne2 button{
-    color: white;
-    padding: 0;
-    margin-bottom: .5rem;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-#collapseOne2.collapse.show {
-    background-color: #343a40;
-}
-.card{
-    border: none;
-    border-radius: 0px;
-}
-.card-header{
-    border:none;
-}
-.card-header:hover{
-    text-decoration: none;
-}
-.card-body{
-    background-color: #343a40;
-    padding: 0;
-    border: none;
+.footer-top-layout h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 21px;
 }
 
+.post-blog-date {
+    padding-bottom: 25px;
+    position: relative;
+}
+
+body {
+    color: #666666;
+    font-family: "Open Sans",sans-serif;
+    line-height: 24px;
+}
+
+.footer-top-layout [class*="col-sm"] {
+    border: 2px solid #333333;
+    padding: 10px 30px 10px 30px;
+    margin-top:40px;
+}
+
+.footer-top-layout {
+    color: #ffffff;
+}
+.footer-col-item {
+    min-height: 140px;
+}
+
+address {
+    color: #545454;
+}
+
+.footer-top-layout {
+    color: #ffffff;
+}
+
+.footer-top-layout h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 21px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #333333;
+    font-family: "Roboto",sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-top: 0;
+}
+
+.footer-col-item .item-contact a {
+    color: #545454;
+    display: inline-block;
+    margin-bottom: 7px;
+    width: 100%;
+}
+
+.footer-col-item .item-contact a .link-id {
+    color: #ffffff;
+}
+.footer-col-item span {
+    line-height:16px;
+}
+.footer-col-item .item-contact {
+    display:flex;   
+}
+.item-contact > a {
+    display:block;
+    color: #545454;
+    margin-top:5px;
+}
+
+.footer-top-layout h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 21px;
+}
+.signUpNewsletter {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+/* position: relative; */
+}
+.signUpNewsletter .gt-email {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 1px solid #666666;
+    border-radius: 0;
+    color: #ffffff;
+    height: 40px;
+    padding:2px;
+    margin:2px;
+    width:87%;
+
+}
+.signUpNewsletter .btn-go {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-color: #666666;
+    border-style: solid;
+    border-width:1px;
+    color: #ffffff;
+    font-size: 16px;
+    margin-left:0px;
+    margin-top:20px;
+    text-transform: uppercase;
+    width:100px;
+}
+.footer-bottom-layout {
+    background: #222222 none repeat scroll 0 0;
+    padding: 20px 0;
+    text-align: center;
+    font-size:12px;
+}
+.socialMedia-footer {
+    margin-bottom: 20px;
+}
+.socialMedia-footer > a {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+  /* footer social icons */
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+	border:1px solid rgba(184, 184, 184, 0.541);
+	background-color:rgb(36, 36, 36);
+}
+.social-network a.icoFacebook:hover {
+	border:1px solid rgba(184, 184, 184, 0.541);
+	background-color:rgb(36, 36, 36);
+}
+.social-network a.icoTwitter:hover {
+	border:1px solid rgba(184, 184, 184, 0.541);
+	background-color:rgb(36, 36, 36);
+}
+.social-network a.icoGithub:hover {
+	border:1px solid rgba(184, 184, 184, 0.541);
+	background-color:rgb(36, 36, 36);
+}
+
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+    color:#fff;
+   
+}
+a.socialIcon:hover, .socialHoverClass {
+    
+	color:black;
+}
+
+.social-circle li a {
+    border:1px solid rgb(61, 61, 61);
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 50px;
+	height: 50px;
+	font-size:20px;
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+    text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(30deg);
+	-webkit-transform: rotate(30deg);
+	-ms--transform: rotate(30deg);
+	transform: rotate(30deg);
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	-ms-transition: all 0.6s;
+	transition: all 0.6s;
+}
+.social-circle i {
+	color:lightgrey;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+
+
+
+
+  
+  
+  
 
 /* 
   .active{

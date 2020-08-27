@@ -12,6 +12,15 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="https://use.typekit.net/thb6kbk.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js" defer></script>
@@ -29,10 +38,10 @@
 
         <div class="sticky-top">
             <header>
-                <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+                <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-dark">
                     <div class="container">
                         <!-- site brand /logo -->
-                        <a class="navbar-brand mx-auto" href="/">
+                        <a class="navbar-brand mx-auto" id="siteTitle" href="/">
                             A Music Journal
                         </a>
                         <!--            burger mobile menu icon -->
@@ -151,73 +160,127 @@
 
 
 
+        <!-- <div v-if="!loggedin" class="editorwindow">-->
+        <!--    </div> -->
+        <!--
+        ////////////////////////////////
+        //// FOOOTER //////////////////
+        ///////////////////////////////-->
+
+        <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
+            <div class="footer-top-layout text-center text-md-center">
+              <div class="container">
+
+        
+                <div class="row">
+                
+                  <div class="col-xl-12">
+                    <h4 id="footerTitle">A Music Journal</h4>
+                    <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
+                        artists.</p>
+                    <div class="post-blog-date">AUGUST 2020</div>
+                  </div>
+          
+                </div>
+
+                <div class="col-md-12">
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
+                    </ul>				
+				</div>
 
 
-
-
-
-
-
-        <!-- START FOOTER  -->
-
-        <!-- SOCIAL ICONS  -->
-        <footer class="page-footer navbar-fixed-bottom font-small blue-grey lighten-5">
-            <div class="footer-color-bar">
-                <div class="container">
-                    <!-- Grid row-->
-                    <div class="row py-4 d-flex top-footer">
-                        <!-- Grid column -->
-                        <div class="social-icons-container">
-                            <!-- Facebook -->
-                            <a class="fb-ic">
-                                <i class="fab fa-facebook-f white-text mr-4"> </i>
-                            </a>
-                            <!-- Twitter -->
-                            <a class="tw-ic">
-                                <i class="fab fa-twitter white-text mr-4"> </i>
-                            </a>
-                            <!--Instagram-->
-                            <a class="ins-ic">
-                                <i class="fab fa-instagram white-text"> </i>
-                            </a>
+                <div class="row justify-content-between" id="nologin" v-if="!loggedin">
+                  
+                    <div class="col-sm-6 text-md-center">
+                        <h4>EDITOR LOGIN</h4>
+                        <div id="loginform">
+                        <form class="signUpNewsletter col-12 text-md-center">
+                          <input name="" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
+                          <input name="" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
+                          <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                        </form>
                         </div>
-                        <!-- Grid column -->
-                        <div class="return-top-link">
-                        <!-- Return to top  -->
-                            <a v-if="!singlereview" href="#app">Return to top</a>
+
+            
+
+                        <div id="errorlogin" v-if="loginerror">
+                            <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
+                                entry and try again.</h1>
                         </div>
                     </div>
-                    <!-- Grid column -->
+
+                    
+
+                
+
+                    <div class="col-sm-6 text-md-center">
+                    <h4>CONTACT US</h4>
+                        <div class="item-contact"> 
+                            <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a> 
+                            <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a> 
+                            <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@brandcatmedia.com</span></a> 
+                        </div>
+                        
+                    </div>
+
                 </div>
-                <!-- Grid row-->
+
+                <div id="yeslogin" v-if="loggedin">
+                    <button v-on:click="handleLogout">Logout</button>
+                </div>
+                  
+                </div>
+                <div class="return-top-link">
+                    <!-- Return to top  -->
+                        <a v-if="!singlereview" href="#app">Return to top</a>
+                </div>
+              </div>
+
+              
             </div>
 
+           
 
-            <!-- ABOUT THIS PAGE -->
+            <div class="footer-bottom-layout">
+              <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+                Ortega, Lea Thomas, Besrat Zerehaimanot.</div>
+            </div>
+          </footer>
+
+
+
+
+
+          
+            <!-- OLD FOOTER -->
             <!-- Footer Links -->
-            <div class="container text-center text-md-left mt-5">
+            <!-- <div class="container text-center text-md-left mt-5"> -->
                 <!-- Grid row -->
-                <div class="row mt-3 dark-grey-text">
+                <!-- <div class="row mt-3 dark-grey-text"> -->
                     <!-- Grid column -->
-                    <div class="col-md-5 col-lg-5 col-xl-4 mx-4 mb-4">
+                    <!-- <div class="col-md-5 col-lg-5 col-xl-4 mx-4 mb-4"> -->
                         <!-- Content -->
-                        <h6 class="text-uppercase font-weight-bold">A Music Journal</h6>
+                        <!-- <h6 class="text-uppercase font-weight-bold">A Music Journal</h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
                             artists.
-                        </p>
+                        </p> -->
 
 
 
                         <!-- EDITOR LOGIN-->
                 
                         <!-- logout button -->
-                        <div id="yeslogin" v-if="loggedin">
+                        <!-- <div id="yeslogin" v-if="loggedin">
                             <button v-on:click="handleLogout">Logout</button>
-                        </div>
+                        </div> -->
 
                         <!-- LOGIN SECTION-->
-                        <div class="login-container"  id="nologin" v-if="!loggedin">
+                        <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
 
                             <!-- <fieldset>
                                 <legend>
@@ -237,7 +300,7 @@
 
 
                             <!-- ACCORDIAN LOGIN SECTION -->
-                            <div class="accordion" id="accordionExample275">
+                            <!-- <div class="accordion" id="accordionExample275">
                                 <div class="card z-depth-0 bordered">
 
                                     <div class="card-header" id="headingOne2">
@@ -262,18 +325,21 @@
                                     </div>
 
                                 </div>
-                              </div>
+                              </div> -->
 
                             <!-- login error message -->
-                            <div id="errorlogin" v-if="loginerror">
+                            <!-- <div id="errorlogin" v-if="loginerror">
                                 <p class="text-uppercase ">Invalid username or password.<br> Please check your
                                     entry and try again.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
+                    </div> -->
+
+
+                    
+                    <!-- <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4"> -->
                         <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                        <!-- <h6 class="text-uppercase font-weight-bold">Contact</h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p>
                             <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
@@ -282,18 +348,36 @@
                         <p>
                             <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
 
-                    </div>   
+                    </div>    -->
                     <!-- Grid column -->
-                </div>
+                <!-- </div> -->
                 <!-- Grid row -->
-            </div>
+            <!-- </div> -->
             <!-- Footer Links -->
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+            <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
                 Ortega, Lea Thomas, Besrat Zerehaimanot
-            </div>
+            </div> -->
             <!-- Copyright -->
-        </footer>
+        <!-- </footer> -->
+
+    <!-- Footer Links -->
+  
+  <!-- </footer> -->
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
 
 
               
@@ -322,6 +406,16 @@
     </div>
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+>>>>>>> 5acde8f41f99a59fbd7ae21ff78dc911c1f3dec7
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
