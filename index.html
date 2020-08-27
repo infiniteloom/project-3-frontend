@@ -1,369 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-    <link rel="stylesheet" href="css/main-style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <link href="https://use.typekit.net/thb6kbk.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="app.js" defer></script>
-</head>
+        <link rel="stylesheet" href="css/main-style.css">
 
-<body>
-    <div id="app">
+        <!-- FONT AWESOME -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
-        <!--
-    This is the condition to check for using Vue for any HTML element we want to show/hide if not logged in -->
-        <!--    <div v-if="!loggedin" class="editorwindow">-->
-        <!--    </div>-->
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- Bootstrap core CSS -->
+        <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <!-- <link href="css/mdb.min.css" rel="stylesheet"> -->
+        <link href="https://use.typekit.net/thb6kbk.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+
+        <!-- Quill Theme included stylesheets -->
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- Main Quill library -->
+        <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"defer></script>
+        <!-- Core Quill build with no theme, formatting, non-essential modules -->
+        <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+        <script src="https://cdn.quilljs.com/1.3.6/quill.core.js"></script></head>
+
+        <script src="app.js" defer></script>
+    <body>
+        <div id="app">
 
 
 
-        <div class="sticky-top">
-            <header>
-                <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-dark">
-                    <div class="container">
-                        <!-- site brand /logo -->
-                        <a class="navbar-brand mx-auto" id="siteTitle" href="/">
-                            A Music Journal
+
+    <!-- Sticky nav bar -->
+            <div class="sticky-top">
+                <header>
+                    <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-dark">
+                        <div class="container">
+                            <!-- site brand /logo -->
+                            <a class="navbar-brand mx-auto" id="siteTitle" v-on:click="reset">
+                                A Music Journal
+                            </a>
+                            <!--            burger mobile menu icon -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="navbar-toggler-icon"></span></button>
+                            <div class="navbar-collapse collapse">
+                                <!-- menu items -->
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"> <a class="nav-link" href="./index.html" v-on:click="()=>this.createReview=false">Reviews</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                                    <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+
+
+
+        <!-- CAROUSEL HEADER - Selection can be randomized from gallery in app.js-->
+            <!-- EXTRA DIV TO DEBUG QUILL -->
+            <div>
+                <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
+                <div>
+                    <div v-if="!singleReview && !createReview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
+                                <img :src="review.profile_pic_url">
+                                <!-- first image in carousel randomly selected from db -->
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
                         </a>
-                        <!--            burger mobile menu icon -->
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="navbar-toggler-icon"></span></button>
-                        <div class="navbar-collapse collapse">
-                            <!-- menu items -->
-                            <ul class="navbar-nav">
-                                <li class="nav-item"> <a class="nav-link" href="#recent-reviews-title">Reviews</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            <!-- END QUILL DEBUG -->
+            </div>
+
+
+
+        <!-- SINGLE REVIEW VIEW SECTION -->
+            <!-- START QUILL DEBUG -->
+            <div>
+                <!-- This would be the div that displays a single review -->
+                <div v-if="singleReview && !createReview" class="single-review-container">
+
+                    <!-- Single review header  -->
+                    <div class="single-review-data-display-container">
+                        <div class="single-review-data-display">
+                            <div class="single-review-text col-6">
+                                <p>
+                                {{singleReview.artist_name}}<br>
+                                <span id="single-review-title">{{singleReview.album_title}}</span><br>
+                                </p>
+                            </div>
+                            <div class="single-review-image col-6">
+                                <img :src="singleReview.img_url">
+                                <p class="review-image-caption">{{singleReview.record_label}} •
+                                {{singleReview.release_date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single review text body  -->
+                    <div class="single-review-body">
+                        <div class="review-text-pt1">
+                            <p  v-html="singleReview.review_text"></p>
+                        </div>
+                        <div class="quote-and-pic">
+                            <div class="single-review-quote col-3">
+                                <p><b><i>"This is the dopest part of the review, which is why it's on full display, duh" -
+                                            Whoever</i></b></p>
+                            </div>
+                            <div class="review-profile-pic col-9">
+                            <img :src="singleReview.profile_pic_url">
+                            </div>
+                        </div>
+                        <div class="review-text-pt2">
+                            <p  v-html="singleReview.review_text"></p>
+                        </div>
+                    </div>
+
+                    <!-- Edit/Delete Buttons DIV -->
+                    <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
+                        <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                        <button id="edit"  class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
+                    </div>
+                    <div id="return-link">
+                        <a v-on:click="()=>this.singleReview=null">Return to All Reviews</a>
+                    </div>
+                </div>
+                <!-- Edit and delete buttons only show if auth /logged in -->
+                <div v-if="loggedin && editReview">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+                
+            <!-- END QUILL DEBUG DIV -->
+            </div>   
+        <!-- END SINGLE REVIEW VIEW -->
+        
+
+        <!-- <div> -->
+        <!-- CREATE NEW REVIEW VIEW -->
+            <!-- This needs to be toggled to show when admin clicks on create new review button  -->
+            <div :class="'create-form-container ' + (createReview ? 'is-visible' : 'is-hidden')" id="create-form">
+                <!-- Artist name and album title fields -->
+                <div class="form-group">
+                    <div class="col 6">
+                        <label for="artist-name-field">Artist Name</label>
+                        <input v-model="new_review.artist_name"  class="form-control" id="artist-name-field" aria-describedby="emailHelp" placeholder="Enter artist name">
+                    </div>
+                    <div class="col 6">
+                        <label for="album-title-field">Album Title</label>
+                        <input v-model="new_review.album_title" class="form-control" id="album-title" placeholder="Enter album title">
+                    </div>
+                </div>
+                <!-- Record label and release date fields -->
+                <div class="form-group">
+                    <div class="col 6">
+                        <label for="record-label-field">Record Label</label>
+                        <input  v-model="new_review.record_label"  class="form-control" id="record-label" placeholder="Enter record label">
+                    </div>
+                    <div class="col 6">    
+                        <label for="release-date-field">Release Date</label>
+                        <input  v-model="new_review.release_date" type="date" class="form-control" id="release-date">
+                    </div>
+                </div>
+                <!-- Album art url and profile pic url (stand in until we apply AWS) -->
+                <div class="form-group">
+                    <div class="col 6">
+                        <label for="album-art-url-field">Album Art URL</label>
+                        <input  v-model="new_review.img_url"  class="form-control" id="album-art-url" placeholder="http://www.albumarturl.com">
+                    </div>
+                    <div class="col 6">    
+                        <label for="profile-pic-field">Profile Pic URL</label>
+                        <input  v-model="new_review.profile_pic_url" type="text" class="form-control" id="profile-pic" placeholder="http://www.profilepic.com">
+                    </div>
+                </div>
+
+                <!-- Quill editable field -->
+                <div class="editor-container">
+                    <div id="editor">
+                    </div>
+                </div>
+
+                <!-- Publish button to create review -->
+                <div class="publish-button-container">
+                    <button v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
+                </div>
+            </div>
+        <!-- </div> -->
+        
+        
+        <!-- QUILL DEBUG DIV -->
+        <div>
+
+
+        <!-- SEARCH BOX stores value of input, in this case, the search property -->
+            <div v-if="!singleReview  && !createReview" >
+                <input id="searchbox" type="text" v-model="search" placeholder="search" />
+            </div>
+
+
+        <!-- GALLERY VIEW START  -->
+            <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
+            <div v-if="!singleReview  && !createReview" class="gallery" id="gallery">
+            
+        
+        
+
+                <!-- updated array, based on search term -->
+                <!-- RENDER REVIEWS FROM DATABASE  -->
+                <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
+                    <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
+                    <p>{{review.artist_name}} <br>
+                    <span class="album-title"> {{review.album_title}}</span></p>
+                </div>
+            </div>
+        <!-- END QUILL DEBUG DIV -->
+        </div>
+
+
+
+
+            <!--
+            ////////////////////////////////
+            //// FOOOTER //////////////////
+            ///////////////////////////////-->
+
+            <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
+                <div class="footer-top-layout text-center text-md-center">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-xl-12">
+                                <h4 id="footerTitle">A Music Journal</h4>
+                                <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
+                                    artists.</p>
+                                <div class="post-blog-date">AUGUST 2020</div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
                             </ul>
                         </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
 
 
+                        <div class="row justify-content-between" id="nologin" v-if="!loggedin">
 
-        <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-        <div v-if="!singlereview"id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
-                    <img :src="review.profile_pic_url">
-                    <!-- first image in carousel randomly selected from db -->
-                </div>
-                <!-- <div class="carousel-item " v-for="review of reviews" id="carousel2"> -->
-                    <!-- second image in carousel randomly selected from db -->
-                    <!-- <img :src="review.profile_pic_url"> -->
-                <!-- </div> -->
-                <!-- <div class="carousel-item active" id="carousel3"> -->
-                    <!-- third image in carousel randomly selected from db -->
-                     <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
-                </div> -->
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-
-        <!-- This would be the div that displays a single review -->
-         <div v-if="singlereview" class="single-review-container">
-
-            <div class="single-review-data-display-container">
-                <div class="single-review-data-display">
-                    <div class="single-review-text col-6">
-                        <p>
-                        {{singlereview.artist_name}}<br>
-                        <span id="single-review-title">{{singlereview.album_title}}</span><br>
-                        </p>
-                    </div>
-                    <div class="single-review-image col-6">
-                        <img :src="singlereview.img_url">
-                        <p class="review-image-caption">{{singlereview.record_label}} •
-                        {{singlereview.release_date}}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-review-body">
-                <div class="review-text-pt1">
-                    <p>{{singlereview.review_text}}</p>
-                </div>
-
-                <div class="quote-and-pic">
-                    <div class="single-review-quote col-3">
-                        <p><b><i>"This is the dopest part of the review, which is why it's on full display, duh" -
-                                    Whoever</i></b></p>
-                    </div>
-                    <div class="review-profile-pic col-9">
-                       <img :src="singlereview.profile_pic_url">
-                    </div>
-                </div>
-                <div class="review-text-pt2">
-                    <p>{{singlereview.review_text}}</p>
-                </div>
-
-                <!-- Edit/Delete Buttons DIV -->
-                <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
-                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
-                </div>
-            </div>
-
-            <div id="return-link">
-                <a v-on:click="()=>this.singlereview=null">Return to All Reviews</a>
-            </div>
-        </div>
-
-
-        <div class="recent-reviews-title" id="recent-reviews-title">
-            <h4>RECENT REVIEWS</h4>
-        </div>
-           <!-- stores value of input, in this case, the search property -->
-        <div class="searchbox-container">
-            <input id="searchbox" type="text" v-model="search" placeholder="search" />
-        </div>
-        <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
-        <div v-if="!singlereview" class="gallery" id="gallery">
-
-            <!-- updated array, based on search term -->
-            <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
-                <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
-                <p>{{review.artist_name}} <br>
-                <span class="album-title"> {{review.album_title}}</span></p>
-            </div>
-        </div>
-
-
-
-
-
-        <!-- <div v-if="!loggedin" class="editorwindow">-->
-        <!--    </div> -->
-        <!--
-        ////////////////////////////////
-        //// FOOOTER //////////////////
-        ///////////////////////////////-->
-
-        <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
-            <div class="footer-top-layout text-center text-md-center">
-              <div class="container">
-
-
-                <div class="row">
-
-                  <div class="col-xl-12">
-                    <h4 id="footerTitle">A Music Journal</h4>
-                    <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
-                        artists.</p>
-                    <div class="post-blog-date">AUGUST 2020</div>
-                  </div>
-
-                </div>
-
-                <div class="col-md-12">
-                    <ul class="social-network social-circle">
-                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
-                    </ul>
-				</div>
-
-
-                <div class="row justify-content-between" id="nologin" v-if="!loggedin">
-
-                    <div class="col-sm-6 text-md-center">
-                        <h4>EDITOR LOGIN</h4>
-                        <div id="loginform">
-                        <form class="signUpNewsletter col-12 text-md-center">
-                          <input name="" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
-                          <input name="" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
-                          <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
-                        </form>
-                        </div>
-
-
-
-                        <div id="errorlogin" v-if="loginerror">
-                            <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
-                                entry and try again.</h1>
-                        </div>
-                    </div>
-
-
-
-
-
-                    <div class="col-sm-6 text-md-center">
-                    <h4>CONTACT US</h4>
-                        <div class="item-contact">
-                            <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a>
-                            <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a>
-                            <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@brandcatmedia.com</span></a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div id="yeslogin" v-if="loggedin">
-                    <button v-on:click="handleLogout">Logout</button>
-                </div>
-
-                </div>
-                <div class="return-top-link">
-                    <!-- Return to top  -->
-                        <a v-if="!singlereview" href="#app">Return to top</a>
-                </div>
-              </div>
-
-
-            </div>
-
-
-
-            <div class="footer-bottom-layout">
-              <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
-                Ortega, Lea Thomas, Besrat Zerehaimanot.</div>
-            </div>
-          </footer>
-
-
-
-
-
-
-            <!-- OLD FOOTER -->
-            <!-- Footer Links -->
-            <!-- <div class="container text-center text-md-left mt-5"> -->
-                <!-- Grid row -->
-                <!-- <div class="row mt-3 dark-grey-text"> -->
-                    <!-- Grid column -->
-                    <!-- <div class="col-md-5 col-lg-5 col-xl-4 mx-4 mb-4"> -->
-                        <!-- Content -->
-                        <!-- <h6 class="text-uppercase font-weight-bold">A Music Journal</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
-                            artists.
-                        </p> -->
-
-
-
-                        <!-- EDITOR LOGIN-->
-
-                        <!-- logout button -->
-                        <!-- <div id="yeslogin" v-if="loggedin">
-                            <button v-on:click="handleLogout">Logout</button>
-                        </div> -->
-
-                        <!-- LOGIN SECTION-->
-                        <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
-
-                            <!-- <fieldset>
-                                <legend>
-                                    <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
-                                </legend> -->
-
-                                <!-- login fields -->
-                                <!-- <div id="loginform">
-                                    <input type="text" placeholder="username" v-model="createUN">
-                                    <input type="password" placeholder="password" v-model="createPW">
-                                    <div id="login-form-button-container">
-                                        <button id="login-form-button" v-on:click="handleLogin">Login</button>
-                                     </div>
+                            <div class="col-sm-6 text-md-center">
+                                <h4>EDITOR LOGIN</h4>
+                                <div id="loginform">
+                                <form class="signUpNewsletter col-12 text-md-center">
+                                <input name="" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
+                                <input name="" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
+                                <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                                </form>
                                 </div>
-                            </fieldset> -->
 
 
 
-                            <!-- ACCORDIAN LOGIN SECTION -->
-                            <!-- <div class="accordion" id="accordionExample275">
-                                <div class="card z-depth-0 bordered">
+                                <div id="errorlogin" v-if="loginerror">
+                                    <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
+                                        entry and try again.</h1>
+                                </div>
+                            </div>
 
-                                    <div class="card-header" id="headingOne2">
-                                        <h5 class="mb-0">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2"
-                                            aria-expanded="true" aria-controls="collapseOne2">
-                                            Admin Login
-                                        </button>
-                                        </h5>
-                                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                    </div>
 
-                                    <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
-                                        data-parent="#accordionExample275">
-                                        <div class="card-body">
-                                            <input type="text" placeholder="username" v-model="createUN">
-                                            <input type="password" placeholder="password" v-model="createPW">
-                                        </div>
+
+
+
+                            <div class="col-sm-6 text-md-center">
+                                <h4>CONTACT US</h4>
+                                <div class="item-contact">
+                                    <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a>
+                                    <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a>
+                                    <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@brandcatmedia.com</span></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div id="yeslogin" v-if="loggedin">
+                            <button v-on:click="handleLogout">Logout</button>
+                        </div>
+
+                       
+                        <div class="return-top-link">
+                                <!-- Return to top  -->
+                                <a v-if="!singleReview" href="#app">Return to top</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--     copyright -->
+                <div class="footer-bottom-layout">
+                    <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+                    Ortega, Lea Thomas, Besrat Zerehaimanot.
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+
+
+                <!-- OLD FOOTER -->
+                <!-- Footer Links -->
+                <!-- <div class="container text-center text-md-left mt-5"> -->
+                    <!-- Grid row -->
+                    <!-- <div class="row mt-3 dark-grey-text"> -->
+                        <!-- Grid column -->
+                        <!-- <div class="col-md-5 col-lg-5 col-xl-4 mx-4 mb-4"> -->
+                            <!-- Content -->
+                            <!-- <h6 class="text-uppercase font-weight-bold">A Music Journal</h6>
+                            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                            <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
+                                artists.
+                            </p> -->
+
+
+
+                            <!-- EDITOR LOGIN-->
+
+                            <!-- logout button -->
+                            <!-- <div id="yeslogin" v-if="loggedin">
+                                <button v-on:click="handleLogout">Logout</button>
+                            </div> -->
+
+                            <!-- LOGIN SECTION-->
+                            <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
+
+                                <!-- <fieldset>
+                                    <legend>
+                                        <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
+                                    </legend> -->
+
+                                    <!-- login fields -->
+                                    <!-- <div id="loginform">
+                                        <input type="text" placeholder="username" v-model="createUN">
+                                        <input type="password" placeholder="password" v-model="createPW">
                                         <div id="login-form-button-container">
                                             <button id="login-form-button" v-on:click="handleLogin">Login</button>
                                         </div>
                                     </div>
+                                </fieldset> -->
 
+
+
+                                <!-- ACCORDIAN LOGIN SECTION -->
+                                <!-- <div class="accordion" id="accordionExample275">
+                                    <div class="card z-depth-0 bordered">
+
+                                        <div class="card-header" id="headingOne2">
+                                            <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2"
+                                                aria-expanded="true" aria-controls="collapseOne2">
+                                                Admin Login
+                                            </button>
+                                            </h5>
+                                            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                                        </div>
+
+                                        <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
+                                            data-parent="#accordionExample275">
+                                            <div class="card-body">
+                                                <input type="text" placeholder="username" v-model="createUN">
+                                                <input type="password" placeholder="password" v-model="createPW">
+                                            </div>
+                                            <div id="login-form-button-container">
+                                                <button id="login-form-button" v-on:click="handleLogin">Login</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> -->
+
+                                <!-- login error message -->
+                                <!-- <div id="errorlogin" v-if="loginerror">
+                                    <p class="text-uppercase ">Invalid username or password.<br> Please check your
+                                        entry and try again.</p>
                                 </div>
-                              </div> -->
-
-                            <!-- login error message -->
-                            <!-- <div id="errorlogin" v-if="loginerror">
-                                <p class="text-uppercase ">Invalid username or password.<br> Please check your
-                                    entry and try again.</p>
                             </div>
-                        </div>
-                    </div> -->
+                        </div> -->
 
 
 
-                    <!-- <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4"> -->
-                        <!-- Links -->
-                        <!-- <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                        <p>
-                            <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                        <p>
-                            <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                        <!-- <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4"> -->
+                            <!-- Links -->
+                            <!-- <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                            <p>
+                                <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                            <p>
+                                <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                            <p>
+                                <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
 
-                    </div>    -->
-                    <!-- Grid column -->
+                        </div>    -->
+                        <!-- Grid column -->
+                    <!-- </div> -->
+                    <!-- Grid row -->
                 <!-- </div> -->
-                <!-- Grid row -->
-            <!-- </div> -->
-            <!-- Footer Links -->
-            <!-- Copyright -->
-            <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
-                Ortega, Lea Thomas, Besrat Zerehaimanot
-            </div> -->
-            <!-- Copyright -->
-        <!-- </footer> -->
+                <!-- Footer Links -->
+                <!-- Copyright -->
+                <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+                    Ortega, Lea Thomas, Besrat Zerehaimanot
+                </div> -->
+                <!-- Copyright -->
+            <!-- </footer> -->
 
-    <!-- Footer Links -->
+        <!-- Footer Links -->
 
-  <!-- </footer> -->
+    <!-- </footer> -->
 
 
 
@@ -381,46 +457,36 @@
 
 
 
-      <!-- Modal -->
+        <!-- Modal -->
 
 
-      <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
-      <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
+            <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- <div class="modal-body">
+                            <div>{{user && user.username}}</div>
+                        </div> -->
+                        <div class="modal-footer">
+                            <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
+                            <button id="edit" class="col-xs-12 col-sm-12 col-md-4"  v-on:click="handleDelete" data-dismiss="modal">Yes, I'm sure</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-            <div>{{user && user.username}}</div>
-            </div>
-            <div class="modal-footer">
 
-              <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
-              <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal" v-on:click="handleDelete">Yes, I'm sure</button>
-            </div>
-          </div>
+
+
+
+
+            <!-- END VUE APP DIV -->
         </div>
-      </div>
-
-    </div>
-    <!-- Footer -->
-
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-      </button> -->
-
-
-    <!-- MODAL -->
-    <!-- <div id="modalVerify" class="modal modal-dialog modal-dialog-centered" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-
-      </div> -->
-
-
 
 
 

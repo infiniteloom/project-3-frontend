@@ -2,8 +2,10 @@
 html{
     scroll-behavior: smooth;
 }
-
-
+*{
+    font-size: 12px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 a {
     text-decoration: none;
     color: black;
@@ -11,7 +13,6 @@ a {
 a:hover {
     text-decoration: underline;
 }
-
 body {
     width: 100%;
     margin: 0 auto;
@@ -19,12 +20,9 @@ body {
     font-family: "Open Sans",sans-serif;
     line-height: 24px;
 }
-
-body p{
+.btn {
     font-size: 12px;
-}
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 ::placeholder{
     font-size: .8em;
@@ -34,6 +32,9 @@ p{
 }
 
 
+.btn-primary{
+    background-color: grey;
+}
 
 /* Nav Bar Styling (Bootstrap) */
 #siteTitle {
@@ -44,7 +45,7 @@ p{
     font-size:38px;
     /* opacity:1; */
     z-index:300;
-
+    cursor: pointer;
 }
 /* This is used to override Boostrap default styles and push the brand logo to center of page */
 @media (min-width: 990px) {
@@ -86,7 +87,9 @@ p{
 
     /* border-bottom:5px solid rgb(55, 0, 255); */
 }
-
+.nav-link:hover{
+    cursor: pointer;
+}
 
 
 
@@ -246,6 +249,55 @@ p{
     }
 }
 
+
+
+
+
+
+
+
+/* Create new review view styling */
+.create-form-container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.form-group{
+    display:flex;
+    flex-wrap:wrap;
+}
+.editor-container{
+    padding: 20px;
+}
+
+
+
+#editor{
+    height: 200px;
+}
+.publish-post{
+    width: 100px;
+}
+
+.publish-button-container{
+    text-align: right;
+    padding-right: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+/*Footer styling*/
 
 
 
@@ -614,10 +666,11 @@ a.socialIcon:hover, .socialHoverClass {
 
 
 
-/*
-  .active{
-      display: block;
-  }
-  .hidden{
-      display: none;
-  } */
+
+.is-visible{
+    display: block;
+}
+
+.is-hidden{
+    display:none;
+}
