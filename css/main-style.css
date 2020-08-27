@@ -1,12 +1,11 @@
+/* universal / global css  */
 html{
     scroll-behavior: smooth;
 }
-
 a {
     text-decoration: none;
     color: black;
 }
-
 a:hover {
     text-decoration: underline;
 }
@@ -15,14 +14,12 @@ body {
     width: 100%;
     margin: 0 auto;
 }
-
 body p{
     font-size: 12px;
 }
 p{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
 ::placeholder{
     font-size: .8em;
     font-style: italic;
@@ -30,8 +27,9 @@ p{
     padding: 10px;
 }
 
-/* Nav Bar Styling (Bootstrap) */
 
+
+/* Nav Bar Styling (Bootstrap) */
 /* This is used to override Boostrap default styles and push the brand logo to center of page */
 @media (min-width: 990px) {
 
@@ -262,6 +260,9 @@ footer .container{
     color: grey;
     font-size: .8em;
 }
+.accent-3{
+    background-color: white;
+}
 
 
 /* Login section styling */
@@ -275,21 +276,23 @@ footer .container{
     justify-content: center;
     align-items: flex-start;
 }
-#loginform input{
+#card-body input{
     margin: 2px;
     height: 1.5em;
     border-radius: 3px;
     padding: 5px;
-    width: 200px;
+    width: 100%;
+    margin: 0 5px 0 5px;
+    max-width: 200px;
 }
 #login-form-button-container{
     display: flex;
-    justify-content: flex-start;
+    align-items: flex-end;
     width: 100%;
+    max-width: 200px;
     margin-top: 5px;
 }
 #login-form-button{
-    width: 200px;
     font-size: .8em;
     border-radius: 3px;
 }
@@ -301,4 +304,32 @@ footer .container{
         align-items: center;
     }
 }
+#headingOne2{
+    background-color: #343a40;
+    padding: 0;
+    margin: 0;
+}
+#headingOne2 button{
+    color: white;
+    padding: 0;
+}
+#collapseOne2.collapse.show {
+    background-color: #343a40;
+}
+.card{
+    border: none;
+    border-radius: 0px;
+}
+.card-body{
+    background-color: #343a40;
+    padding: 0;
+}
 
+
+/* 
+  .active{
+      display: block;
+  }
+  .hidden{
+      display: none;
+  } */
