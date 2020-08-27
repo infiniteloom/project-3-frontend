@@ -2,25 +2,25 @@ const URL = this.prodURL ? this.prodURL : this.devURL
 
 const CarouselComponent = {
   template: `
-    <img src >
+    <img-src/>
   `,
 
-  props: ['src'],
+  props: ['img-src'],
 };
 const app = new Vue({
     el: "#app",
     components: {
     CarouselComponent,
   },
-  template: `
-    <div>
-      <carousel-component
-        v-for="(review, index) in reviews"
-        :class="{ 'active': index === 0 }"
-        :src="review.profile_pic_url">
-      </carousel-component>
-    </div>
-  `,
+  // template: `
+  //   <div>
+  //     <carousel-component
+  //       v-for="(review, index) in reviews"
+  //       :class="{ 'active': index === 0 }"
+  //       :img-src="review.profile_pic_url">
+  //     </carousel-component>
+  //   </div>
+  // `,
 
     data: {
         reviews: [],

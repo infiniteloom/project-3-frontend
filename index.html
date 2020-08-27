@@ -64,7 +64,7 @@
         <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
         <div v-if="!singlereview"id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item" id="carousel1" v-for="(review, index) of reviews">
+                <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
                     <img :src="review.profile_pic_url">
                     <!-- first image in carousel randomly selected from db -->
                 </div>
@@ -72,9 +72,9 @@
                     <!-- second image in carousel randomly selected from db -->
                     <!-- <img :src="review.profile_pic_url"> -->
                 <!-- </div> -->
-                <!-- <div class="carousel-item" id="carousel3"> -->
+                <!-- <div class="carousel-item active" id="carousel3"> -->
                     <!-- third image in carousel randomly selected from db -->
-                    <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
+                     <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
                 </div> -->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
