@@ -53,16 +53,16 @@
 
 
         <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-        <div v-if="!singlereview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" id="carousel1">
-                    <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
+        <div v-if="!singlereview"id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" id ="app">
+                <div class="carousel-item" id="carousel1" v-for="(review, index) of reviews">
+                    <img :src="review.profile_pic_url">
                     <!-- first image in carousel randomly selected from db -->
                 </div>
-                <div class="carousel-item"v-for="review of reviews" id="carousel2">
+                <!-- <div class="carousel-item " v-for="review of reviews" id="carousel2"> -->
                     <!-- second image in carousel randomly selected from db -->
-                    <img :src="review.profile_pic_url">
-                </div>
+                    <!-- <img :src="review.profile_pic_url"> -->
+                <!-- </div> -->
                 <!-- <div class="carousel-item" id="carousel3"> -->
                     <!-- third image in carousel randomly selected from db -->
                     <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
@@ -116,20 +116,20 @@
                 <div class="review-text-pt2">
                     <p>{{singlereview.review_text}}</p>
                 </div>
-                
+
 
                 <!-- Edit/Delete Buttons DIV -->
                 <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
-                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" 
+                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2"
                     data-toggle="modal" data-target="#modalVerify">Delete Post</button>
 
 
-                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>   
-                    
+                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
+
 
                 </div>
 
-                
+
 
 
             </div>
@@ -308,7 +308,7 @@
         </footer>
 
 
-              
+
       <!-- Modal -->
       <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -320,12 +320,12 @@
               </button>
             </div>
             <div class="modal-body">
-            <div>{{user && user.username}}</div>             
+            <div>{{user && user.username}}</div>
             </div>
             <div class="modal-footer">
-                
+
               <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
-              <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal" v-on:click="handleDelete">Yes, I'm sure</button> 
+              <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal" v-on:click="handleDelete">Yes, I'm sure</button>
             </div>
           </div>
         </div>
@@ -333,7 +333,7 @@
 
     </div>
     <!-- Footer -->
-    
+
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Launch demo modal
       </button> -->
@@ -342,7 +342,7 @@
     <!-- MODAL -->
     <!-- <div id="modalVerify" class="modal modal-dialog modal-dialog-centered" aria-labelledby="myModalLabel"
     aria-hidden="true">
-        
+
       </div> -->
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
