@@ -111,6 +111,11 @@ p{
     flex-direction: column;
     padding-top: 50px;
     align-items: center;
+    width: 100%;
+}
+.dash-header-container{
+    text-align: left;
+    width: 80%;
 }
 .dash-item{
     display: flex;
@@ -137,6 +142,7 @@ p{
     font-size: .8em;
     background-color: white;
     border: none;
+    color: #666666;
 }
 #dash-delete:hover{
     color: lightgray;

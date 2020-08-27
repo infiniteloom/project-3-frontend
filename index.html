@@ -155,7 +155,12 @@
 
         <!-- ADMIN DASHBOARD / LIST VIEW -->
         <div v-if="!singlereview && listView" class="dash-list-container">
-        <!-- <div v-if="!singlereview"> -->
+            <div class="dash-header-container">
+                <p>Create New Post</p>
+            </div>
+
+
+        <!--RENDER DATA IN LIST VIEW -->
             <div v-for="review of filteredReviews" class="dash-item img-fluid col-12">
                 <div class="dash-left-col-container col-2" >
                     <div class="dash-left-img">
