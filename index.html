@@ -93,7 +93,7 @@
 
 
         <!-- This would be the div that displays a single review -->
-        <div v-if="singlereview" v-show="!aboutme" class="single-review-container" >
+        <div v-if="singlereview" v-show="!aboutme" class="single-review-container">
 
             <div class="single-review-data-display-container">
                 <div class="single-review-data-display">
@@ -147,7 +147,7 @@
             <h4>RECENT REVIEWS</h4>
         </div>
         <!-- stores value of input, in this case, the search property -->
-        <div class="searchbox-container" v-if="!singlereview"  v-show="!aboutme">
+        <div class="searchbox-container" v-if="!singlereview" v-show="!aboutme">
             <input id="searchbox" type="text" v-model="search" placeholder="search" />
         </div>
         <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
