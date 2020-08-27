@@ -1,7 +1,27 @@
 const URL = this.prodURL ? this.prodURL : this.devURL
 
+const CarouselComponent = {
+  template: `
+    <img-src/>
+  `,
+
+  props: ['img-src'],
+};
 const app = new Vue({
     el: "#app",
+    components: {
+    CarouselComponent,
+  },
+  // template: `
+  //   <div>
+  //     <carousel-component
+  //       v-for="(review, index) in reviews"
+  //       :class="{ 'active': index === 0 }"
+  //       :img-src="review.profile_pic_url">
+  //     </carousel-component>
+  //   </div>
+  // `,
+
     data: {
         reviews: [],
         singlereview: null,
@@ -15,6 +35,9 @@ const app = new Vue({
         prodURL:'https://amusicjournal.herokuapp.com',
         user:null,
         token:null,
+
+        // selectedImage: null
+
 
     },
     methods: {
@@ -38,7 +61,7 @@ const app = new Vue({
             .then(data => {
                 if (data.error) {
                     this.loginerror = true
-                    
+
                 } else {
                     this.loginerror = false
                     this.user = data.user
@@ -55,7 +78,7 @@ const app = new Vue({
             this.token = null;
             this.loginerror = false
         },
-        // if logged in, watch ruby on rails and vue #6 video around minute 4 
+        // if logged in, watch ruby on rails and vue #6 video around minute 4
         openSingleReview: function (event) {
             const URL = this.prodURL ? this.prodURL : this.devURL
             // console.log(`id number is ${event.target.id}`)
@@ -78,7 +101,7 @@ const app = new Vue({
                 },
             }).then((response) => {
                 this.reset();
-                console.log(`${ID}` + " deleted"); 
+                console.log(`${ID}` + " deleted");
             });
         },
         reset: function () {
@@ -90,7 +113,13 @@ const app = new Vue({
                     console.log(data)
                 })
             location.reload();
-        }
+        },
+   //      randomItem (items) {
+   //       return this.reviews[Math.floor(Math.random()*this.reviews.length)];
+   //     },
+   //     generate () {
+   //   this.selectedImage = this.randomItem(this.reviews.profile_pic_url)
+   // }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
     // beforeCreate would trigger this code block before any other JS code even loads. beforeMount allows this app.js
@@ -105,6 +134,7 @@ const app = new Vue({
                 console.log(data)
             })
     },
+
     //using the search value to filter out matches to album title
     computed: {
         filteredReviews: function () {
@@ -114,5 +144,14 @@ const app = new Vue({
                 return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
             })
         }
-     }
+    //     filteredImages: function () {
+    //         //filtering through each review through the reviews array
+    //         return this.reviews.filter(image)
+    //     }
+  },
+
+  // created() {
+  //   this.selectedImage = this.randomItem(this.reviews.profile_pic_url)
+  // }
+
 });

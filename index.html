@@ -62,19 +62,19 @@
 
 
         <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-        <div v-if="!singlereview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div v-if="!singlereview"id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active" id="carousel1">
-                    <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
+                <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
+                    <img :src="review.profile_pic_url">
                     <!-- first image in carousel randomly selected from db -->
                 </div>
-                <div class="carousel-item"v-for="review of reviews" id="carousel2">
+                <!-- <div class="carousel-item " v-for="review of reviews" id="carousel2"> -->
                     <!-- second image in carousel randomly selected from db -->
-                    <img :src="review.profile_pic_url">
-                </div>
-                <!-- <div class="carousel-item" id="carousel3"> -->
+                    <!-- <img :src="review.profile_pic_url"> -->
+                <!-- </div> -->
+                <!-- <div class="carousel-item active" id="carousel3"> -->
                     <!-- third image in carousel randomly selected from db -->
-                    <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
+                     <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
                 </div> -->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -124,11 +124,11 @@
                 <div class="review-text-pt2">
                     <p>{{singlereview.review_text}}</p>
                 </div>
-                
+
                 <!-- Edit/Delete Buttons DIV -->
                 <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
                     <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>   
+                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
                 </div>
             </div>
 
@@ -147,7 +147,7 @@
         </div>
         <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
         <div v-if="!singlereview" class="gallery" id="gallery">
- 
+
             <!-- updated array, based on search term -->
             <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                 <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
@@ -171,16 +171,16 @@
             <div class="footer-top-layout text-center text-md-center">
               <div class="container">
 
-        
+
                 <div class="row">
-                
+
                   <div class="col-xl-12">
                     <h4 id="footerTitle">A Music Journal</h4>
                     <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
                         artists.</p>
                     <div class="post-blog-date">AUGUST 2020</div>
                   </div>
-          
+
                 </div>
 
                 <div class="col-md-12">
@@ -189,12 +189,12 @@
                         <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
-                    </ul>				
+                    </ul>
 				</div>
 
 
                 <div class="row justify-content-between" id="nologin" v-if="!loggedin">
-                  
+
                     <div class="col-sm-6 text-md-center">
                         <h4>EDITOR LOGIN</h4>
                         <div id="loginform">
@@ -205,7 +205,7 @@
                         </form>
                         </div>
 
-            
+
 
                         <div id="errorlogin" v-if="loginerror">
                             <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
@@ -213,18 +213,18 @@
                         </div>
                     </div>
 
-                    
 
-                
+
+
 
                     <div class="col-sm-6 text-md-center">
                     <h4>CONTACT US</h4>
-                        <div class="item-contact"> 
-                            <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a> 
-                            <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a> 
-                            <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@brandcatmedia.com</span></a> 
+                        <div class="item-contact">
+                            <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a>
+                            <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a>
+                            <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@brandcatmedia.com</span></a>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -232,7 +232,7 @@
                 <div id="yeslogin" v-if="loggedin">
                     <button v-on:click="handleLogout">Logout</button>
                 </div>
-                  
+
                 </div>
                 <div class="return-top-link">
                     <!-- Return to top  -->
@@ -240,10 +240,10 @@
                 </div>
               </div>
 
-              
+
             </div>
 
-           
+
 
             <div class="footer-bottom-layout">
               <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
@@ -255,7 +255,7 @@
 
 
 
-          
+
             <!-- OLD FOOTER -->
             <!-- Footer Links -->
             <!-- <div class="container text-center text-md-left mt-5"> -->
@@ -273,7 +273,7 @@
 
 
                         <!-- EDITOR LOGIN-->
-                
+
                         <!-- logout button -->
                         <!-- <div id="yeslogin" v-if="loggedin">
                             <button v-on:click="handleLogout">Logout</button>
@@ -296,7 +296,7 @@
                                      </div>
                                 </div>
                             </fieldset> -->
-               
+
 
 
                             <!-- ACCORDIAN LOGIN SECTION -->
@@ -336,7 +336,7 @@
                     </div> -->
 
 
-                    
+
                     <!-- <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4"> -->
                         <!-- Links -->
                         <!-- <h6 class="text-uppercase font-weight-bold">Contact</h6>
@@ -362,7 +362,7 @@
         <!-- </footer> -->
 
     <!-- Footer Links -->
-  
+
   <!-- </footer> -->
 
 
@@ -373,14 +373,17 @@
 
 
 
-      
 
 
 
 
 
 
-              
+
+
+      <!-- Modal -->
+
+
       <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
       <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -392,22 +395,30 @@
               </button>
             </div>
             <div class="modal-body">
-            <div>{{user && user.username}}</div>             
+            <div>{{user && user.username}}</div>
             </div>
             <div class="modal-footer">
-                
+
               <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
-              <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal" v-on:click="handleDelete">Yes, I'm sure</button> 
+              <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal" v-on:click="handleDelete">Yes, I'm sure</button>
             </div>
           </div>
         </div>
       </div>
 
     </div>
+    <!-- Footer -->
+
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button> -->
 
 
-<<<<<<< HEAD
-=======
+    <!-- MODAL -->
+    <!-- <div id="modalVerify" class="modal modal-dialog modal-dialog-centered" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+
+      </div> -->
 
 
 
@@ -415,7 +426,9 @@
 
 
 
->>>>>>> 5acde8f41f99a59fbd7ae21ff78dc911c1f3dec7
+
+
+
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
