@@ -26,7 +26,7 @@ const app = new Vue({
     data: {
         reviews: [],
         singleReview: null,
-        createReview: true,
+        createReview: null,
         editReview: false,
         search: "", //defining the search property and empty value
         loggedin: false,
@@ -96,38 +96,48 @@ const app = new Vue({
                 console.log(data)
             })
         },
-        // showCreateNewReview: function () {
-        //     // createReview = true
-        //     let toggleelement = document.getElementById(toggle-show-create-form)
-        //     console.log('this is the show create new review ')
-        //     console.log(toggleelement)
-        //     toggleelement.style.display = 'block';
-        // },
+        showCreateNewReview: function () {
+            this.createReview = !this.createReview      
+        },
         createNewReview: function (event) {
-            // toggleShow.show()
             const URL = this.prodURL ? this.prodURL : this.devURL
             const review = {
                 ...this.new_review,
                 created_by: this.user.id,
-                review_text: quill.getText()
+                review_text: quill.root.innerHTML
             }
-            console.log(review)
-            fetch(`${URL}/reviews`, {
-                method: "POST",
-                headers: {
-                    "Content-Type" : "application/json",
-                    "Authorization" : `bearer ${this.token}`
-                },
-                body: JSON.stringify(review)
-            
-            })
-        createreview = false;
+
+            // gather the values from the review object
+            const values = Object.values(review)
+            console.log(values)
+            let allFieldsOk
+            for(let value in values){
+                if(!value){
+                    this.createError = true;
+                    console.log('ERROR PLEASE ENTER ALL FIELDS')
+                    allFieldsOk = false
+                }
+            }
+            if (allFieldsOk = true){
+                fetch(`${URL}/reviews`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type" : "application/json",
+                        "Authorization" : `bearer ${this.token}`
+                    },
+                    body: JSON.stringify(review)
+                })
+            }
+ 
+            this.createError = false;
+            createreview = false;
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
     // beforeCreate would trigger this code block before any other JS code even loads. beforeMount allows this app.js
     // to be loaded (i.e. the variables prodURL and devURL used in this ternary) before the code block is run.
     beforeMount: function(){
+
         const URL = this.prodURL ? this.prodURL : this.devURL
 
         fetch(`${URL}/reviews`)
