@@ -1,10 +1,11 @@
-const URL = this.prodURL ? this.prodURL : this.devURL
+// const URL = this.prodURL ? this.prodURL : this.devURL
 
 const app = new Vue({
     el: "#app",
     data: {
         reviews: [],
         singlereview: null,
+        listView: null,
         search: "", //defining the search property and empty value
         loggedin: false,
         loginerror: false,
@@ -82,14 +83,16 @@ const app = new Vue({
             });
         },
         reset: function () {
-            this.singlereview = false;
+            this.singlereview = null;
+            this.listView = null;
             fetch(`${URL}/reviews`)
                 .then(response => response.json())
                 .then(data => {
                     this.reviews = data
                     console.log(data)
                 })
-            location.reload();
+            window.reload();
+            // window.scrollTo(0,0)
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL

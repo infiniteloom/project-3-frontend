@@ -103,6 +103,47 @@ p{
 
 
 
+/* Admin Dashboard / List View Styling  */
+
+.dash-list-container{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    padding-top: 50px;
+    align-items: center;
+}
+.dash-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid rgb(180, 178, 178);
+}
+
+.dash-left-caption p{
+    font-size: .6em;
+    line-height: 1em;
+    margin: 0;
+}
+.excerpt{
+    font-style: italic;
+}
+#dash-edit-delete-container{
+    text-align: right;
+}
+#dash-delete{
+    width: 150px;
+    font-size: .8em;
+    background-color: white;
+    border: none;
+}
+#dash-delete:hover{
+    color: lightgray;
+}
+
+
+
 
 /*Grid Gallery Styling*/
 .recent-reviews-title{

@@ -50,8 +50,9 @@
                         <div class="navbar-collapse collapse">
                             <!-- menu items -->
                             <ul class="navbar-nav">
-                                <li class="nav-item"> <a class="nav-link" href="#recent-reviews-title">Reviews</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                                <li class="nav-item"><a class="nav-link" v-on:click="reset">Reviews</a> </li>
+                                <li class="nav-item"><a class="nav-link" href="#">About</a> </li>
+                                <li class="nav-item"><a class="nav-link" v-on:click="()=>this.listView=true">Dashboard</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
 
 
         <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-        <div v-if="!singlereview" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div v-if="!singlereview  && !listView" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" id="carousel1">
                     <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
@@ -88,8 +89,8 @@
         </div>
 
 
-        <!-- This would be the div that displays a single review -->
-         <div v-if="singlereview" class="single-review-container">
+        <!-- SINGLE REVIEW VIEW-->
+         <div v-if="singlereview  && !listView" class="single-review-container">
 
             <div class="single-review-data-display-container">
                 <div class="single-review-data-display">
@@ -107,6 +108,7 @@
                 </div>
             </div>
 
+            <!-- SINGLE REVIEW BODY -->
             <div class="single-review-body">
                 <div class="review-text-pt1">
                     <p>{{singlereview.review_text}}</p>
@@ -133,21 +135,69 @@
             </div>
 
             <div id="return-link">
-                <a v-on:click="()=>this.singlereview=null">Return to All Reviews</a>
+                <a v-on:click="reset" href="#app">Return to All Reviews</a>
             </div>
         </div>
 
 
+
+
+
+        <!-- FEATURED ARTICLES SECTION POST MVP -->
+
+
+
+
+
+
+
+
+
+        <!-- ADMIN DASHBOARD / LIST VIEW -->
+        <div v-if="!singlereview && listView" class="dash-list-container">
+        <!-- <div v-if="!singlereview"> -->
+            <div v-for="review of filteredReviews" class="dash-item img-fluid col-12">
+                <div class="dash-left-col-container col-2" >
+                    <div class="dash-left-img">
+                        <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
+                    </div>
+                    <div class="dash-left-caption">
+                    <!-- Need to only select the first 10 digits of created_at and flip to read dd/mm/yyyy then use sort to organize -->
+                        <p>{{review.created_at.substring(0,10)}}</p>
+                    </div>
+                </div>
+                <div class="dash-right-col-container col-10">
+                    <p>Artist: {{review.artist_name}}<br>
+                         Album:  <span class="album-title"></span>{{review.album_title}}</span></p>
+                    <p class="excerpt">"{{review.review_text.substring(0,100)}}..."</p>
+                   
+                </div>
+                <div id="dash-edit-delete-container"  class="col-12">
+                    <button type="button" id="dash-delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                    
+                </div>
+            <!-- end vue loop -->
+            </div>
+            <div id="return-link">
+                <a v-on:click="()=>this.listView=null">Return to All Reviews</a>
+            </div>
+        </div>
+
+
+
+
+
+   
+
+        <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
+        <div v-if="!singlereview && !listView" class="gallery" id="gallery">
         <div class="recent-reviews-title" id="recent-reviews-title">
             <h4>RECENT REVIEWS</h4>
         </div>
-           <!-- stores value of input, in this case, the search property -->
+        <!-- stores value of input, in this case, the search property -->
         <div class="searchbox-container">
             <input id="searchbox" type="text" v-model="search" placeholder="search" />
         </div>
-        <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
-        <div v-if="!singlereview" class="gallery" id="gallery">
- 
             <!-- updated array, based on search term -->
             <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                 <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
