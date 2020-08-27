@@ -44,23 +44,23 @@ p{
     font-size:38px;
     /* opacity:1; */
     z-index:300;
-    
+
 }
 /* This is used to override Boostrap default styles and push the brand logo to center of page */
 @media (min-width: 990px) {
 
     .navbar-brand {
-    
+
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        
+
     }
 }
 .navbar-nav{
     border-top: 2px solid black;
     float:right;
-    
+
 }
 
 
@@ -73,17 +73,17 @@ p{
     justify-content: flex-end;
     /* margin-left:60px;
     margin-right:60px; */
-    
+
 }
 .navbar-brand{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /* text-transform: uppercase; */
 }
 
 .navbar-dark {
     /* background-color:rgba(0, 0, 0, 0.932); */
     background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0.687));
-  
+
     /* border-bottom:5px solid rgb(55, 0, 255); */
 }
 
@@ -97,9 +97,24 @@ p{
     text-align: center;
 }
 .carousel-item img{
-  max-height: 300px;
-}
+  height: 300px;
 
+}
+/* .carousel-control-prev-icon{
+  color: lightgray;
+} */
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 2em;
+  color: lightgray;
+}
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 2em;
+  color: lightgray;
+}
 
 
 
@@ -281,15 +296,15 @@ p{
     margin-top: 20px;
     margin-bottom:-10px;
     text-align: center;
-    
+
 }
 .return-top-link a{
-    
+
     color: white;
     font-size: 12px;
 }
 
-/*  
+/*
 .page-footer{
     position: relative;
 }
@@ -456,7 +471,7 @@ address {
     line-height:16px;
 }
 .footer-col-item .item-contact {
-    display:flex;   
+    display:flex;
 }
 .item-contact > a {
     display:block;
@@ -546,10 +561,10 @@ ul.social-network li {
 .social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
 .social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
     color:#fff;
-   
+
 }
 a.socialIcon:hover, .socialHoverClass {
-    
+
 	color:black;
 }
 
@@ -595,11 +610,11 @@ a.socialIcon:hover, .socialHoverClass {
 
 
 
-  
-  
-  
 
-/* 
+
+
+
+/*
   .active{
       display: block;
   }
