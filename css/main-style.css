@@ -269,26 +269,26 @@ footer .container{
 .login-container{
     margin: 0 auto;
 }
-#loginform{
+.card-body{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
-#card-body input{
-    margin: 2px;
+.card-body input{
     height: 1.5em;
     border-radius: 3px;
     padding: 5px;
     width: 100%;
-    margin: 0 5px 0 5px;
+    margin: 2px 0 2px 0;
     max-width: 200px;
 }
 #login-form-button-container{
     display: flex;
     align-items: flex-end;
     width: 100%;
+    background-color: #343a40;
     max-width: 200px;
     margin-top: 5px;
 }
@@ -312,6 +312,9 @@ footer .container{
 #headingOne2 button{
     color: white;
     padding: 0;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 #collapseOne2.collapse.show {
     background-color: #343a40;
@@ -320,9 +323,16 @@ footer .container{
     border: none;
     border-radius: 0px;
 }
+.card-header{
+    border:none;
+}
+.card-header:hover{
+    text-decoration: none;
+}
 .card-body{
     background-color: #343a40;
     padding: 0;
+    border: none;
 }
 
 
