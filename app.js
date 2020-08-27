@@ -1,4 +1,9 @@
-const URL = this.prodURL ? this.prodURL : this.devURL
+
+
+
+const devURL='http://localhost:3000'
+const prodURL='https://amusicjournal.herokuapp.com'
+const URL = prodURL ? prodURL : devURL
 
 const CarouselComponent = {
   template: `
@@ -12,38 +17,35 @@ const app = new Vue({
     components: {
     CarouselComponent,
   },
-  // template: `
-  //   <div>
-  //     <carousel-component
-  //       v-for="(review, index) in reviews"
-  //       :class="{ 'active': index === 0 }"
-  //       :img-src="review.profile_pic_url">
-  //     </carousel-component>
-  //   </div>
-  // `,
 
     data: {
         reviews: [],
-        singlereview: null,
+        singleReview: null,
+        createReview: null,
+        editReview: false,
         search: "", //defining the search property and empty value
         loggedin: false,
         loginerror: false,
-        // JWT: "",
         createUN: "",
         createPW: "",
-        devURL:'http://localhost:3000',
-        prodURL:'https://amusicjournal.herokuapp.com',
+        // devURL:'http://localhost:3000',
+        // prodURL:'https://amusicjournal.herokuapp.com',
         user:null,
         token:null,
-
-        // selectedImage: null
-
-
+        new_review: {
+            // created_by: this.user && this.user.id,
+            artist_name: "",
+            album_title: "",
+            release_date: "",
+            record_label: "",
+            img_url: "",
+            profile_pic_url: ""
+        },
     },
     methods: {
         handleLogin: function (event) {
             event.preventDefault()
-            const URL = this.prodURL ? this.prodURL : this.devURL
+            // const URL = this.prodURL ? this.prodURL : this.devURL
             console.log(URL)
             const user = {
                 username: this.createUN,
@@ -78,21 +80,20 @@ const app = new Vue({
             this.token = null;
             this.loginerror = false
         },
-        // if logged in, watch ruby on rails and vue #6 video around minute 4
         openSingleReview: function (event) {
-            const URL = this.prodURL ? this.prodURL : this.devURL
-            // console.log(`id number is ${event.target.id}`)
+            // const URL = this.prodURL ? this.prodURL : this.devURL
             fetch(`${URL}/reviews/${event.target.id}`)
             .then(response => response.json())
             .then(data => {
-                this.singlereview = data
+                this.singleReview = data
                 console.log(data)
             })
         },
         handleDelete: function (event) {
-            const URL = this.prodURL ? this.prodURL : this.devURL;
-            const ID = this.singlereview.id;
-            // console.log(`id number is ${event.target.id}`)
+            console.log(`the id is ${this.singleReview.id}`)
+
+            // const URL = this.prodURL ? this.prodURL : this.devURL;
+            const ID = this.singleReview.id;
             fetch(`${URL}/reviews/${ID}`, {
                 method: "delete",
                 headers: {
@@ -105,14 +106,17 @@ const app = new Vue({
             });
         },
         reset: function () {
-            this.singlereview = false;
+            this.createReview = false;
+            this.dash = false;
+            this.singleReview = false;
             fetch(`${URL}/reviews`)
                 .then(response => response.json())
                 .then(data => {
                     this.reviews = data
                     console.log(data)
                 })
-            location.reload();
+            location.reload;
+            window.scrollTo(0,0)
         },
    //      randomItem (items) {
    //       return this.reviews[Math.floor(Math.random()*this.reviews.length)];
@@ -120,13 +124,49 @@ const app = new Vue({
    //     generate () {
    //   this.selectedImage = this.randomItem(this.reviews.profile_pic_url)
    // }
+        showCreateNewReview: function () {
+            this.createReview = true    
+        },
+        createNewReview: function (event) {
+            // const URL = this.prodURL ? this.prodURL : this.devURL
+            const review = {
+                ...this.new_review,
+                created_by: this.user.id,
+                review_text: quill.root.innerHTML
+            }
+            // gather the values from the review object
+            const values = Object.values(review)
+            console.log(values)
+            let allFieldsOk
+            for(let value in values){
+                if(!value){
+                    this.createError = true;
+                    console.log('ERROR PLEASE ENTER ALL FIELDS')
+                    allFieldsOk = false
+                }
+            }
+            if (allFieldsOk = true){
+                fetch(`${URL}/reviews`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type" : "application/json",
+                        "Authorization" : `bearer ${this.token}`
+                    },
+                    body: JSON.stringify(review)
+                })
+
+               //  MAYBE REFACTOR
+                this.reset()
+                this.createError = false;
+            }
+            
+        }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
     // beforeCreate would trigger this code block before any other JS code even loads. beforeMount allows this app.js
     // to be loaded (i.e. the variables prodURL and devURL used in this ternary) before the code block is run.
     beforeMount: function(){
-        const URL = this.prodURL ? this.prodURL : this.devURL
-
+        // const URL = this.prodURL ? this.prodURL : this.devURL
         fetch(`${URL}/reviews`)
             .then(response => response.json())
             .then(data => {
@@ -134,7 +174,6 @@ const app = new Vue({
                 console.log(data)
             })
     },
-
     //using the search value to filter out matches to album title
     computed: {
         filteredReviews: function () {
@@ -144,14 +183,18 @@ const app = new Vue({
                 return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
             })
         }
-    //     filteredImages: function () {
-    //         //filtering through each review through the reviews array
-    //         return this.reviews.filter(image)
-    //     }
-  },
-
-  // created() {
-  //   this.selectedImage = this.randomItem(this.reviews.profile_pic_url)
-  // }
-
+     }
 });
+
+
+
+
+
+
+const options ={
+    theme: 'snow',
+    placeholder: 'Enter a new review...'
+}
+
+var quill = new Quill('#editor', options)
+
