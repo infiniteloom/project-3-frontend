@@ -1,8 +1,11 @@
+/* universal / global css  */
+html{
+    scroll-behavior: smooth;
+}
 a {
     text-decoration: none;
     color: black;
 }
-
 a:hover {
     text-decoration: underline;
 }
@@ -11,17 +14,22 @@ body {
     width: 100%;
     margin: 0 auto;
 }
-
 body p{
     font-size: 12px;
 }
 p{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+::placeholder{
+    font-size: .8em;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+
 
 
 /* Nav Bar Styling (Bootstrap) */
-
 /* This is used to override Boostrap default styles and push the brand logo to center of page */
 @media (min-width: 990px) {
 
@@ -57,13 +65,22 @@ p{
 
 
 
+
+
 /*Grid Gallery Styling*/
+.recent-reviews-title{
+    padding-top: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
 .gallery{
+    margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
+    width: 90%;
+    padding: 0 0 30px 0;
     align-items: flex-start; /* This line fixes a height bug in Safari browsers */
 }
 .album-title{
@@ -75,7 +92,15 @@ p{
 .gallery-item .col-md-4, .gallery-item .col-6{
     padding-top: 25px;
 }
-
+.searchbox-container{
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+#searchbox{
+    width: 33%;
+}
 
 
 
@@ -88,7 +113,6 @@ p{
 .single-review-container{
     text-align: center;
 }
-
 /* Single review header */
 .single-review-data-display-container{
     background-color: rgb(241, 240, 240);
@@ -127,7 +151,6 @@ p{
     font-size: .6em;
     font-style: italic;
 }
-
 /* Single Review Body */
 .single-review-body {
     width: 80%;
@@ -154,7 +177,6 @@ p{
     width: 100%
 }
 
-
 #return-link{
     text-align: center;
     padding: 10px;
@@ -172,29 +194,12 @@ p{
     }
 }
 
-/*Footer styling*/
 
-.page-footer{
-    position: relative;
-}
-footer {
-    background-color: #343a40;
-}
-footer .container{
-    background-color: #343a40;
-    color: white;
-    width: 100%;
-}
-.footer-copyright{
-    color: grey;
-    font-size: .8em;
-}
-#searchbox {
-    margin: auto;
-    margin-top: 20px;
-    width: 100%;
-}
 
+
+
+
+/* Edit Single Review View */
 #editDelete {
     margin-top:3%;
     margin-bottom:3%;
@@ -212,3 +217,129 @@ footer .container{
     border:2px solid rgb(239, 239, 239);
 }
 
+
+
+
+
+/*Footer styling*/
+.top-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.social-icons-container{
+    margin-right: 10px;
+}
+.return-top-link{
+    width: 25%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+.return-top-link a{
+    margin: 0;
+    color: white;
+    font-size: 12px;
+}
+.page-footer{
+    position: relative;
+}
+footer {
+    background-color: #343a40;
+}
+footer .container{
+    background-color: #343a40;
+    color: white;
+    width: 100%;
+}
+.footer-copyright{
+    color: grey;
+    font-size: .8em;
+}
+.accent-3{
+    background-color: white;
+}
+
+
+/* Login section styling */
+.login-container{
+    margin: 0 auto;
+}
+.card-body{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.card-body input{
+    height: 1.5em;
+    border-radius: 3px;
+    padding: 5px;
+    width: 100%;
+    margin: 2px 0 2px 0;
+    max-width: 200px;
+}
+#login-form-button-container{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    background-color: #343a40;
+    max-width: 200px;
+    margin-top: 5px;
+}
+#login-form-button{
+    font-size: .8em;
+    border-radius: 3px;
+}
+@media (max-width: 960px) {
+    #login-form-button-container{
+        justify-content: center;
+    }
+    #loginform{
+        align-items: center;
+    }
+}
+#headingOne2{
+    background-color: #343a40;
+    padding: 0;
+    margin: 0;
+}
+#headingOne2 button{
+    color: white;
+    padding: 0;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#collapseOne2.collapse.show {
+    background-color: #343a40;
+}
+.card{
+    border: none;
+    border-radius: 0px;
+}
+.card-header{
+    border:none;
+}
+.card-header:hover{
+    text-decoration: none;
+}
+.card-body{
+    background-color: #343a40;
+    padding: 0;
+    border: none;
+}
+
+
+/* 
+  .active{
+      display: block;
+  }
+  .hidden{
+      display: none;
+  } */
