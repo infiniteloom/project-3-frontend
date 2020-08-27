@@ -104,14 +104,13 @@ p{
 
 
 /* Admin Dashboard / List View Styling  */
-
 .dash-list-container{
     display: flex;
     margin: 0 auto;
     flex-direction: column;
     padding-top: 50px;
     align-items: center;
-    width: 100%;
+    width: 95%;
 }
 .dash-header-container{
     text-align: left;
@@ -125,7 +124,10 @@ p{
     padding: 10px;
     border: 1px solid rgb(180, 178, 178);
 }
-
+.dash-right-col-container{
+    display:flex;
+    align-items: center;
+}
 .dash-left-caption p{
     font-size: .6em;
     line-height: 1em;
@@ -136,20 +138,25 @@ p{
 }
 #dash-edit-delete-container{
     text-align: right;
+    padding: 0;
 }
-#dash-delete{
-    width: 150px;
+.dash-buttons:hover{
+    color: lightgray;
+}
+.dash-buttons{
     font-size: .8em;
     background-color: white;
     border: none;
     color: #666666;
 }
-#dash-delete:hover{
-    color: lightgray;
+#dash-create-button{
+    text-align: left;
 }
-
-
-
+.dash-return-link{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
 
 /*Grid Gallery Styling*/
 .recent-reviews-title{
@@ -196,6 +203,8 @@ p{
 /* SINGLE REVIEW VIEW */
 .single-review-container{
     text-align: center;
+    width: 95%;
+    margin: 0 auto;
 }
 /* Single review header */
 .single-review-data-display-container{
@@ -261,12 +270,12 @@ p{
     width: 100%
 }
 
-#return-link{
+.return-link{
     text-align: center;
     padding: 10px;
     background-color: lightgray;
 }
-#return-link a:hover{
+.return-link a:hover{
     color: gray;
 }
 @media (max-width: 400px) {

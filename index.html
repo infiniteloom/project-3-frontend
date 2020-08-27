@@ -50,9 +50,9 @@
                         <div class="navbar-collapse collapse">
                             <!-- menu items -->
                             <ul class="navbar-nav">
-                                <li class="nav-item"><a class="nav-link" v-on:click="reset">Reviews</a> </li>
+                                <li class="nav-item"><a class="nav-link" v-on:click="reset" href="#app">Reviews</a> </li>
                                 <li class="nav-item"><a class="nav-link" href="#">About</a> </li>
-                                <li class="nav-item"><a class="nav-link" v-on:click="()=>this.listView=true">Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" v-on:click="()=>this.listView=true" href="#app">Dashboard</a></li>
                             </ul>
                         </div>
                     </div>
@@ -130,11 +130,11 @@
                 <!-- Edit/Delete Buttons DIV -->
                 <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
                     <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>   
+                    <button type="button" id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>   
                 </div>
             </div>
 
-            <div id="return-link">
+            <div class="return-link">
                 <a v-on:click="reset" href="#app">Return to All Reviews</a>
             </div>
         </div>
@@ -154,14 +154,21 @@
 
 
         <!-- ADMIN DASHBOARD / LIST VIEW -->
+        <!-- <div v-if="!singlereview && listView  && loggedin" class="dash-list-container"> -->
         <div v-if="!singlereview && listView" class="dash-list-container">
             <div class="dash-header-container">
-                <p>Create New Post</p>
+                <button type="button" class="dash-buttons" id="dash-create-button" >Create New Review</button>
+                <button type="button" class="dash-buttons" id="dash-edit-button">Edit Post</button>
+                <button type="button" id="dash-delete" class="dash-buttons" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+          
             </div>
-
 
         <!--RENDER DATA IN LIST VIEW -->
             <div v-for="review of filteredReviews" class="dash-item img-fluid col-12">
+
+                <div class="dash-check-col col-1">
+                    <input type="checkbox">
+                </div>
                 <div class="dash-left-col-container col-2" >
                     <div class="dash-left-img">
                         <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
@@ -171,19 +178,19 @@
                         <p>{{review.created_at.substring(0,10)}}</p>
                     </div>
                 </div>
-                <div class="dash-right-col-container col-10">
+                <div class="dash-right-col-container col-9">
                     <p>Artist: {{review.artist_name}}<br>
                          Album:  <span class="album-title"></span>{{review.album_title}}</span></p>
-                    <p class="excerpt">"{{review.review_text.substring(0,100)}}..."</p>
+                    <!-- <p class="excerpt">"{{review.review_text.substring(0,100)}}..."</p> -->
                    
                 </div>
-                <div id="dash-edit-delete-container"  class="col-12">
-                    <button type="button" id="dash-delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                    
-                </div>
+                <!-- <div id="dash-edit-delete-container"  class="col-12">
+                    <button type="button" class="dash-buttons" id="dash-edit-button">Edit Post</button>
+                    <button type="button" id="dash-delete" class="dash-buttons" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                </div> -->
             <!-- end vue loop -->
             </div>
-            <div id="return-link">
+            <div class="return-link dash-return-link">
                 <a v-on:click="()=>this.listView=null">Return to All Reviews</a>
             </div>
         </div>
