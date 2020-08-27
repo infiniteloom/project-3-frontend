@@ -54,7 +54,7 @@
 
         <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
         <div v-if="!singlereview"id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" id ="app">
+            <div class="carousel-inner">
                 <div class="carousel-item" id="carousel1" v-for="(review, index) of reviews">
                     <img :src="review.profile_pic_url">
                     <!-- first image in carousel randomly selected from db -->
@@ -296,13 +296,11 @@
         </footer>
 
 
-<<<<<<< HEAD
 
       <!-- Modal -->
-=======
+
 
       <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
->>>>>>> 075d90ef4cd70774001bf850562ee780a07b9c9c
       <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -325,7 +323,6 @@
       </div>
 
     </div>
-<<<<<<< HEAD
     <!-- Footer -->
 
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -338,10 +335,9 @@
     aria-hidden="true">
 
       </div> -->
-=======
 
 
->>>>>>> 075d90ef4cd70774001bf850562ee780a07b9c9c
+
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
