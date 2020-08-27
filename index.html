@@ -45,13 +45,15 @@
                             A Music Journal
                         </a>
                         <!--            burger mobile menu icon -->
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target=".navbar-collapse">
                             <span class="navbar-toggler-icon"></span></button>
                         <div class="navbar-collapse collapse">
                             <!-- menu items -->
                             <ul class="navbar-nav">
                                 <li class="nav-item"> <a class="nav-link" href="#recent-reviews-title">Reviews</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="aM" href="#" v-bind:id="aM"
+                                        v-on:click="openAboutMe">About</a> </li>
                             </ul>
                         </div>
                     </div>
@@ -62,19 +64,21 @@
 
 
         <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-        <div v-if="!singlereview"id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div v-if="!singlereview" v-show="!aboutme" id="carouselExampleControls" class="carousel slide"
+            data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
+                <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews"
+                    :class="{active: index==0 }">
                     <img :src="review.profile_pic_url">
                     <!-- first image in carousel randomly selected from db -->
                 </div>
                 <!-- <div class="carousel-item " v-for="review of reviews" id="carousel2"> -->
-                    <!-- second image in carousel randomly selected from db -->
-                    <!-- <img :src="review.profile_pic_url"> -->
+                <!-- second image in carousel randomly selected from db -->
+                <!-- <img :src="review.profile_pic_url"> -->
                 <!-- </div> -->
                 <!-- <div class="carousel-item active" id="carousel3"> -->
-                    <!-- third image in carousel randomly selected from db -->
-                     <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
+                <!-- third image in carousel randomly selected from db -->
+                <!-- <img src="https://f4.bcbits.com/img/a0651989730_16.jpg">
                 </div> -->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -89,20 +93,20 @@
 
 
         <!-- This would be the div that displays a single review -->
-         <div v-if="singlereview" class="single-review-container">
+        <div v-if="singlereview" v-show="!aboutme" class="single-review-container" >
 
             <div class="single-review-data-display-container">
                 <div class="single-review-data-display">
                     <div class="single-review-text col-6">
                         <p>
-                        {{singlereview.artist_name}}<br>
-                        <span id="single-review-title">{{singlereview.album_title}}</span><br>
+                            {{singlereview.artist_name}}<br>
+                            <span id="single-review-title">{{singlereview.album_title}}</span><br>
                         </p>
                     </div>
                     <div class="single-review-image col-6">
                         <img :src="singlereview.img_url">
                         <p class="review-image-caption">{{singlereview.record_label}} •
-                        {{singlereview.release_date}}</p>
+                            {{singlereview.release_date}}</p>
                     </div>
                 </div>
             </div>
@@ -118,7 +122,7 @@
                                     Whoever</i></b></p>
                     </div>
                     <div class="review-profile-pic col-9">
-                       <img :src="singlereview.profile_pic_url">
+                        <img :src="singlereview.profile_pic_url">
                     </div>
                 </div>
                 <div class="review-text-pt2">
@@ -127,7 +131,8 @@
 
                 <!-- Edit/Delete Buttons DIV -->
                 <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
-                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal"
+                        data-target="#modalVerify">Delete Post</button>
                     <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
                 </div>
             </div>
@@ -138,25 +143,118 @@
         </div>
 
 
-        <div class="recent-reviews-title" id="recent-reviews-title">
+        <div class="recent-reviews-title" v-if="!singlereview" id="recent-reviews-title" v-show="!aboutme">
             <h4>RECENT REVIEWS</h4>
         </div>
-           <!-- stores value of input, in this case, the search property -->
-        <div class="searchbox-container">
+        <!-- stores value of input, in this case, the search property -->
+        <div class="searchbox-container" v-if="!singlereview"  v-show="!aboutme">
             <input id="searchbox" type="text" v-model="search" placeholder="search" />
         </div>
         <!-- GRID GALLERY of recent reviews / album art rendered from database in app.js -->
-        <div v-if="!singlereview" class="gallery" id="gallery">
+        <div v-if="!singlereview" v-show="!aboutme" class="gallery" id="gallery">
 
             <!-- updated array, based on search term -->
             <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                 <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
                 <p>{{review.artist_name}} <br>
-                <span class="album-title"> {{review.album_title}}</span></p>
+                    <span class="album-title"> {{review.album_title}}</span></p>
             </div>
         </div>
 
 
+        <!-- DIV THAT DISPLAYS TEAM ABOUT ME SECTION -->
+        <div v-show="aboutme" class="team-container">
+            <div class="team-title">
+                <h1><b>Meet the Team</b></h1>
+            </div>
+            <div class="andre member">
+                <div class="pic box">
+                    <div class="andre-pic">
+                    </div>
+                </div>
+                <div class="andre bio">
+                    <h2>Andre Heslop</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="magda member">
+                <div class="pic box">
+                    <div class="magda-pic">
+                    </div>
+                </div>
+                <div class="magda bio">
+                    <h2>Magdalena Krzyanowski</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="kenal member">
+                <div class="pic box">
+                    <div class="kenal-pic">
+                    </div>
+                </div>
+                <div class="kenal bio">
+                    <h2>Kenal Ortega</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="lea member">
+                <div class="pic box">
+                    <div class="lea-pic">
+                    </div>
+                </div>
+                <div class="lea bio">
+                    <h2>Lea Thomas</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="biz member">
+                <div class="pic box">
+                    <div class="biz-pic">
+                    </div>
+                </div>
+                <div class="biz bio">
+                    <h2>Besrat Zerehaimanot</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="jeremy member">
+                <div class="pic box">
+                    <div class="jeremy-pic">
+                    </div>
+                </div>
+                <div class="jeremy bio">
+                    <h2>Jeremy Rose</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
+                        consequatur! Tempora saepe maxime libero similique illum!
+                    </p>
+                </div>
+            </div>
+
+            <div id="return-link">
+                <a v-on:click="()=>this.aboutme=null">Return to All Reviews</a>
+            </div>
+        </div>
 
 
 
@@ -169,102 +267,107 @@
 
         <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
             <div class="footer-top-layout text-center text-md-center">
-              <div class="container">
+                <div class="container">
 
 
-                <div class="row">
+                    <div class="row">
 
-                  <div class="col-xl-12">
-                    <h4 id="footerTitle">A Music Journal</h4>
-                    <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
-                        artists.</p>
-                    <div class="post-blog-date">AUGUST 2020</div>
-                  </div>
-
-                </div>
-
-                <div class="col-md-12">
-                    <ul class="social-network social-circle">
-                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
-                    </ul>
-				</div>
-
-
-                <div class="row justify-content-between" id="nologin" v-if="!loggedin">
-
-                    <div class="col-sm-6 text-md-center">
-                        <h4>EDITOR LOGIN</h4>
-                        <div id="loginform">
-                        <form class="signUpNewsletter col-12 text-md-center">
-                          <input name="" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
-                          <input name="" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
-                          <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
-                        </form>
-                        </div>
-
-
-
-                        <div id="errorlogin" v-if="loginerror">
-                            <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
-                                entry and try again.</h1>
-                        </div>
-                    </div>
-
-
-
-
-
-                    <div class="col-sm-6 text-md-center">
-                    <h4>CONTACT US</h4>
-                        <div class="item-contact">
-                            <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a>
-                            <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a>
-                            <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@brandcatmedia.com</span></a>
+                        <div class="col-xl-12">
+                            <h4 id="footerTitle">A Music Journal</h4>
+                            <p>An app to help visitors discover new music, featuring reviews of albums and interviews
+                                with
+                                artists.</p>
+                            <div class="post-blog-date">AUGUST 2020</div>
                         </div>
 
                     </div>
 
-                </div>
+                    <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
 
-                <div id="yeslogin" v-if="loggedin">
-                    <button v-on:click="handleLogout">Logout</button>
-                </div>
+
+                    <div class="row justify-content-between" id="nologin" v-if="!loggedin">
+
+                        <div class="col-sm-6 text-md-center">
+                            <h4>EDITOR LOGIN</h4>
+                            <div id="loginform">
+                                <form class="signUpNewsletter col-12 text-md-center">
+                                    <input name="" class="gt-email form-control" placeholder="Username" type="text"
+                                        v-model="createUN">
+                                    <input name="" class="gt-email form-control" placeholder="Password" type="text"
+                                        v-model="createPW">
+                                    <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                                </form>
+                            </div>
+
+
+
+                            <div id="errorlogin" v-if="loginerror">
+                                <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check
+                                    your
+                                    entry and try again.</h1>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="col-sm-6 text-md-center">
+                            <h4>CONTACT US</h4>
+                            <div class="item-contact">
+                                <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a>
+                                <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a>
+                                <a href="mailto:info@brandcatmedia.com"><span
+                                        class="link-id">E</span>:<span>info@brandcatmedia.com</span></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="yeslogin" v-if="loggedin">
+                        <button v-on:click="handleLogout">Logout</button>
+                    </div>
 
                 </div>
                 <div class="return-top-link">
                     <!-- Return to top  -->
-                        <a v-if="!singlereview" href="#app">Return to top</a>
+                    <a v-if="!singlereview" href="#app">Return to top</a>
                 </div>
-              </div>
-
-
             </div>
 
 
-
-            <div class="footer-bottom-layout">
-              <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
-                Ortega, Lea Thomas, Besrat Zerehaimanot.</div>
-            </div>
-          </footer>
+    </div>
 
 
 
+    <div class="footer-bottom-layout">
+        <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+            Ortega, Lea Thomas, Besrat Zerehaimanot.</div>
+    </div>
+    </footer>
 
 
 
-            <!-- OLD FOOTER -->
-            <!-- Footer Links -->
-            <!-- <div class="container text-center text-md-left mt-5"> -->
-                <!-- Grid row -->
-                <!-- <div class="row mt-3 dark-grey-text"> -->
-                    <!-- Grid column -->
-                    <!-- <div class="col-md-5 col-lg-5 col-xl-4 mx-4 mb-4"> -->
-                        <!-- Content -->
-                        <!-- <h6 class="text-uppercase font-weight-bold">A Music Journal</h6>
+
+
+
+    <!-- OLD FOOTER -->
+    <!-- Footer Links -->
+    <!-- <div class="container text-center text-md-left mt-5"> -->
+    <!-- Grid row -->
+    <!-- <div class="row mt-3 dark-grey-text"> -->
+    <!-- Grid column -->
+    <!-- <div class="col-md-5 col-lg-5 col-xl-4 mx-4 mb-4"> -->
+    <!-- Content -->
+    <!-- <h6 class="text-uppercase font-weight-bold">A Music Journal</h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
                             artists.
@@ -272,23 +375,23 @@
 
 
 
-                        <!-- EDITOR LOGIN-->
+    <!-- EDITOR LOGIN-->
 
-                        <!-- logout button -->
-                        <!-- <div id="yeslogin" v-if="loggedin">
+    <!-- logout button -->
+    <!-- <div id="yeslogin" v-if="loggedin">
                             <button v-on:click="handleLogout">Logout</button>
                         </div> -->
 
-                        <!-- LOGIN SECTION-->
-                        <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
+    <!-- LOGIN SECTION-->
+    <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
 
-                            <!-- <fieldset>
+    <!-- <fieldset>
                                 <legend>
                                     <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
                                 </legend> -->
 
-                                <!-- login fields -->
-                                <!-- <div id="loginform">
+    <!-- login fields -->
+    <!-- <div id="loginform">
                                     <input type="text" placeholder="username" v-model="createUN">
                                     <input type="password" placeholder="password" v-model="createPW">
                                     <div id="login-form-button-container">
@@ -299,8 +402,8 @@
 
 
 
-                            <!-- ACCORDIAN LOGIN SECTION -->
-                            <!-- <div class="accordion" id="accordionExample275">
+    <!-- ACCORDIAN LOGIN SECTION -->
+    <!-- <div class="accordion" id="accordionExample275">
                                 <div class="card z-depth-0 bordered">
 
                                     <div class="card-header" id="headingOne2">
@@ -327,8 +430,8 @@
                                 </div>
                               </div> -->
 
-                            <!-- login error message -->
-                            <!-- <div id="errorlogin" v-if="loginerror">
+    <!-- login error message -->
+    <!-- <div id="errorlogin" v-if="loginerror">
                                 <p class="text-uppercase ">Invalid username or password.<br> Please check your
                                     entry and try again.</p>
                             </div>
@@ -337,9 +440,9 @@
 
 
 
-                    <!-- <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4"> -->
-                        <!-- Links -->
-                        <!-- <h6 class="text-uppercase font-weight-bold">Contact</h6>
+    <!-- <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4"> -->
+    <!-- Links -->
+    <!-- <h6 class="text-uppercase font-weight-bold">Contact</h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p>
                             <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
@@ -349,21 +452,21 @@
                             <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
 
                     </div>    -->
-                    <!-- Grid column -->
-                <!-- </div> -->
-                <!-- Grid row -->
-            <!-- </div> -->
-            <!-- Footer Links -->
-            <!-- Copyright -->
-            <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+    <!-- Grid column -->
+    <!-- </div> -->
+    <!-- Grid row -->
+    <!-- </div> -->
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
                 Ortega, Lea Thomas, Besrat Zerehaimanot
             </div> -->
-            <!-- Copyright -->
-        <!-- </footer> -->
+    <!-- Copyright -->
+    <!-- </footer> -->
 
     <!-- Footer Links -->
 
-  <!-- </footer> -->
+    <!-- </footer> -->
 
 
 
@@ -381,30 +484,32 @@
 
 
 
-      <!-- Modal -->
+    <!-- Modal -->
 
 
-      <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
-      <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
+    <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            <div>{{user && user.username}}</div>
-            </div>
-            <div class="modal-footer">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>{{user && user.username}}</div>
+                </div>
+                <div class="modal-footer">
 
-              <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
-              <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal" v-on:click="handleDelete">Yes, I'm sure</button>
+                    <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2"
+                        data-dismiss="modal">Close</button>
+                    <button id="edit" class="col-xs-12 col-sm-12 col-md-4" data-dismiss="modal"
+                        v-on:click="handleDelete">Yes, I'm sure</button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     </div>
     <!-- Footer -->
@@ -430,16 +535,16 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-        </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 
-    </body>
+</body>
 
 </html>

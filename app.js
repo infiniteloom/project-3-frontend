@@ -25,6 +25,7 @@ const app = new Vue({
     data: {
         reviews: [],
         singlereview: null,
+        aboutme: null,
         search: "", //defining the search property and empty value
         loggedin: false,
         loginerror: false,
@@ -86,6 +87,18 @@ const app = new Vue({
             .then(response => response.json())
             .then(data => {
                 this.singlereview = data
+                console.log(data)
+            })
+        },
+
+            // TEAM ABOUT ME PAGE
+            openAboutMe: function (event) {
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            // console.log(`id number is ${event.target.id}`)
+            fetch(`${URL}/reviews/${event.target.id}`)
+            .then(response => response.json())
+            .then(data => {
+                this.aboutme = data
                 console.log(data)
             })
         },
