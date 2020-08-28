@@ -155,7 +155,7 @@ VIEWS:
 
 ## Additional Libraries
 - Vue
-- jQuery? 
+- Quill 
 - Bootstrap
 
 ## Code Snippet
