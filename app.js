@@ -18,11 +18,12 @@ const app = new Vue({
     CarouselComponent,
     },
     data: {
+        randomReviewsArr: [],
         reviews: [],
         singleReview: null,
         createReview: null,
         editReview: null,
-        // changeReview: null,
+        selectedReview: null,
         dash:null,
         aboutme: null,
         search: "", //defining the search property and empty value
@@ -99,12 +100,12 @@ const app = new Vue({
             this.reset()
             this.dash=true
         },
-
         handleDelete: function (event) {
-            console.log(`the id is ${this.singleReview.id}`)
+            // console.log(`the id is ${this.selectedReview}`)
 
-            // const URL = this.prodURL ? this.prodURL : this.devURL;
-            const ID = this.singleReview.id;
+            const ID = this.singleReview ? this.singleReview.id : this.selectedReview
+            console.log(`the id is ${ID}`)
+
             fetch(`${URL}/reviews/${ID}`, {
                 method: "delete",
                 headers: {
@@ -117,45 +118,30 @@ const app = new Vue({
             });
         },
         updateReview: function(event){
-          // updateReviewPhoto = "https://www.tesla.com/xNVh4yUEc3B9/04_Desktop.jpg"
-          updatedReview=this.new_review
-          updatedReview.review_text = quill.root.innerHTML
-          // this.singleReview.profile_pic_url = updateReviewPhoto
-          const ID = this.singleReview.id;
-          fetch(`${URL}/reviews/${ID}`, {
-            method: "put",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `bearer ${this.token}`
-            },
-            body: JSON.stringify(updatedReview)
-          })
-          .then((response) => {
-              this.reset();
-              console.log(updatedReview);
-              console.log(`${ID}` + " updated");
-            });
+            // updateReviewPhoto = "https://www.tesla.com/xNVh4yUEc3B9/04_Desktop.jpg"
+            updatedReview=this.new_review
+            updatedReview.review_text = quill.root.innerHTML
+            // this.singleReview.profile_pic_url = updateReviewPhoto
+            const ID = this.singleReview.id;
+            fetch(`${URL}/reviews/${ID}`, {
+                method: "put",
+                headers: {
+                "Content-Type": "application/json",
+                "Authorization": `bearer ${this.token}`
+                },
+                body: JSON.stringify(updatedReview)
+            })
+            .then((response) => {
+                this.reset();
+                console.log(updatedReview);
+                console.log(`${ID}` + " updated");
+                });
         },
         showUpdateReview: function(){
-          this.editReview = true;
-          this.new_review = {...this.singleReview};
-          quill.root.innerHTML = this.singleReview.review_text
-        },
-        reset: function () {
-            this.editReview = null,
-            this.aboutme = null,
-            this.createReview = null;
-            this.dash = null;
-            this.singleReview = null;
-            fetch(`${URL}/reviews`)
-                .then(response => response.json())
-                .then(data => {
-                    this.reviews = data
-                    console.log(data)
-                })
-            // location.reload;
-            document.querySelector('.navbar-collapse').classList.remove('show')
-            window.scrollTo(0,0)
+            this.reset()
+            this.editReview = true;
+            this.new_review = {...this.singleReview};
+            quill.root.innerHTML = this.singleReview.review_text
 
         },
         showCreateNewReview: function () {
@@ -189,11 +175,50 @@ const app = new Vue({
                     body: JSON.stringify(review)
                 })
 
-               //  MAYBE REFACTOR
-                this.reset()
+               //  MAYBE REFACTOR?
+                .then(this.reset)
                 this.createError = false;
             }
+        },
+        reset: function () {
+            this.editReview = null,
+            this.aboutme = null,
+            this.createReview = null;
+            this.dash = null; 
+            this.singleReview = null;
+            this.selectedReview = null;
+            fetch(`${URL}/reviews`)
+                .then(response => response.json())
+                .then(data => {
+                    this.reviews = data
+                    console.log(data)
+                })
+            document.querySelector('.navbar-collapse').classList.remove('show')
+            window.scrollTo(0,0)
+        },
+        randomReviews: function (){
+            let randomInd = []
+            let random
+            while(randomInd.length < 3){
+                random = Math.floor(Math.random()*this.reviews.length)
+                // console.log('this is the length of reviews in randomreviews function call : ' + this.reviews.length)
+                // console.log('randomInd array is valued : ' + randomInd)
+                //test to see if random num already exists in randomInd array.
+                // console.log(this.reviews)
+                if(!randomInd.includes(random)){
+                    // test to see if there is a review at this.reviews at index of random num
+                    if(this.reviews[random]){
+                        // if random num does not exist in array and there is a review at this.reviews[random] then push random num to randomInd
+                        randomInd.push(random)
+                    }
+                }
+            }
 
+            let randomImg1 = this.reviews[randomInd[0]]
+            let randomImg2 = this.reviews[randomInd[1]]
+            let randomImg3 = this.reviews[randomInd[2]]
+            this.randomReviewsArr.push(randomImg1, randomImg2, randomImg3)
+            console.log(this.randomReviewsArr)
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -207,6 +232,9 @@ const app = new Vue({
                 this.reviews = data
                 console.log(data)
             })
+            .then(()=> this.randomReviews())
+            
+            // .then(this.randomReviews)
     },
     //using the search value to filter out matches to album title
     computed: {
@@ -217,7 +245,7 @@ const app = new Vue({
                 return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
             })
         }
-     }
+    }
 });
 
 

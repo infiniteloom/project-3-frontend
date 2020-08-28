@@ -24,6 +24,12 @@ body {
     font-size: 12px;
 
 }
+.btn-primary{
+    background-color: grey;
+}
+.btn-primary:hover{
+    background-color: darkgray;
+}
 ::placeholder{
     font-size: .8em;
     font-style: italic;
@@ -32,9 +38,6 @@ body {
 }
 
 
-.btn-primary{
-    background-color: grey;
-}
 
 
 
@@ -123,18 +126,15 @@ body {
     border-top:5px solid rgb(249, 254, 238);
 }
 
-#recentReviewsText {
-    font-family: reason-new, sans-serif;
-    font-size:16px;
-}
 
-
-
-
-
-
-
-  /*
+  
+  
+  
+  
+  
+  
+  
+  /* 
   @media (max-width: 768px) {
 
     #siteTitle {
@@ -219,31 +219,66 @@ body {
 /////////////////////////////// */
 .dash-list-container{
     display: flex;
-    margin: 0 auto;
+    margin: 50px auto;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 0;
     align-items: center;
     width: 80%;
-
+    background-color: rgb(243, 243, 243);
+}
+#dash-recent-reviews{
+    padding: 15px;
 }
 .dash-header-container{
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
-.dash-item{
+.dash-header-buttons{
+    padding: 0;
+    margin-bottom: 10px;
+}
+.dash-searchbox-container{
+    text-align: right;
+    padding: 0;
+    margin-bottom: 10px;
+}
+#dash-searchbox{
+    min-width: 100px;
+    max-width: 150px;
+    padding: 2px;
+}
+.dash-item-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 80%;
     padding: 10px;
+    border: 1px solid rgb(240, 238, 238);
+}
+.dash-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 15px;
     border: 1px solid rgb(180, 178, 178);
+    background-color: white;
+}
+.dash-check-col{
+    display: flex;
+    align-items: center;
 }
 .dash-right-col-container{
     display:flex;
     align-items: center;
+    padding-left: 20px;
+}
+.dash-left-img{
+    max-width: 50px;
 }
 .dash-left-caption p{
-    font-size: .6em;
+    font-size: .8em;
     line-height: 1em;
     margin: 0;
 }
@@ -258,8 +293,8 @@ body {
     color: lightgray;
 }
 .dash-buttons{
-    font-size: .8em;
-    background-color: white;
+    font-size: 1em;
+    background-color: transparent;
     border: none;
     color: #666666;
 }
@@ -271,16 +306,90 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+@media (max-width: 720px){
+    .dash-list-container{
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
+
+.home-page-body{
+    background-color: rgb(238, 238, 238);
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+
+/* 
+//////////////////////////////
+///  FEATURED STORIES STYLING  //
+//////////////////////////// */
+.featured-articles-container{
+    width: 90%;
+    /* background-color: rgb(238, 238, 238); */
+    margin: 70px auto;
+}
+.featured-articles-body-container{
+    width: 90%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: white;
+    /* border-top: 3px solid rgb(238, 238, 238); */
+}
+.featured-left-col{
+    padding: 30px;
+    max-width: 400px;
+}
+.featured-right-col{
+    padding: 30px;
+    max-width: 400px;
+    border-left: 3px solid rgb(238, 238, 238);
+}
+#feature-left-img{
+    width: 100%;
+    max-width: 300px;
+}
+#feature-right-img1{
+    width: 100%;
+    max-width: 300px;
+}
+#feature-right-img2{
+    width: 100%;
+    max-width: 300px;
+}
+.button-no-border{
+    background-color: transparent;
+    border-style: none;
+
+}
+
+
 
 /*
 //////////////////////////////
 ///  GRID GALLERY STYLING  //
 //////////////////////////// */
 .recent-reviews-title{
-    padding-top: 30px;
+    padding-top: 10px;
     margin: 0 auto;
     text-align: center;
+    font-size: 1em;
+    font-family: reason-new, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(246, 246, 246);
 }
+
 .gallery{
     margin: 0 auto;
     text-align: center;
@@ -302,12 +411,14 @@ body {
 }
 .searchbox-container{
     width: 90%;
-    margin: 0 auto;
-    padding-left: 15px;
-    margin-bottom: 20px;
+    margin: 30px auto;
 }
 #searchbox{
     width: 33%;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 2px;
+    border: none;
 }
 
 
@@ -392,6 +503,7 @@ body {
     text-align: center;
     padding: 10px;
     background-color: lightgray;
+    color: black;
 }
 .return-link a:hover{
     color: gray;
@@ -418,34 +530,42 @@ body {
 ////////////////////////////////// */
 .create-form-container{
     width: 60%;
-    margin: 0 auto;
+    margin: 70px auto;
     display: flex;
     flex-direction: column;
-
 }
-
-
 .form-group{
-    display:flex;
-    flex-wrap:wrap;
+    margin-bottom: .8rem;
+    display: flex;
+    justify-content: space-between;
 }
-.editor-container{
-    padding: 20px;
+.create-form-field{
+    padding: 0;
+    width: 45%;
 }
-
-
-
+.form-control{
+    border-radius: 0;
+}
 #editor{
     height: 200px;
+    padding: 10px;
 }
 .publish-post{
     width: 100px;
 }
-
 .publish-button-container{
     text-align: right;
     padding-right: 20px;
 }
+@media (max-width: 400px){
+    .create-form-container{
+        width: 90%;
+    }
+}
+
+
+
+
 
 
 
@@ -458,17 +578,28 @@ body {
     margin-bottom:3%;
     margin-right:2%;
 }
-#edit, #close, #delete {
+.confirm-delete-button{
+    border:1px solid rgb(165, 0, 0);
+    font-size:12px;
+    background-color:white;
+    margin:5px;
+    border-style: none;
+    background-color:rgb(239, 239, 239);
+    border:2px solid rgb(239, 239, 239);
+}
+.publish-changes-button, .show-edit-button{
+    font-size:12px;
+    background-color:white;
+    margin:5px;
+    border: none;
+}
+#close, #delete {
     border:1px solid rgb(165, 0, 0);
     font-size:12px;
     background-color:white;
     margin:5px;
 }
-#edit {
-    border-style: none;
-    background-color:rgb(239, 239, 239);
-    border:2px solid rgb(239, 239, 239);
-}
+
 
 
 
@@ -476,17 +607,23 @@ body {
 ////////////////////////////////////
 ///  ABOUT ME SECTION STYLING   ///
 ////////////////////////////////// */
+.team-container{
+    width: 90%;
+    margin: 20px auto;
+}
 .member {
   display: flex;
   justify-content: space-between;
   padding: 25px;
+  align-items: center;
 }
-
-.box {
-  width: 400px;
+.bio{
+    text-align: left;
+    width: 70%; 
 }
-
-
+.bio-pic{
+    width: 30%;
+}
 .team-title {
   display: flex;
   justify-content: center;
@@ -551,8 +688,9 @@ body {
 ////////////////// */
 #footerTitle {
     font-family: 'DM Serif Display', serif;
-    font-size:36px;
+    font-size:20px;
 }
+
 
 
 
@@ -836,8 +974,22 @@ a.socialIcon:hover, .socialHoverClass {
 	-ms-transition: all 0.8s;
 	transition: all 0.8s;
 }
+.return-top-link-container{
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(44, 44, 44);
+}
+.return-top-link-container:hover{
+    background-color: rgb(34, 34, 34);
+}
 
-
+#return-to-top{
+    color: white;
+}
+#return-to-top:hover{
+    color: grey;
+}
 
 
 
