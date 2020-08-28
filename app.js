@@ -21,7 +21,8 @@ const app = new Vue({
         reviews: [],
         singleReview: null,
         createReview: null,
-        editReview: false,
+        editReview: null,
+        dash:null,
         aboutme: null,
         search: "", //defining the search property and empty value
         loggedin: false,
@@ -89,18 +90,15 @@ const app = new Vue({
                 console.log(data)
             })
         },
-
-            // TEAM ABOUT ME PAGE
-            openAboutMe: function (event) {
-            this.aboutme= true
-            // console.log(`id number is ${event.target.id}`)
-            // fetch(`${URL}/reviews/${event.target.id}`)
-            // .then(response => response.json())
-            // .then(data => {
-            //     this.aboutme = data
-            //     console.log(data)
-            // })
+        openAboutMe: function (event) {  // TEAM ABOUT ME PAGE
+            this.reset()
+            this.aboutme= true 
         },
+        callDash: function (event){
+            this.reset()
+            this.dash=true
+        },
+        
         handleDelete: function (event) {
             console.log(`the id is ${this.singleReview.id}`)
 
@@ -118,10 +116,11 @@ const app = new Vue({
             });
         },
         reset: function () {
-            this.aboutme = false
-            this.createReview = false;
-            this.dash = false;
-            this.singleReview = false;
+            this.editReview = null,
+            this.aboutme = null,
+            this.createReview = null;
+            this.dash = null; 
+            this.singleReview = null;
             fetch(`${URL}/reviews`)
                 .then(response => response.json())
                 .then(data => {
@@ -129,14 +128,10 @@ const app = new Vue({
                     console.log(data)
                 })
             // location.reload;
+            document.querySelector('.navbar-collapse').classList.remove('show')
             window.scrollTo(0,0)
+
         },
-   //      randomItem (items) {
-   //       return this.reviews[Math.floor(Math.random()*this.reviews.length)];
-   //     },
-   //     generate () {
-   //   this.selectedImage = this.randomItem(this.reviews.profile_pic_url)
-   // }
         showCreateNewReview: function () {
             this.createReview = true    
         },
