@@ -230,17 +230,30 @@
 
 
         <!-- FEATURED ARTICLES SECTION POST MVP -->
-            <div class="featured-articles-container">
+            <div class="featured-articles-container"  >
                 <div class="featured-left-col col-6 col-xs-12" >
                     <button v-on:click="randomReviews">TESTING</button>
-                    <div class="featured-left-article">
+                    <div class="featured-left-article" v-if="randomReviews">
                         <!-- {{randomInd}} -->
-                        {{randomReviews[0].review_text.substring(0, 100)}}
+                        <!-- {{randomReviews[0].review_text.substring(0, 100)}} -->
+                        <img src="https://www.comunicaffe.com/wp-content/uploads/2020/02/Bob-Marley-640x430.jpg">
+                        <p>Bob Marley  was one of the world's first global superstars, famous and lauded from Europe through Africa and the Americas. Some even saw him as not just a reggae singer but as a folk hero, a sort of freedom fighter, and to this day his enduring image feels greater than the music he made. Yet it's that music that drives Bob Marley, Inc., which has extended Marley's legacy one step beyond mere icon: In the 21st century, Bob Marley's a bona fide brand, a veritable back-to-school staple every bit as important as more practical dorm-room accoutrements, a mildly rebellious signifier for those not quite ready to wade into the slightly muddier waters of the Che Guevara poster.
+                            Marley isn't the best reggae singer Jamaica ever produced, but he's certainly the best-known and best-selling. Indeed, nary a music listener goes a lifetime without picking up Marley's best-of Legend, a disc that stresses the singer's mastery of pop music in general as much as reggae specifically. Ironically, those millions of copies of Legend shipped and sold each year as totem, talisman, or token have obscured Marley's place as an album artist, but the singer's catalog shouldn't be an afterthought. </p>
+                        <button width="100%">Read More</button>
                     </div>
                 </div>
                 <div class="featured-right-col col-6 col-xs-12">
-                    <div class="featured-right-article">
-                        {{randomReviews[1].review_text.substring(0, 100)}}
+                    <div class="featured-right-article" v-if="randomReviews">
+                        <img src="https://media.npr.org/assets/img/2020/02/06/marley-dennislawrence-955c371292854918aca56185fe7f6df2471cac04-s1100-c15.jpeg">
+                        <!-- {{randomReviews[1].review_text.substring(0, 100)}} -->
+                        <p> Bob Marley died was one of the world's first global superstars, famous and lauded from Europe through Africa and the Americas. Some even saw him as not just a reggae singer but as a folk hero, a sort of freedom fighter, and to this day his enduring image feels greater than the music he made. Yet it's that music that drives Bob Marley, Inc., which has extended Marley's legacy one step beyond mere icon: In the 21st century, Bob Marley's a bona fide brand, a veritable back-to-school staple every bit as important as more practical dorm-room accoutrements, a mildly rebellious signifier for those not quite ready to wade into the slightly muddier waters of the Che Guevara poster.
+                        <button width="100%">Read More</button>
+                    </div>
+                    <div class="featured-right-article" v-if="randomReviews">
+                        <img src="https://media.npr.org/assets/img/2020/02/06/marley-dennislawrence-955c371292854918aca56185fe7f6df2471cac04-s1100-c15.jpeg">
+                        <!-- {{randomReviews[1].review_text.substring(0, 100)}} -->
+                        <p> Bob Marley died was one of the world's first global superstars, famous and lauded from Europe through Africa and the Americas. Some even saw him as not just a reggae singer but as a folk hero, a sort of freedom fighter, and to this day his enduring image feels greater than the music he made. Yet it's that music that drives Bob Marley, Inc., which has extended Marley's legacy one step beyond mere icon: In the 21st century, Bob Marley's a bona fide brand, a veritable back-to-school staple every bit as important as more practical dorm-room accoutrements, a mildly rebellious signifier for those not quite ready to wade into the slightly muddier waters of the Che Guevara poster.
+                        <button width="100%">Read More</button>
                     </div>
                 </div>
             </div>
