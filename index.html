@@ -51,17 +51,16 @@
                             <a class="navbar-brand mx-auto" id="siteTitle" v-on:click="reset">
                                 A Music Journal
                             </a>
-                            <!--            burger mobile menu icon -->
+                            <!-- burger mobile menu icon -->
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="navbar-toggler-icon"></span></button>
                             <div class="navbar-collapse collapse">
                                 <!-- menu items -->
                                 <ul class="navbar-nav">
-                                    <li class="nav-item"> <a class="nav-link" href="./index.html" v-on:click="()=>this.createReview=false">Reviews</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" v-on:click="reset">Reviews</a> </li>
                                     <li class="nav-item"> <a class="nav-link" id="aM" href="#" v-on:click="openAboutMe">About</a> </li>
-                                    <!-- <li class="nav-item"> <a class="nav-link" id="aM" href="#"  v-on:click="openAboutMe">About</a> </li> -->
-
-                                    <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li>
+                                    <li class="nav-item"><a class="nav-link" v-if="loggedin" v-on:click="callDash" href="#app">Dashboard</a></li>
+                                    <!-- <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -76,7 +75,7 @@
             <div>
                 <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
                 <div>
-                    <div v-if="!singleReview && !createReview" v-show="!aboutme"  id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div v-if="!singleReview && !createReview && !dash" v-show="!aboutme"  id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item " id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
                                 <img :src="review.profile_pic_url">
@@ -140,20 +139,20 @@
                     </div>
 
                     <!-- Edit/Delete Buttons DIV -->
-                    <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
+                    <div id="editDelete" v-if="loggedin && singleReview" class="d-flex justify-content-end">
                         <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
                         <button id="edit"  class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
                     </div>
-                    <div id="return-link">
+                    <!-- <div id="return-link">
                         <a v-on:click="()=>this.singleReview=null">Return to All Reviews</a>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- Edit and delete buttons only show if auth /logged in -->
                 <div v-if="loggedin && editReview">
                     <button>Edit</button>
                     <button>Delete</button>
                 </div>
-                
+            
             <!-- END QUILL DEBUG DIV -->
             </div>   
         <!-- END SINGLE REVIEW VIEW -->
@@ -202,25 +201,19 @@
                     <div id="editor">
                     </div>
                 </div>
-                <!-- Edit/Delete Buttons DIV -->
-                <div id="editDelete" v-if="loggedin" class="d-flex justify-content-end">
-                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal"
-                        data-target="#modalVerify">Delete Post</button>
-                    <button id="edit" class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
-                </div>
 
                 <!-- Publish button to create review -->
                 <div class="publish-button-container">
                     <button v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
                 </div>
+                
             </div>
 
+            
         
         
         <!-- QUILL DEBUG DIV -->
         <div>
-
-
         <!-- SEARCH BOX stores value of input, in this case, the search property -->
             <!-- <div class="recent-reviews-title" v-if="!singlereview" id="recent-reviews-title" v-show="!aboutme">
                 <h4>RECENT REVIEWS</h4>
@@ -228,13 +221,12 @@
 
             <!-- stores value of input, in this case, the search property -->
             <div class="searchbox-container" v-if="!singleReview" v-show="!aboutme">
-                <input id="searchbox" type="text" v-model="search" placeholder="search" />
+                <input id="searchbox" type="text" v-model="search" placeholder="search" />  
             </div>
-
 
         <!-- GALLERY VIEW START  -->
             <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-            <div v-if="!singleReview  && !createReview"  v-show="!aboutme" class="gallery" id="gallery">
+            <div v-if="!singleReview  && !createReview && !dash"  v-show="!aboutme" class="gallery" id="gallery">
                 <!-- updated array, based on search term -->
                 <!-- RENDER REVIEWS FROM DATABASE  -->
                 <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
@@ -242,9 +234,67 @@
                     <p>{{review.artist_name}} <br>
                     <span class="album-title"> {{review.album_title}}</span></p>
                 </div>
+
             </div>
-        <!-- END QUILL DEBUG DIV -->
+
         </div>
+
+
+
+        <!-- FEATURED ARTICLES SECTION POST MVP -->
+
+
+
+
+
+
+
+
+
+        <!-- ADMIN DASHBOARD / LIST VIEW -->
+        <div v-if="!singleReview && loggedin && dash && !createReview" class="dash-list-container">
+            <div class="dash-header-container">
+                <button type="button" class="dash-buttons" id="dash-create-button"  v-on:click="()=>createReview=true">Create New Review</button>
+                <button type="button" class="dash-buttons" id="dash-edit-button">Edit Post</button>
+                <button type="button" id="dash-delete" class="dash-buttons" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+            </div>
+
+        <!--RENDER DATA IN LIST VIEW -->
+            <div v-for="review of filteredReviews" class="dash-item img-fluid col-12">
+
+                <div class="dash-check-col col-1">
+                    <input type="checkbox">
+                </div>
+                <div class="dash-left-col-container col-2" >
+                    <div class="dash-left-img">
+                        <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
+                    </div>
+                    <div class="dash-left-caption">
+                    <!-- Need to only select the first 10 digits of created_at and flip to read dd/mm/yyyy then use sort to organize -->
+                        <p>{{review.created_at.substring(0,10)}}</p>
+                    </div>
+                </div>
+                <div class="dash-right-col-container col-9">
+                    <p>Artist: {{review.artist_name}}<br>
+                         Album:  <span class="album-title"></span>{{review.album_title}}</span>
+                    </p>
+                    <!-- <p class="excerpt">"{{review.review_text.substring(0,100)}}..."</p> -->
+                </div>
+
+            <!-- end vue loop -->
+            </div>
+
+        </div>
+
+        <!-- <div class="return-link dash-return-link" >
+            <a v-on:click="()=>this.dash=null">Return to All Reviews</a>
+        </div> -->
+
+
+
+
+   
+
 
         
         
@@ -337,11 +387,17 @@
                 </div>
             </div>
 
-            <div id="return-link">
-                <a v-on:click="()=>this.aboutme=null">Return to All Reviews</a>
-            </div>
+           
         </div>
 
+
+
+
+
+        <!-- RETURN TO ALL REVIEWS  -->
+        <div class="return-link" >
+            <a v-on:click="reset" href="#app">Return to All Reviews</a>
+        </div>
  
 
 
@@ -583,10 +639,8 @@
 
 
 
-            <!-- END VUE APP DIV -->
+        <!-- END VUE APP DIV -->
         </div>
-
-
 
 
 
