@@ -454,7 +454,7 @@
 
 
         <!-- RETURN TO ALL REVIEWS  -->
-        <div class="return-link" >
+        <div class="return-link" v-if="singleReview || aboutme || dash">
             <a v-on:click="reset" href="#app">Return to All Reviews</a>
         </div>
  
@@ -467,6 +467,9 @@
             ///////////////////////////////-->
 
             <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
+                <div class="return-top-link-container">
+                    <a v-if="!singleReview" id="return-to-top" href="#app">Return to top</a>
+                </div>
                 <div class="footer-top-layout text-center text-md-center">
                     <div class="container">
                         <div class="row">
@@ -532,18 +535,18 @@
 
                      
                     </div>    
-                </div>
-                 <!-- Return to top  -->
-                <div class="return-top-link">
-                    <a v-if="!singleReview" href="#app">Return to top</a>
-                </div>
-                       
-                <!--     copyright -->
+
+                                    <!--     copyright -->
                 <div class="footer-bottom-layout">
                     <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
                     Ortega, Lea Thomas, Besrat Zerehaimanot.
                     </div>
                 </div>
+                </div>
+                 <!-- Return to top  -->
+
+                       
+
             </footer>
 
 

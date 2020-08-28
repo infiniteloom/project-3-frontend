@@ -503,6 +503,7 @@ body {
     text-align: center;
     padding: 10px;
     background-color: lightgray;
+    color: black;
 }
 .return-link a:hover{
     color: gray;
@@ -967,8 +968,18 @@ a.socialIcon:hover, .socialHoverClass {
 	-ms-transition: all 0.8s;
 	transition: all 0.8s;
 }
-
-
+.return-top-link-container{
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(44, 44, 44);
+}
+#return-to-top{
+    color: white;
+}
+#return-to-top:hover{
+    color: grey;
+}
 
 
 
