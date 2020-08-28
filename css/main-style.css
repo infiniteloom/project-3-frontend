@@ -333,7 +333,7 @@ body {
 //////////////////////////// */
 .featured-articles-container{
     width: 90%;
-    background-color: rgb(238, 238, 238);
+    /* background-color: rgb(238, 238, 238); */
     margin: 70px auto;
 }
 .featured-articles-body-container{
@@ -344,7 +344,7 @@ body {
     margin: 0px auto;
     padding: 10px;
     background-color: white;
-    border-top: 3px solid rgb(238, 238, 238);
+    /* border-top: 3px solid rgb(238, 238, 238); */
 }
 .featured-left-col{
     padding: 30px;
@@ -607,17 +607,23 @@ body {
 ////////////////////////////////////
 ///  ABOUT ME SECTION STYLING   ///
 ////////////////////////////////// */
+.team-container{
+    width: 90%;
+    margin: 20px auto;
+}
 .member {
   display: flex;
   justify-content: space-between;
   padding: 25px;
+  align-items: center;
 }
-
-.box {
-  width: 400px;
+.bio{
+    text-align: left;
+    width: 70%; 
 }
-
-
+.bio-pic{
+    width: 30%;
+}
 .team-title {
   display: flex;
   justify-content: center;
@@ -974,6 +980,10 @@ a.socialIcon:hover, .socialHoverClass {
     padding: 15px;
     background-color: rgb(44, 44, 44);
 }
+.return-top-link-container:hover{
+    background-color: rgb(34, 34, 34);
+}
+
 #return-to-top{
     color: white;
 }

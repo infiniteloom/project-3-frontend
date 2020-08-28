@@ -227,16 +227,15 @@
         <!-- HOME PAGE BODY SECTION -->
         <!-- QUILL DEBUG DIV -->
         <div>
-
+            <button v-on:click="randomReviews">TEST</button>
         <!-- FEATURED ARTICLES SECTION POST MVP -->
             <div class="featured-articles-container">
                 <div class="featured-articles-body-container"  >                
                     <div class="featured-left-col col-6 col-xs-12" >
-                        <div class="featured-left-article" v-if="randomReviews">
-                            <!-- {{randomInd}} -->
-                            <!-- {{randomReviews[0].review_text.substring(0, 100)}} -->
-                            <img id="feature-left-img" src="https://www.comunicaffe.com/wp-content/uploads/2020/02/Bob-Marley-640x430.jpg">
-                            <p>Bob Marley  was one of the world's first global superstars, famous and lauded from Europe through Africa and the Americas. Some even saw him as not just a reggae singer but as a folk hero, a sort of freedom fighter, and to this day his enduring image feels greater than the music he made. Yet it's that music that drives Bob Marley, Inc., which has extended Marley's legacy one step beyond mere icon: In the 21st century, Bob Marley's a bona fide brand, a veritable back-to-school staple every bit as important as more practical dorm-room accoutrements, a mildly rebellious signifier for those not quite ready to wade into the slightly muddier waters of the Che Guevara poster.</p>
+                        <div class="featured-left-article" v-if="randomReviews" >
+                            <img id="feature-left-img" :src="randomReviewsArr[0].profile_pic_url">
+                            <p v-html="randomReviewsArr[0].review_text.substring(0, 100) + '...'"></p>
+
                             <div width="100%">
                                 <button class="button-no-border" width="100%">Read More</button>
                             </div>
@@ -244,17 +243,15 @@
                     </div>
                     <div class="featured-right-col col-6 col-xs-12">
                         <div class="featured-right-article" v-if="randomReviews">
-                            <img id="feature-right-img1" src="https://media.npr.org/assets/img/2020/02/06/marley-dennislawrence-955c371292854918aca56185fe7f6df2471cac04-s1100-c15.jpeg">
-                            <!-- {{randomReviews[1].review_text.substring(0, 100)}} -->
-                            <p> Bob Marley died was one of the world's first global superstars, </p>
+                            <img id="feature-right-img1" :src="randomReviewsArr[1].profile_pic_url">
+                            <p v-html="randomReviewsArr[1].review_text.substring(0, 100) + '...'"> </p>      
                             <div width="100%">
                                 <button class="button-no-border" width="100%">Read More</button>
                             </div>
                         </div>
                         <div class="featured-right-article" v-if="randomReviews">
-                            <img id="feature-right-img2" src="https://media.npr.org/assets/img/2020/02/06/marley-dennislawrence-955c371292854918aca56185fe7f6df2471cac04-s1100-c15.jpeg">
-                            <!-- {{randomReviews[1].review_text.substring(0, 100)}} -->
-                            <p> Bob Marley died was one of the world's first global superstars</p>
+                            <img id="feature-right-img2" :src="randomReviewsArr[2].profile_pic_url">
+                            <p v-html="randomReviewsArr[2].review_text.substring(0, 100) + '...'"></p>       
                             <div width="100%">
                                 <button class="button-no-border" width="100%">Read More</button>
                             </div>
@@ -360,15 +357,15 @@
         <!-- DIV THAT DISPLAYS TEAM ABOUT ME SECTION -->
         <div v-show="aboutme" class="team-container">
             <div class="team-title">
-                <h1><b>Meet the Team</b></h1>
+                <h3><b>Meet the Team</b></h3>
             </div>
             <div class="andre member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="andre-pic">
                     </div>
                 </div>
                 <div class="andre bio">
-                    <h2>Andre Heslop</h2>
+                    <h6>Andre Heslop</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -377,12 +374,12 @@
             </div>
             <hr>
             <div class="magda member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="magda-pic">
                     </div>
                 </div>
                 <div class="magda bio">
-                    <h2>Magdalena Krzyanowski</h2>
+                    <h6>Magdalena Krzyanowski</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -391,12 +388,12 @@
             </div>
             <hr>
             <div class="kenal member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="kenal-pic">
                     </div>
                 </div>
                 <div class="kenal bio">
-                    <h2>Kenal Ortega</h2>
+                    <h6>Kenal Ortega</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -405,12 +402,12 @@
             </div>
             <hr>
             <div class="lea member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="lea-pic">
                     </div>
                 </div>
                 <div class="lea bio">
-                    <h2>Lea Thomas</h2>
+                    <h6>Lea Thomas</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -419,12 +416,12 @@
             </div>
             <hr>
             <div class="biz member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="biz-pic">
                     </div>
                 </div>
                 <div class="biz bio">
-                    <h2>Besrat Zerehaimanot</h2>
+                    <h6>Besrat Zerehaimanot</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -433,12 +430,12 @@
             </div>
             <hr>
             <div class="jeremy member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="jeremy-pic">
                     </div>
                 </div>
                 <div class="jeremy bio">
-                    <h2>Jeremy Rose</h2>
+                    <h6>Jeremy Rose</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -555,7 +552,7 @@
 
 
                                 <!-- ACCORDIAN LOGIN SECTION -->
-                                <div class="accordion" id="accordionExample275">
+                                <!-- <div class="accordion" id="accordionExample275">
                                     <div class="card z-depth-0 bordered">
 
                                         <div class="card-header" id="headingOne2">
@@ -580,7 +577,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <!-- login error message -->
                                 <!-- <div id="errorlogin" v-if="loginerror">

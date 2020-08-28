@@ -177,6 +177,7 @@ const app = new Vue({
                 // console.log('this is the length of reviews in randomreviews function call : ' + this.reviews.length)
                 // console.log('randomInd array is valued : ' + randomInd)
                 //test to see if random num already exists in randomInd array.
+                // console.log(this.reviews)
                 if(!randomInd.includes(random)){
                     // test to see if there is a review at this.reviews at index of random num
                     if(this.reviews[random]){
@@ -204,7 +205,9 @@ const app = new Vue({
                 this.reviews = data
                 console.log(data)
             })
-            // .then(this.randomReviews())
+
+            .then(()=> this.randomReviews())
+            // .then(this.randomReviews)
     },
     //using the search value to filter out matches to album title
     computed: {
