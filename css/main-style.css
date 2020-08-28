@@ -42,7 +42,7 @@ body {
     /* font-family: narly, sans-serif; */
     font-family: 'DM Serif Display', serif;
     /* font-family: 'Notable', sans-serif; */
-    font-size:38px;
+    font-size:25px;
     /* opacity:1; */
     z-index:300;
     cursor: pointer;
@@ -147,6 +147,9 @@ body {
     display:flex;
     align-items: center;
 }
+.dash-left-img{
+    max-width: 80px;
+}
 .dash-left-caption p{
     font-size: .6em;
     line-height: 1em;
@@ -163,7 +166,7 @@ body {
     color: lightgray;
 }
 .dash-buttons{
-    font-size: .8em;
+    font-size: 1em;
     background-color: white;
     border: none;
     color: #666666;
@@ -176,6 +179,14 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+
+
+
+
+
+
+
+
 
 /*Grid Gallery Styling*/
 .recent-reviews-title{
@@ -453,52 +464,8 @@ body {
 /* FOOTER */
 #footerTitle {
     font-family: 'DM Serif Display', serif;
-    font-size:36px;
+    font-size:20px;
 }
-
-
-/* OLD FOOTER STYLING */
-/* .top-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.social-icons-container{
-    margin-right: 10px;
-}
-
-.return-top-link{
-    margin-top: 20px;
-    margin-bottom:-10px;
-    text-align: center;
-
-}
-.return-top-link a{
-
-    color: white;
-    font-size: 12px;
-}
-
-/*
-.page-footer{
-    position: relative;
-}
-footer {
-    background-color: #343a40;
-}
-footer .container{
-    background-color: #343a40;
-    color: white;
-    width: 100%;
-}
-.footer-copyright{
-    color: grey;
-    font-size: .8em;
-} */
-
-
 
 
 

@@ -23,6 +23,7 @@ const app = new Vue({
         createReview: null,
         editReview: null,
         dash:null,
+        selectedDash: null,
         aboutme: null,
         search: "", //defining the search property and empty value
         loggedin: false,
