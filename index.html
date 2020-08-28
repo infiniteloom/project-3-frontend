@@ -70,9 +70,9 @@
                             <div class="navbar-collapse collapse">
                                 <!-- menu items -->
                                 <ul class="navbar-nav">
-                                    <li class="nav-item"> <a class="nav-link" v-on:click="reset">Reviews</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="#" v-on:click="reset">Reviews</a> </li>
                                     <li class="nav-item"> <a class="nav-link" id="aM" href="#" v-on:click="openAboutMe">About</a> </li>
-                                    <li class="nav-item"><a class="nav-link" v-if="loggedin" v-on:click="callDash" href="#app">Dashboard</a></li>
+                                    <li class="nav-item"><a class="nav-link"  v-if="loggedin" v-on:click="callDash" href="#app">Dashboard</a></li>
                                     <!-- <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li> -->
                                 </ul>
                             </div>
@@ -110,15 +110,13 @@
             <!-- END QUILL DEBUG -->
             </div>
 
-            <div class="wideRow" id="recentReviews">
-                <h4 id="recentReviewsText">RECENT REVIEWS</hr>
-                </div>
-
+         
+                
         <!-- SINGLE REVIEW VIEW SECTION -->
             <!-- START QUILL DEBUG -->
             <div>
                 <!-- This would be the div that displays a single review -->
-                <div v-if="singleReview && !createReview" v-show="!aboutme" class="single-review-container">
+                <div v-if="singleReview && !createReview" v-bind:id="singleReview.id" v-show="!aboutme" class="single-review-container">
 
                     <!-- Single review header  -->
                     <div class="single-review-data-display-container">
@@ -155,14 +153,11 @@
                         </div>
                     </div>
 
-                    <!-- Edit/Delete Buttons DIV -->
+                    <!-- INITIAL logged in state: Edit/Delete Buttons DIV -->
                     <div id="editDelete" v-if="loggedin && singleReview" class="d-flex justify-content-end">
-                        <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                        <button id="edit"  class="col-xs-12 col-sm-12 col-md-2"v-on:click="showUpdateReview">Edit Review</button>
+                        <button type="button" id="delete" class=" col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                        <button id="edit"  class="show-edit-button col-xs-12 col-sm-12 col-md-2" v-on:click="showUpdateReview">Edit Review</button>
                     </div>
-                    <!-- <div id="return-link">
-                        <a v-on:click="()=>this.singleReview=null">Return to All Reviews</a>
-                    </div> -->
                 </div>
                 <!-- Edit and delete buttons only show if auth /logged in -->
                 <!-- <div v-if="loggedin && editReview">
@@ -175,39 +170,42 @@
         <!-- END SINGLE REVIEW VIEW -->
 
 
-        <!-- <div> -->
+
+
+        
+
         <!-- CREATE NEW REVIEW VIEW -->
             <!-- This needs to be toggled to show when admin clicks on create new review button  -->
             <div :class="'create-form-container ' + ((createReview || editReview)? 'is-visible' : 'is-hidden')" id="create-form">
                 <!-- Artist name and album title fields -->
                 <div class="form-group">
-                    <div class="col 6">
+                    <div class="create-form-field">
                         <label for="artist-name-field">Artist Name</label>
                         <input v-model="new_review.artist_name"  class="form-control" id="artist-name-field" aria-describedby="emailHelp" placeholder="Enter artist name">
                     </div>
-                    <div class="col 6">
+                    <div class="create-form-field">
                         <label for="album-title-field">Album Title</label>
                         <input v-model="new_review.album_title" class="form-control" id="album-title" placeholder="Enter album title">
                     </div>
                 </div>
                 <!-- Record label and release date fields -->
                 <div class="form-group">
-                    <div class="col 6">
+                    <div class="create-form-field">
                         <label for="record-label-field">Record Label</label>
                         <input  v-model="new_review.record_label"  class="form-control" id="record-label" placeholder="Enter record label">
                     </div>
-                    <div class="col 6">
+                    <div class="create-form-field">    
                         <label for="release-date-field">Release Date</label>
                         <input  v-model="new_review.release_date" type="date" class="form-control" id="release-date">
                     </div>
                 </div>
                 <!-- Album art url and profile pic url (stand in until we apply AWS) -->
-                <div class="form-group">
-                    <div class="col 6">
+                <div class="form-group ">
+                    <div class="create-form-field">
                         <label for="album-art-url-field">Album Art URL</label>
                         <input  v-model="new_review.img_url"  class="form-control" id="album-art-url" placeholder="http://www.albumarturl.com">
                     </div>
-                    <div class="col 6">
+                    <div class="create-form-field">    
                         <label for="profile-pic-field">Profile Pic URL</label>
                         <input  v-model="new_review.profile_pic_url" type="text" class="form-control" id="profile-pic" placeholder="http://www.profilepic.com">
                     </div>
@@ -221,45 +219,83 @@
 
                 <!-- Publish button to create review -->
                 <div class="publish-button-container">
+                    <!-- create form's publish button -->
                     <button v-if="!editReview" v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
-                    <button v-if="editReview" v-on:click="updateReview" type="button" class="btn btn-primary publish-post">Update Review</button>
+                    <!-- edit form's publish button -->
+                    <button v-if="editReview" v-on:click="updateReview" type="button" class="btn btn-primary publish-post publish-changes-button">Update Review</button>
                 </div>
 
             </div>
 
-
-
-
+            
+        
+        <!-- HOME PAGE BODY SECTION -->
         <!-- QUILL DEBUG DIV -->
         <div>
-        <!-- SEARCH BOX stores value of input, in this case, the search property -->
-            <!-- <div class="recent-reviews-title" v-if="!singlereview" id="recent-reviews-title" v-show="!aboutme">
-                <h4>RECENT REVIEWS</h4>
-            </div> -->
-
-            <!-- stores value of input, in this case, the search property -->
-            <div class="searchbox-container" v-if="!singleReview" v-show="!aboutme">
-                <input id="searchbox" type="text" v-model="search" placeholder="search" />
+        <!-- FEATURED ARTICLES SECTION POST MVP -->
+            <div class="featured-articles-container" v-if="!aboutme && !dash && !singleReview && !createReview">
+                <div class="featured-articles-body-container"  >                
+                    <div class="featured-left-col col-6 col-xs-12" >
+                        <div class="featured-left-article" v-if="randomReviewsArr[0]" >
+                            <img id="feature-left-img" :src="randomReviewsArr[0].profile_pic_url">
+                            <p v-html="randomReviewsArr[0].review_text.substring(0, 100) + '...'"></p>
+                            <div class="button-no-border-container">
+                                <button class="button-no-border">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-right-col col-6 col-xs-12">
+                        <div class="featured-right-article"  v-if="randomReviewsArr[0]" >
+                            <img id="feature-right-img1" :src="randomReviewsArr[1].profile_pic_url">
+                            <p v-html="randomReviewsArr[1].review_text.substring(0, 100) + '...'"> </p>      
+                            <div width="100%">
+                                <button class="button-no-border" width="100%">Read More</button>
+                            </div>
+                        </div>
+                        <div class="featured-right-article"  v-if="randomReviewsArr[0]" >
+                            <img id="feature-right-img2" :src="randomReviewsArr[2].profile_pic_url">
+                            <p v-html="randomReviewsArr[2].review_text.substring(0, 100) + '...'"></p>       
+                            <div width="100%">
+                                <button class="button-no-border" width="100%">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        <!-- GALLERY VIEW START  -->
-            <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-            <div v-if="!singleReview  && !createReview && !dash"  v-show="!aboutme" class="gallery" id="gallery">
-                <!-- updated array, based on search term -->
-                <!-- RENDER REVIEWS FROM DATABASE  -->
-                <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
-                    <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
-                    <p>{{review.artist_name}} <br>
-                    <span class="album-title"> {{review.album_title}}</span></p>
+
+
+          
+            <div class="home-page-body"  v-if="!singleReview && !aboutme && !dash">
+
+                <div class="wideRow recent-reviews-title">
+                    <p class="recentReviewsText">RECENT REVIEWS</p>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                </div>
+    
+                <!-- SEARCH BOX stores value of input, in this case, the search property -->
+                <div class="searchbox-container">
+                    <input id="searchbox" type="text" v-model="search" placeholder="search" />  
                 </div>
 
-            </div>
+                <!-- GALLERY VIEW START  -->
+                <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
+                <div v-if="!singleReview  && !createReview && !dash"  v-show="!aboutme" class="gallery" id="gallery">
+                    <!-- updated array, based on search term -->
+                    <!-- RENDER REVIEWS FROM DATABASE  -->
+                    <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
+                        <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
+                        <p>{{review.artist_name}} <br>
+                        <span class="album-title"> {{review.album_title}}</span></p>
+                    </div>
 
+                </div>
+            </div>
         </div>
 
 
 
-        <!-- FEATURED ARTICLES SECTION POST MVP -->
+
 
 
 
@@ -270,43 +306,48 @@
 
 
         <!-- ADMIN DASHBOARD / LIST VIEW -->
-        <div v-if="!singleReview && loggedin && dash && !createReview" class="dash-list-container">
+    
+        <div v-if="!singleReview  && dash && !createReview" class="dash-list-container">
+            <!-- Recent reviews title -->
+            <div>
+                <h4 class="recentReviewsText" id="dash-recent-reviews">RECENT REVIEWS</hr>
+            </div>
             <div class="dash-header-container">
-                <button type="button" class="dash-buttons" id="dash-create-button"  v-on:click="()=>createReview=true">Create New Review</button>
-                <button type="button" class="dash-buttons" id="dash-edit-button" v-on:click="()=>editReview=true">Edit Post</button>
-                <button type="button" id="dash-delete" class="dash-buttons" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                <div class="dash-header-buttons  col-6 col-xs-12">
+                    <button type="button" class="dash-buttons" id="dash-create-button"  v-on:click="()=>createReview=true">Create New Review</button>
+                    <button type="button" class="dash-buttons" id="dash-edit-button">Edit Post</button>
+                    <button type="button"  class="dash-delete dash-buttons" id="selectedReview" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                </div>
+                <div class="dash-searchbox-container col-6 col-xs-12">
+                    <input id="dash-searchbox" type="text" v-model="search" placeholder="search" />  
+                </div>
             </div>
 
         <!--RENDER DATA IN LIST VIEW -->
-            <div v-for="review of filteredReviews" class="dash-item img-fluid col-12">
-
-                <div class="dash-check-col col-1">
-                    <input type="checkbox">
-                </div>
-                <div class="dash-left-col-container col-2" >
-                    <div class="dash-left-img">
-                        <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
+            <div v-for="review of filteredReviews" class="dash-item-container img-fluid col-12">
+                <div class="dash-item">
+                    <div class="dash-check-col col-1">
+                        <input type="radio" v-model="selectedReview" v-bind:value="review.id" >
                     </div>
-                    <div class="dash-left-caption">
-                    <!-- Need to only select the first 10 digits of created_at and flip to read dd/mm/yyyy then use sort to organize -->
-                        <p>{{review.created_at.substring(0,10)}}</p>
+                    <div class="dash-left-col-container" >
+                        <div >
+                            <img class="dash-left-img" :src="review.img_url" v-bind:id="review.id" v-on:click="openSingleReview">
+                        </div>
+                        <div class="dash-left-caption">
+                        <!-- Need to only select the first 10 digits of created_at and flip to read dd/mm/yyyy then use sort to organize -->
+                            <p>{{review.created_at.substring(0,10)}}</p>
+                        </div>
+                    </div>
+                    <div class="dash-right-col-container">
+                        <p>Artist: {{review.artist_name}}<br>
+                            Album:  <span class="album-title"></span>{{review.album_title}}</span>
+                        </p>
+                        <!-- <p class="excerpt">"{{review.review_text.substring(0,100)}}..."</p> -->
                     </div>
                 </div>
-                <div class="dash-right-col-container col-9">
-                    <p>Artist: {{review.artist_name}}<br>
-                         Album:  <span class="album-title"></span>{{review.album_title}}</span>
-                    </p>
-                    <!-- <p class="excerpt">"{{review.review_text.substring(0,100)}}..."</p> -->
-                </div>
-
             <!-- end vue loop -->
             </div>
-
         </div>
-
-        <!-- <div class="return-link dash-return-link" >
-            <a v-on:click="()=>this.dash=null">Return to All Reviews</a>
-        </div> -->
 
 
 
@@ -319,15 +360,15 @@
         <!-- DIV THAT DISPLAYS TEAM ABOUT ME SECTION -->
         <div v-show="aboutme" class="team-container">
             <div class="team-title">
-                <h1><b>Meet the Team</b></h1>
+                <h3><b>Meet the Team</b></h3>
             </div>
             <div class="andre member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="andre-pic">
                     </div>
                 </div>
                 <div class="andre bio">
-                    <h2>Andre Heslop</h2>
+                    <h6>Andre Heslop</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -336,12 +377,12 @@
             </div>
             <hr>
             <div class="magda member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="magda-pic">
                     </div>
                 </div>
                 <div class="magda bio">
-                    <h2>Magdalena Krzyanowski</h2>
+                    <h6>Magdalena Krzyanowski</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -350,12 +391,12 @@
             </div>
             <hr>
             <div class="kenal member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="kenal-pic">
                     </div>
                 </div>
                 <div class="kenal bio">
-                    <h2>Kenal Ortega</h2>
+                    <h6>Kenal Ortega</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -364,12 +405,12 @@
             </div>
             <hr>
             <div class="lea member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="lea-pic">
                     </div>
                 </div>
                 <div class="lea bio">
-                    <h2>Lea Thomas</h2>
+                    <h6>Lea Thomas</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -378,12 +419,12 @@
             </div>
             <hr>
             <div class="biz member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="biz-pic">
                     </div>
                 </div>
                 <div class="biz bio">
-                    <h2>Besrat Zerehaimanot</h2>
+                    <h6>Besrat Zerehaimanot</h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -392,12 +433,12 @@
             </div>
             <hr>
             <div class="jeremy member">
-                <div class="pic box">
+                <div class="bio-pic box">
                     <div class="jeremy-pic">
                     </div>
                 </div>
                 <div class="jeremy bio">
-                    <h2>Jeremy Rose</h2>
+                    <h6>Jeremy Rose</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -413,7 +454,7 @@
 
 
         <!-- RETURN TO ALL REVIEWS  -->
-        <div class="return-link" >
+        <div class="return-link" v-if="singleReview || aboutme || dash">
             <a v-on:click="reset" href="#app">Return to All Reviews</a>
         </div>
 
@@ -426,6 +467,9 @@
             ///////////////////////////////-->
 
             <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
+                <div class="return-top-link-container">
+                    <a v-if="!singleReview" id="return-to-top" href="#app">Return to top</a>
+                </div>
                 <div class="footer-top-layout text-center text-md-center">
                     <div class="container">
                         <div class="row">
@@ -451,10 +495,10 @@
                         </div>
 
 
-                        <div class="row justify-content-between" id="nologin" v-if="!loggedin">
-
-                            <div class="col-sm-6 text-md-center">
+                        <div class="row justify-content-between" >
+                            <div class="col-sm-6 text-md-center"  id="nologin" v-if="!loggedin">
                                 <h4>EDITOR LOGIN</h4>
+                                <!-- login area -->
                                 <div id="loginform">
                                     <form class="signUpNewsletter col-12 text-md-center">
                                         <input name="" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
@@ -463,19 +507,22 @@
                                     </form>
                                 </div>
 
-
-
+                                <!-- login error -->
                                 <div id="errorlogin" v-if="loginerror">
                                     <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check your
                                         entry and try again.</h1>
                                 </div>
                             </div>
+                            
+                            <!-- log out button -->
+                            <div id="yeslogin" v-if="loggedin" class="col-12 text-md-center">
+                                <button v-on:click="handleLogout">Logout</button>
+                            </div>
 
 
 
 
-
-                            <div class="col-sm-6 text-md-center">
+                            <div class="col-sm-6 text-md-center" v-if="!loggedin">
                                 <h4>CONTACT US</h4>
                                 <div class="item-contact">
                                     <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a>
@@ -485,79 +532,23 @@
 
                             </div>
                         </div>
+                    </div>    
 
-                        <div id="yeslogin" v-if="loggedin">
-                            <button v-on:click="handleLogout">Logout</button>
+                    <!--     copyright -->
+                    <div class="footer-bottom-layout">
+                        <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+                        Ortega, Lea Thomas, Besrat Zerehaimanot.
                         </div>
                     </div>
                 </div>
                  <!-- Return to top  -->
-                <div class="return-top-link">
-                    <a v-if="!singleReview" href="#app">Return to top</a>
-                </div>
 
-                <!--     copyright -->
-                <div class="footer-bottom-layout">
-                    <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
-                    Ortega, Lea Thomas, Besrat Zerehaimanot.
-                    </div>
-                </div>
+                       
+
             </footer>
 
 
 
-
-
-
-                <!-- OLD FOOTER -->
-                <!-- Footer Links -->
-                <!-- <div class="container text-center text-md-left mt-5"> -->
-                    <!-- Grid row -->
-                    <!-- <div class="row mt-3 dark-grey-text"> -->
-                        <!-- Grid column -->
-                        <!-- <div class="col-md-5 col-lg-5 col-xl-4 mx-4 mb-4"> -->
-                            <!-- Content -->
-                            <!-- <h6 class="text-uppercase font-weight-bold">A Music Journal</h6>
-                            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
-                                artists.
-                            </p> -->
-
-
-                            <!-- EDITOR LOGIN-->
-
-                            <!-- logout button -->
-                            <!-- <div id="yeslogin" v-if="loggedin">
-                            <button v-on:click="handleLogout">Logout</button>
-                                </div> -->
-
-                                <!-- LOGIN SECTION-->
-                                <!-- <div class="login-container"  id="nologin" v-if="!loggedin"> -->
-
-                                <!-- <fieldset>
-                                <legend>
-                                    <h6 class="text-uppercase font-weight-bold">Editor Login</h6>
-                                </legend> -->
-
-                                    <!-- login fields -->
-                                    <!-- <div id="loginform">
-                                    <input type="text" placeholder="username" v-model="createUN">
-                                    <input type="password" placeholder="password" v-model="createPW">
-                                    <div id="login-form-button-container">
-                                        <button id="login-form-button" v-on:click="handleLogin">Login</button>
-                                     </div>
-                                </div>
-                            </fieldset> -->
-
-                                    <!-- login fields -->
-                                    <!-- <div id="loginform">
-                                        <input type="text" placeholder="username" v-model="createUN">
-                                        <input type="password" placeholder="password" v-model="createPW">
-                                        <div id="login-form-button-container">
-                                            <button id="login-form-button" v-on:click="handleLogin">Login</button>
-                                        </div>
-                                    </div>
-                                </fieldset> -->
 
 
 
@@ -598,37 +589,6 @@
                         </div> -->
 
 
-
-                        <!-- <div class="col-sm-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4"> -->
-                            <!-- Links -->
-                            <!-- <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p>
-                                <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                            <p>
-                                <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                            <p>
-                                <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-
-                        </div>    -->
-                        <!-- Grid column -->
-                    <!-- </div> -->
-                    <!-- Grid row -->
-                <!-- </div> -->
-                <!-- Footer Links -->
-                <!-- Copyright -->
-                <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
-                    Ortega, Lea Thomas, Besrat Zerehaimanot
-                </div> -->
-                <!-- Copyright -->
-            <!-- </footer> -->
-
-        <!-- Footer Links -->
-
-    <!-- </footer> -->
-
-
-
         <!-- Modal -->
 
 
@@ -642,12 +602,9 @@
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <!-- <div class="modal-body">
-                            <div>{{user && user.username}}</div>
-                        </div> -->
                         <div class="modal-footer">
                             <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
-                            <button id="edit" class="col-xs-12 col-sm-12 col-md-4"  v-on:click="handleDelete" data-dismiss="modal">Yes, I'm sure</button>
+                            <button  class="col-xs-12 col-sm-12 col-md-4 confirm-delete-button" v-bind:id="selectedReview" v-on:click="handleDelete" data-dismiss="modal">Yes, I'm sure</button>
                         </div>
                     </div>
                 </div>
