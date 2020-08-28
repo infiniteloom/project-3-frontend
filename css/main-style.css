@@ -44,68 +44,82 @@ body {
 
 /* Nav Bar Styling (Bootstrap) */
 
+
+/* Nav Bar Styling (Bootstrap) */
+
+
 #siteTitle {
     color:rgb(255, 255, 255);
     /* font-family: narly, sans-serif; */
     font-family: 'DM Serif Display', serif;
     /* font-family: 'Notable', sans-serif; */
     font-size:30px;
-    padding-right:70px;
     opacity:1;
     z-index:300;
   }
-
-
-
-
-  .navbar-toggler-icon {
-    color:white;
+  
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
   }
-
+   
+  
   .navbar-expand-lg, .navbar-collapse{
     justify-content: flex-end;
-    /* margin-left:60px;
-    margin-right:60px; */
   }
-
-
+  
+  
   .navbar-nav{
-    /* border-bottom: 2px solid black; */
-    float:right;
+    margin-top:0;
+    padding-top:10px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
   }
-
+  
   .navbar.navbar-1 .navbar-toggler-icon {
-    background-image: url('https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff');
+    background: url('https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff');
     }
-
+  
+  
   #search{
     width:30px;
     height:30px;
   }
-
+  
   #searchBar {
+    visibility:hidden;
     display:flex;
     flex-direction:row;
   }
-
-  #searchField{
-    width:100px;
-    height:25px;
-
+  
+  #searchBarMobile {
+    /* visibility:hidden; */
+    display:flex;
+    flex-direction:row;
+    
   }
-
+  
+  #searchField{
+    width:200px;
+    height:25px;
+  
+  }
+  
   .nav-link {
     color:rgb(237, 255, 148);
     font-size:13px;
     /* font-family: henderson-sans-basic; */
-    font-family: reason-new, sans-serif;
+    font-family: reason-new, sans-serif;  
     /* font-family: quicksand, sans-serif;  */
     font-weight: 400;
     font-style: normal;
-
+    
   }
-
-
+  
+  
   #topNav {
     padding-top:15px;
     padding-bottom:15px;
@@ -114,66 +128,66 @@ body {
     background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0.749));
     /* border-bottom:5px solid rgb(55, 0, 255); */
   }
-
-
-
-.wideRow {
+  
+  
+  
+  .wideRow {
     display:flex;
     flex-direction:row;
     justify-content:center;
     padding-top:30px;
     margin: 0px auto;
     border-top:5px solid rgb(249, 254, 238);
-}
-
-
-  
-  
-  
-  
-  
-  
-  
-  /* 
-  @media (max-width: 768px) {
-
-    #siteTitle {
-        color:rgb(255, 255, 255);
-        /* font-family: narly, sans-serif; */
-        /* font-family: 'DM Serif Display', serif; */
-        /* font-family: 'Notable', sans-serif; */
-        /* font-size:30px; */
-        /* opacity:1; */
-        /* z-index:300; */
-
-    /* }
-
-    .navbar-brand {
-        padding-right:140px;
-
-    }
-
-        } */
-
-
-    @media only screen and (min-width: 768px) {
-
-    #siteTitle {
-        color:rgb(232, 255, 185);
-        /* font-family: narly, sans-serif; */
-        font-family: 'DM Serif Display', serif;
-        /* font-family: 'Notable', sans-serif; */
-        font-size:42px;
-        /* opacity:1; */
-        z-index:300;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-
-
-    }
-
   }
+
+
+
+  @media only screen and (min-width: 680px) {
+
+    #searchBar {
+      visibility:visible;
+      display:flex;
+      flex-direction:row;
+    }
+  
+    #searchBarMobile {
+      visibility:hidden;
+      display:none;
+      flex-direction:row;
+    }
+  
+    #siteTitle {
+      color:rgb(232, 255, 185);
+      font-family: 'DM Serif Display', serif;
+      font-size:42px;
+  
+        
+    }
+  
+    .navbar-toggler{
+      margin-top:20px;
+    }
+  
+  
+    .navbar-nav{
+      float:right;
+    }
+  
+    } 
+    
+  
+  @media only screen and (max-width: 375px) {
+  
+    .container-fluid {
+      display:flex;
+      flex-direction:column;
+    
+    }
+    .navbar-toggler-icon {
+     background-size: 300px 100px;
+      
+    }
+    }
 
 
 
