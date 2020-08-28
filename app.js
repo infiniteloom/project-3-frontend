@@ -22,6 +22,7 @@ const app = new Vue({
         singleReview: null,
         createReview: null,
         editReview: null,
+        // changeReview: null,
         dash:null,
         aboutme: null,
         search: "", //defining the search property and empty value
@@ -117,7 +118,8 @@ const app = new Vue({
         },
         updateReview: function(event){
           // updateReviewPhoto = "https://www.tesla.com/xNVh4yUEc3B9/04_Desktop.jpg"
-          updatedReview=this.singleReview
+          updatedReview=this.new_review
+          updatedReview.review_text = quill.root.innerHTML
           // this.singleReview.profile_pic_url = updateReviewPhoto
           const ID = this.singleReview.id;
           fetch(`${URL}/reviews/${ID}`, {
@@ -133,6 +135,11 @@ const app = new Vue({
               console.log(updatedReview);
               console.log(`${ID}` + " updated");
             });
+        },
+        showUpdateReview: function(){
+          this.editReview = true;
+          this.new_review = {...this.singleReview};
+          quill.root.innerHTML = this.singleReview.review_text
         },
         reset: function () {
             this.editReview = null,

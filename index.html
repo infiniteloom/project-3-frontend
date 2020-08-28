@@ -158,17 +158,17 @@
                     <!-- Edit/Delete Buttons DIV -->
                     <div id="editDelete" v-if="loggedin && singleReview" class="d-flex justify-content-end">
                         <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                        <button id="edit"  class="col-xs-12 col-sm-12 col-md-2"v-on:click="updateReview">Publish Changes</button>
+                        <button id="edit"  class="col-xs-12 col-sm-12 col-md-2"v-on:click="showUpdateReview">Edit Review</button>
                     </div>
                     <!-- <div id="return-link">
                         <a v-on:click="()=>this.singleReview=null">Return to All Reviews</a>
                     </div> -->
                 </div>
                 <!-- Edit and delete buttons only show if auth /logged in -->
-                <div v-if="loggedin && editReview">
+                <!-- <div v-if="loggedin && editReview">
                     <button>Edit</button>
                     <button>Delete</button>
-                </div>
+                </div> -->
 
             <!-- END QUILL DEBUG DIV -->
             </div>
@@ -178,7 +178,7 @@
         <!-- <div> -->
         <!-- CREATE NEW REVIEW VIEW -->
             <!-- This needs to be toggled to show when admin clicks on create new review button  -->
-            <div :class="'create-form-container ' + (createReview ? 'is-visible' : 'is-hidden')" id="create-form">
+            <div :class="'create-form-container ' + ((createReview || editReview)? 'is-visible' : 'is-hidden')" id="create-form">
                 <!-- Artist name and album title fields -->
                 <div class="form-group">
                     <div class="col 6">
@@ -221,7 +221,8 @@
 
                 <!-- Publish button to create review -->
                 <div class="publish-button-container">
-                    <button v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
+                    <button v-if="!editReview" v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
+                    <button v-if="editReview" v-on:click="updateReview" type="button" class="btn btn-primary publish-post">Update Review</button>
                 </div>
 
             </div>
@@ -272,7 +273,7 @@
         <div v-if="!singleReview && loggedin && dash && !createReview" class="dash-list-container">
             <div class="dash-header-container">
                 <button type="button" class="dash-buttons" id="dash-create-button"  v-on:click="()=>createReview=true">Create New Review</button>
-                <button type="button" class="dash-buttons" id="dash-edit-button">Edit Post</button>
+                <button type="button" class="dash-buttons" id="dash-edit-button" v-on:click="()=>editReview=true">Edit Post</button>
                 <button type="button" id="dash-delete" class="dash-buttons" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
             </div>
 
