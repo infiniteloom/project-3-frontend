@@ -90,7 +90,7 @@ Wireframing Resources:
 
 ## Time/Priority Matrix 
 
-Link to Cloudinary: 
+[Time and Priority Matrix](https://res.cloudinary.com/dinqukx6a/image/upload/v1598235735/Project%203/Music_Journal_Front_EndTPM_isr7ab.jpg)
 
 #### MVP
 
