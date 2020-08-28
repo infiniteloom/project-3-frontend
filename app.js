@@ -22,6 +22,7 @@ const app = new Vue({
         singleReview: null,
         createReview: null,
         editReview: null,
+        // changeReview: null,
         dash:null,
         aboutme: null,
         search: "", //defining the search property and empty value
@@ -92,13 +93,13 @@ const app = new Vue({
         },
         openAboutMe: function (event) {  // TEAM ABOUT ME PAGE
             this.reset()
-            this.aboutme= true 
+            this.aboutme= true
         },
         callDash: function (event){
             this.reset()
             this.dash=true
         },
-        
+
         handleDelete: function (event) {
             console.log(`the id is ${this.singleReview.id}`)
 
@@ -115,11 +116,36 @@ const app = new Vue({
                 console.log(`${ID}` + " deleted");
             });
         },
+        updateReview: function(event){
+          // updateReviewPhoto = "https://www.tesla.com/xNVh4yUEc3B9/04_Desktop.jpg"
+          updatedReview=this.new_review
+          updatedReview.review_text = quill.root.innerHTML
+          // this.singleReview.profile_pic_url = updateReviewPhoto
+          const ID = this.singleReview.id;
+          fetch(`${URL}/reviews/${ID}`, {
+            method: "put",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `bearer ${this.token}`
+            },
+            body: JSON.stringify(updatedReview)
+          })
+          .then((response) => {
+              this.reset();
+              console.log(updatedReview);
+              console.log(`${ID}` + " updated");
+            });
+        },
+        showUpdateReview: function(){
+          this.editReview = true;
+          this.new_review = {...this.singleReview};
+          quill.root.innerHTML = this.singleReview.review_text
+        },
         reset: function () {
             this.editReview = null,
             this.aboutme = null,
             this.createReview = null;
-            this.dash = null; 
+            this.dash = null;
             this.singleReview = null;
             fetch(`${URL}/reviews`)
                 .then(response => response.json())
@@ -133,7 +159,7 @@ const app = new Vue({
 
         },
         showCreateNewReview: function () {
-            this.createReview = true    
+            this.createReview = true
         },
         createNewReview: function (event) {
             // const URL = this.prodURL ? this.prodURL : this.devURL
@@ -167,7 +193,7 @@ const app = new Vue({
                 this.reset()
                 this.createError = false;
             }
-            
+
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -205,4 +231,3 @@ const options ={
 }
 
 var quill = new Quill('#editor', options)
-
