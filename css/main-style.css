@@ -126,10 +126,7 @@ body {
     border-top:5px solid rgb(249, 254, 238);
 }
 
-.recentReviewsText {
-    font-family: reason-new, sans-serif;
-    font-size:16px;
-}
+
   
   
   
@@ -315,15 +312,84 @@ body {
         margin: 0 auto;
     }
 }
+
+
+
+
+
+
+.home-page-body{
+    background-color: rgb(238, 238, 238);
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+
+/* 
+//////////////////////////////
+///  FEATURED STORIES STYLING  //
+//////////////////////////// */
+.featured-articles-container{
+    width: 90%;
+    background-color: rgb(238, 238, 238);
+    margin: 70px auto;
+}
+.featured-articles-body-container{
+    width: 90%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: white;
+    border-top: 3px solid rgb(238, 238, 238);
+}
+.featured-left-col{
+    padding: 30px;
+    max-width: 400px;
+}
+.featured-right-col{
+    padding: 30px;
+    max-width: 400px;
+    border-left: 3px solid rgb(238, 238, 238);
+}
+#feature-left-img{
+    width: 70%;
+    max-width: 300px;
+}
+#feature-right-img1{
+    width: 70%;
+    max-width: 300px;
+}
+#feature-right-img2{
+    width: 70%;
+    max-width: 300px;
+}
+.button-no-border{
+    background-color: transparent;
+    border-style: none;
+
+}
+
+
+
 /* 
 //////////////////////////////
 ///  GRID GALLERY STYLING  //
 //////////////////////////// */
 .recent-reviews-title{
-    padding-top: 30px;
+    padding-top: 10px;
     margin: 0 auto;
     text-align: center;
+    font-size: 1em;
+    font-family: reason-new, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(246, 246, 246);
 }
+
 .gallery{
     margin: 0 auto;
     text-align: center;
@@ -345,13 +411,14 @@ body {
 }
 .searchbox-container{
     width: 90%;
-    margin: 0 auto;
-    padding-left: 15px;
-    margin-bottom: 20px;
+    margin: 30px auto;
 }
 #searchbox{
     width: 33%;
+    min-width: 250px;
+    max-width: 300px;
     padding: 2px;
+    border: none;
 }
 
 
