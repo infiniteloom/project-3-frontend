@@ -82,7 +82,9 @@ body {
   .navbar.navbar-1 .navbar-toggler-icon {
     background: url('https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff');
     }
-  
+  #navbar-toggler-icon{
+      font-size: 1.5em;
+  }
   
   #search{
     width:30px;

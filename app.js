@@ -135,14 +135,17 @@ const app = new Vue({
                 this.reset();
                 console.log(updatedReview);
                 console.log(`${ID}` + " updated");
-                });
+                
+            });
+            // 
         },
         showUpdateReview: function(){
-            // this.reset()
+            if(this.dash){
+                this.singleReview = this.reviews[this.selectedReview]
+            }
             this.editReview = true;
             this.new_review = {...this.singleReview};
             quill.root.innerHTML = this.singleReview.review_text
-
         },
         showCreateNewReview: function () {
             this.createReview = true

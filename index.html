@@ -72,7 +72,7 @@
                     </a>
                     <!-- burger mobile menu icon -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="navbar-toggler-icon"></span></button>
+                    <span id="navbar-toggler-icon" class="navbar-toggler-icon"></span></button>
                     
                     <div class="navbar-collapse collapse">
                         <!-- menu items -->
@@ -142,7 +142,7 @@
             <!-- START QUILL DEBUG -->
             <div>
                 <!-- This would be the div that displays a single review -->
-                <div v-if="singleReview && !createReview" v-bind:id="singleReview.id" v-show="!aboutme" class="single-review-container">
+                <div v-if="singleReview && !createReview && !editReview" v-bind:id="singleReview.id" v-show="!aboutme" class="single-review-container">
 
                     <!-- Single review header  -->
                     <div class="single-review-data-display-container">
@@ -341,7 +341,7 @@
             <div class="dash-header-container">
                 <div class="dash-header-buttons  col-6 col-xs-12">
                     <button type="button" class="dash-buttons" id="dash-create-button"  v-on:click="()=>createReview=true">Create New Review</button>
-                    <button type="button" class="dash-buttons" id="dash-edit-button">Edit Post</button>
+                    <button type="button" class="dash-buttons" v-on:click="showUpdateReview" id="dash-edit-button">Edit Post</button>
                     <button type="button"  class="dash-delete dash-buttons" id="selectedReview" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
                 </div>
                 <div class="dash-searchbox-container col-6 col-xs-12">
