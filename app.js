@@ -116,6 +116,9 @@ const app = new Vue({
             });
         },
         updateReview: function(event){
+          // updateReviewPhoto = "https://www.tesla.com/xNVh4yUEc3B9/04_Desktop.jpg"
+          updatedReview=this.singleReview
+          // this.singleReview.profile_pic_url = updateReviewPhoto
           const ID = this.singleReview.id;
           fetch(`${URL}/reviews/${ID}`, {
             method: "put",
@@ -123,9 +126,12 @@ const app = new Vue({
               "Content-Type": "application/json",
               "Authorization": `bearer ${this.token}`
             },
+            body: JSON.stringify(updatedReview)
           })
           .then((response) => {
               this.reset();
+              console.log(updatedReview);
+              console.log(`${ID}` + " updated");
             });
         },
         reset: function () {
