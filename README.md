@@ -52,10 +52,13 @@ https://www.goldflakepaint.co.uk/
 
 
 ## App Build-out Links 
-Front-end deployed URL:  a-music-journal.netlify.app
-Front-end GitHub: https://github.com/infiniteloom/project-3-frontend
-Back-end deployed URL: https://amusicjournal.herokuapp.com/
-Back-end repo: https://github.com/infiniteloom/project-3-backend
+[Front-end deployed URL](https://a-music-journal.netlify.app)
+
+[Front-end GitHub Repo](https://github.com/infiniteloom/project-3-frontend)
+
+[Back-end deployed URL](https://amusicjournal.herokuapp.com/)
+
+[Back-end GitHub Repo](https://github.com/infiniteloom/project-3-backend)
 
 
 ## Wireframes
