@@ -100,17 +100,10 @@ const app = new Vue({
             this.dash=true
         },
         handleDelete: function (event) {
-            // console.log(event.target.id)
-            // if(!this.selectedReview){
-            //     console.log('no selected review')
-            //     this.selectedReview = this.singleReview.id
-            // }
-           
             // console.log(`the id is ${this.selectedReview}`)
 
-            const URL = this.prodURL ? this.prodURL : this.devURL;
-            const ID = this.singleReview.id;
-                        console.log(`the id is ${this.singleReview.id}`)
+            const ID = this.singleReview ? this.singleReview.id : this.selectedReview
+            console.log(`the id is ${ID}`)
 
             fetch(`${URL}/reviews/${ID}`, {
                 method: "delete",
@@ -196,8 +189,12 @@ const app = new Vue({
                 //if an album search matches the value of the search, it is kept in the array. if not, it is took out
                 return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
             })
-        }
-     }
+        },
+        // randomReviews: function (){
+        //     return this.reviews.
+        // }
+    }
+
 });
 
 

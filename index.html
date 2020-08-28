@@ -116,7 +116,7 @@
             <!-- START QUILL DEBUG -->
             <div>
                 <!-- This would be the div that displays a single review -->
-                <div v-if="singleReview && !createReview" v-model="selectedReview" v-bind:id="singleReview.id" v-show="!aboutme" class="single-review-container">
+                <div v-if="singleReview && !createReview" v-bind:id="singleReview.id" v-show="!aboutme" class="single-review-container">
 
                     <!-- Single review header  -->
                     <div class="single-review-data-display-container">
@@ -227,8 +227,28 @@
         <!-- HOME PAGE BODY SECTION -->
         <!-- QUILL DEBUG DIV -->
         <div>
+
+
+        <!-- FEATURED ARTICLES SECTION POST MVP -->
+            <!-- <div class="featured-articles-container">
+                <div class="featured-left-col col-6 col-xs-12">
+                    <div class="featured-left-article" v-for="review in randomReviews">
+                        {{review_review.text.substring(0, 100)}}
+                    </div>
+                </div>
+                <div class="featured-right-col col-6 col-xs-12">
+                    <div class="featured-right-article">
+                        {{review_review.text.substring(0, 100)}}
+                    </div>
+                </div>
+            </div> -->
+
+
+
+
           
             <div class="home-page-body"  v-if="!singleReview && !aboutme && !dash">
+
                 <div class="wideRow" id="recentReviews">
                     <h4 class="recentReviewsText">RECENT REVIEWS</hr>
                 </div>
@@ -256,8 +276,6 @@
 
 
 
-
-        <!-- FEATURED ARTICLES SECTION POST MVP -->
 
 
 

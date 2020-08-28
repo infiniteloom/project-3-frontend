@@ -262,7 +262,7 @@ body {
 .dash-item{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     padding: 15px;
     border: 1px solid rgb(180, 178, 178);
