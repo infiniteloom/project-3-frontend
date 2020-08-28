@@ -138,7 +138,7 @@ const app = new Vue({
                 });
         },
         showUpdateReview: function(){
-            this.reset()
+            // this.reset()
             this.editReview = true;
             this.new_review = {...this.singleReview};
             quill.root.innerHTML = this.singleReview.review_text
