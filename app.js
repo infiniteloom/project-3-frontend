@@ -92,13 +92,13 @@ const app = new Vue({
         },
         openAboutMe: function (event) {  // TEAM ABOUT ME PAGE
             this.reset()
-            this.aboutme= true 
+            this.aboutme= true
         },
         callDash: function (event){
             this.reset()
             this.dash=true
         },
-        
+
         handleDelete: function (event) {
             console.log(`the id is ${this.singleReview.id}`)
 
@@ -115,11 +115,24 @@ const app = new Vue({
                 console.log(`${ID}` + " deleted");
             });
         },
+        updateReview: function(event){
+          const ID = this.singleReview.id;
+          fetch(`${URL}/reviews/${ID}`, {
+            method: "put",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `bearer ${this.token}`
+            },
+          })
+          .then((response) => {
+              this.reset();
+            });
+        },
         reset: function () {
             this.editReview = null,
             this.aboutme = null,
             this.createReview = null;
-            this.dash = null; 
+            this.dash = null;
             this.singleReview = null;
             fetch(`${URL}/reviews`)
                 .then(response => response.json())
@@ -133,7 +146,7 @@ const app = new Vue({
 
         },
         showCreateNewReview: function () {
-            this.createReview = true    
+            this.createReview = true
         },
         createNewReview: function (event) {
             // const URL = this.prodURL ? this.prodURL : this.devURL
@@ -167,7 +180,7 @@ const app = new Vue({
                 this.reset()
                 this.createError = false;
             }
-            
+
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -205,4 +218,3 @@ const options ={
 }
 
 var quill = new Quill('#editor', options)
-
