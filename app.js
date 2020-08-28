@@ -110,6 +110,8 @@ const app = new Vue({
 
             const URL = this.prodURL ? this.prodURL : this.devURL;
             const ID = this.singleReview.id;
+                        console.log(`the id is ${this.singleReview.id}`)
+
             fetch(`${URL}/reviews/${ID}`, {
                 method: "delete",
                 headers: {
