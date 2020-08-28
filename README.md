@@ -72,6 +72,7 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 
 [Tablet]
 - [Landing Page](https://res.cloudinary.com/infiniteloom/image/upload/v1598057061/Unit%2003%20-%20Project/Mobile/landing-page_mobile_udci8u.png)
+
 - [Logged in, edit post view](https://res.cloudinary.com/infiniteloom/image/upload/v1598047547/Unit%2003%20-%20Project/Web/logged-in-edit-post_ame8wn.png)
 
 [Desktop]
