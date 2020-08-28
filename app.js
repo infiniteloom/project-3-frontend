@@ -22,8 +22,8 @@ const app = new Vue({
         singleReview: null,
         createReview: null,
         editReview: null,
+        selectedReview: null,
         dash:null,
-        selectedDash: null,
         aboutme: null,
         search: "", //defining the search property and empty value
         loggedin: false,
@@ -99,8 +99,8 @@ const app = new Vue({
             this.reset()
             this.dash=true
         },
-        
         handleDelete: function (event) {
+            console.log(event.target.id)
             console.log(`the id is ${this.singleReview.id}`)
 
             // const URL = this.prodURL ? this.prodURL : this.devURL;
@@ -115,23 +115,6 @@ const app = new Vue({
                 this.reset();
                 console.log(`${ID}` + " deleted");
             });
-        },
-        reset: function () {
-            this.editReview = null,
-            this.aboutme = null,
-            this.createReview = null;
-            this.dash = null; 
-            this.singleReview = null;
-            fetch(`${URL}/reviews`)
-                .then(response => response.json())
-                .then(data => {
-                    this.reviews = data
-                    console.log(data)
-                })
-            // location.reload;
-            document.querySelector('.navbar-collapse').classList.remove('show')
-            window.scrollTo(0,0)
-
         },
         showCreateNewReview: function () {
             this.createReview = true    
@@ -164,11 +147,26 @@ const app = new Vue({
                     body: JSON.stringify(review)
                 })
 
-               //  MAYBE REFACTOR
+               //  MAYBE REFACTOR?
                 this.reset()
                 this.createError = false;
             }
-            
+        },
+        reset: function () {
+            this.editReview = null,
+            this.aboutme = null,
+            this.createReview = null;
+            this.dash = null; 
+            this.singleReview = null;
+            this.selectedReview = null;
+            fetch(`${URL}/reviews`)
+                .then(response => response.json())
+                .then(data => {
+                    this.reviews = data
+                    console.log(data)
+                })
+            document.querySelector('.navbar-collapse').classList.remove('show')
+            window.scrollTo(0,0)
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL

@@ -24,6 +24,12 @@ body {
     font-size: 12px;
 
 }
+.btn-primary{
+    background-color: grey;
+}
+.btn-primary:hover{
+    background-color: darkgray;
+}
 ::placeholder{
     font-size: .8em;
     font-style: italic;
@@ -32,9 +38,6 @@ body {
 }
 
 
-.btn-primary{
-    background-color: grey;
-}
 
 
 
@@ -123,7 +126,7 @@ body {
     border-top:5px solid rgb(249, 254, 238);
 }
 
-#recentReviewsText {
+.recentReviewsText {
     font-family: reason-new, sans-serif;
     font-size:16px;
 }
@@ -219,12 +222,15 @@ body {
 /////////////////////////////// */
 .dash-list-container{
     display: flex;
-    margin: 0 auto;
+    margin: 50px auto;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 0;
     align-items: center;
     width: 80%;
     background-color: rgb(243, 243, 243);
+}
+#dash-recent-reviews{
+    padding: 15px;
 }
 .dash-header-container{
     display: flex;
@@ -260,16 +266,22 @@ body {
     width: 100%;
     padding: 15px;
     border: 1px solid rgb(180, 178, 178);
+    background-color: white;
+}
+.dash-check-col{
+    display: flex;
+    align-items: center;
 }
 .dash-right-col-container{
     display:flex;
     align-items: center;
+    padding-left: 20px;
 }
 .dash-left-img{
-    max-width: 80px;
+    max-width: 50px;
 }
 .dash-left-caption p{
-    font-size: .6em;
+    font-size: .8em;
     line-height: 1em;
     margin: 0;
 }
@@ -297,7 +309,12 @@ body {
     text-align: center;
     margin-top: 30px;
 }
-
+@media (max-width: 720px){
+    .dash-list-container{
+        width: 95%;
+        margin: 0 auto;
+    }
+}
 /* 
 //////////////////////////////
 ///  GRID GALLERY STYLING  //
@@ -445,34 +462,42 @@ body {
 ////////////////////////////////// */
 .create-form-container{
     width: 60%;
-    margin: 0 auto;
+    margin: 70px auto;
     display: flex;
     flex-direction: column;
-    
 }
-
-
 .form-group{
-    display:flex;
-    flex-wrap:wrap;
+    margin-bottom: .8rem;
+    display: flex;
+    justify-content: space-between;
 }
-.editor-container{
-    padding: 20px;
+.create-form-field{
+    padding: 0;
+    width: 45%;
 }
-
-
-
+.form-control{
+    border-radius: 0;
+}
 #editor{
     height: 200px;
+    padding: 10px;
 }
 .publish-post{
     width: 100px;
 }
-
 .publish-button-container{
     text-align: right;
     padding-right: 20px;
 }
+@media (max-width: 400px){
+    .create-form-container{
+        width: 90%;
+    }
+}
+
+
+
+
 
 
 
@@ -485,17 +510,22 @@ body {
     margin-bottom:3%;
     margin-right:2%;
 }
-#edit, #close, #delete {
+.confirm-delete-button{
+    border:1px solid rgb(165, 0, 0);
+    font-size:12px;
+    background-color:white;
+    margin:5px;
+    border-style: none;
+    background-color:rgb(239, 239, 239);
+    border:2px solid rgb(239, 239, 239);
+}
+#close, #delete {
     border:1px solid rgb(165, 0, 0);
     font-size:12px;
     background-color:white;
     margin:5px;
 }
-#edit {
-    border-style: none;
-    background-color:rgb(239, 239, 239);
-    border:2px solid rgb(239, 239, 239);
-}
+
 
 
 

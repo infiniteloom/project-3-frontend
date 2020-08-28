@@ -110,15 +110,13 @@
             <!-- END QUILL DEBUG -->
             </div>
 
-            <div class="wideRow" id="recentReviews">
-                <h4 id="recentReviewsText">RECENT REVIEWS</hr>
-                </div>
+         
                 
         <!-- SINGLE REVIEW VIEW SECTION -->
             <!-- START QUILL DEBUG -->
             <div>
                 <!-- This would be the div that displays a single review -->
-                <div v-if="singleReview && !createReview" v-show="!aboutme" class="single-review-container">
+                <div v-if="singleReview && !createReview" v-model="selectedReview" v-bind:id="singleReview.id" v-show="!aboutme" class="single-review-container">
 
                     <!-- Single review header  -->
                     <div class="single-review-data-display-container">
@@ -181,33 +179,33 @@
             <div :class="'create-form-container ' + (createReview ? 'is-visible' : 'is-hidden')" id="create-form">
                 <!-- Artist name and album title fields -->
                 <div class="form-group">
-                    <div class="col 6">
+                    <div class="create-form-field">
                         <label for="artist-name-field">Artist Name</label>
                         <input v-model="new_review.artist_name"  class="form-control" id="artist-name-field" aria-describedby="emailHelp" placeholder="Enter artist name">
                     </div>
-                    <div class="col 6">
+                    <div class="create-form-field">
                         <label for="album-title-field">Album Title</label>
                         <input v-model="new_review.album_title" class="form-control" id="album-title" placeholder="Enter album title">
                     </div>
                 </div>
                 <!-- Record label and release date fields -->
                 <div class="form-group">
-                    <div class="col 6">
+                    <div class="create-form-field">
                         <label for="record-label-field">Record Label</label>
                         <input  v-model="new_review.record_label"  class="form-control" id="record-label" placeholder="Enter record label">
                     </div>
-                    <div class="col 6">    
+                    <div class="create-form-field">    
                         <label for="release-date-field">Release Date</label>
                         <input  v-model="new_review.release_date" type="date" class="form-control" id="release-date">
                     </div>
                 </div>
                 <!-- Album art url and profile pic url (stand in until we apply AWS) -->
                 <div class="form-group">
-                    <div class="col 6">
+                    <div class="create-form-field">
                         <label for="album-art-url-field">Album Art URL</label>
                         <input  v-model="new_review.img_url"  class="form-control" id="album-art-url" placeholder="http://www.albumarturl.com">
                     </div>
-                    <div class="col 6">    
+                    <div class="create-form-field">    
                         <label for="profile-pic-field">Profile Pic URL</label>
                         <input  v-model="new_review.profile_pic_url" type="text" class="form-control" id="profile-pic" placeholder="http://www.profilepic.com">
                     </div>
@@ -228,30 +226,36 @@
 
             
         
-        
+        <!-- HOME PAGE BODY SECTION -->
         <!-- QUILL DEBUG DIV -->
         <div>
-
-
-        <!-- SEARCH BOX stores value of input, in this case, the search property -->
-            <div class="searchbox-container" v-if="!singleReview && !aboutme && !dash">
-                <input id="searchbox" type="text" v-model="search" placeholder="search" />  
-            </div>
-
-        <!-- GALLERY VIEW START  -->
-            <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-            <div v-if="!singleReview  && !createReview && !dash"  v-show="!aboutme" class="gallery" id="gallery">
-                <!-- updated array, based on search term -->
-                <!-- RENDER REVIEWS FROM DATABASE  -->
-                <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
-                    <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
-                    <p>{{review.artist_name}} <br>
-                    <span class="album-title"> {{review.album_title}}</span></p>
+          
+            <div class="home-page-body"  v-if="!singleReview && !aboutme && !dash">
+                <div class="wideRow" id="recentReviews">
+                    <h4 class="recentReviewsText">RECENT REVIEWS</hr>
+                </div>
+    
+                <!-- SEARCH BOX stores value of input, in this case, the search property -->
+                <div class="searchbox-container">
+                    <input id="searchbox" type="text" v-model="search" placeholder="search" />  
                 </div>
 
-            </div>
+                <!-- GALLERY VIEW START  -->
+                <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
+                <div v-if="!singleReview  && !createReview && !dash"  v-show="!aboutme" class="gallery" id="gallery">
+                    <!-- updated array, based on search term -->
+                    <!-- RENDER REVIEWS FROM DATABASE  -->
+                    <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
+                        <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
+                        <p>{{review.artist_name}} <br>
+                        <span class="album-title"> {{review.album_title}}</span></p>
+                    </div>
 
+                </div>
+            </div>
         </div>
+
+
 
 
 
@@ -268,11 +272,15 @@
         <!-- ADMIN DASHBOARD / LIST VIEW -->
     
         <div v-if="!singleReview  && dash && !createReview" class="dash-list-container">
+            <!-- Recent reviews title -->
+            <div>
+                <h4 class="recentReviewsText" id="dash-recent-reviews">RECENT REVIEWS</hr>
+            </div>
             <div class="dash-header-container">
                 <div class="dash-header-buttons  col-6 col-xs-12">
                     <button type="button" class="dash-buttons" id="dash-create-button"  v-on:click="()=>createReview=true">Create New Review</button>
                     <button type="button" class="dash-buttons" id="dash-edit-button">Edit Post</button>
-                    <button type="button"  class="dash-delete dash-buttons" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                    <button type="button"  class="dash-delete dash-buttons" id="selectedReview" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
                 </div>
                 <div class="dash-searchbox-container col-6 col-xs-12">
                     <input id="dash-searchbox" type="text" v-model="search" placeholder="search" />  
@@ -283,10 +291,9 @@
             <div v-for="review of filteredReviews" class="dash-item-container img-fluid col-12">
                 <div class="dash-item">
                     <div class="dash-check-col col-1">
-                        <input type="radio" v-model="selectedDash" v-bind:value="review.id" >
-                        <p> {{selectedDash}}</p>
+                        <input type="radio" v-model="selectedReview" v-bind:value="review.id" >
                     </div>
-                    <div class="dash-left-col-container col-2" >
+                    <div class="dash-left-col-container" >
                         <div >
                             <img class="dash-left-img" :src="review.img_url" v-bind:id="review.id" v-on:click="openSingleReview">
                         </div>
@@ -295,7 +302,7 @@
                             <p>{{review.created_at.substring(0,10)}}</p>
                         </div>
                     </div>
-                    <div class="dash-right-col-container col-9">
+                    <div class="dash-right-col-container">
                         <p>Artist: {{review.artist_name}}<br>
                             Album:  <span class="album-title"></span>{{review.album_title}}</span>
                         </p>
@@ -304,12 +311,7 @@
                 </div>
             <!-- end vue loop -->
             </div>
-
         </div>
-
-        <!-- <div class="return-link dash-return-link" >
-            <a v-on:click="()=>this.dash=null">Return to All Reviews</a>
-        </div> -->
 
 
 
@@ -563,12 +565,9 @@
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <!-- <div class="modal-body">
-                            <div>{{user && user.username}}</div>
-                        </div> -->
                         <div class="modal-footer">
                             <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
-                            <button id="edit" class="col-xs-12 col-sm-12 col-md-4"  v-on:click="handleDelete" data-dismiss="modal">Yes, I'm sure</button>
+                            <button  class="col-xs-12 col-sm-12 col-md-4 confirm-delete-button" v-bind:id="selectedReview" v-on:click="handleDelete" data-dismiss="modal">Yes, I'm sure</button>
                         </div>
                     </div>
                 </div>
