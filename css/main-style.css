@@ -356,15 +356,15 @@ body {
     border-left: 3px solid rgb(238, 238, 238);
 }
 #feature-left-img{
-    width: 70%;
+    width: 100%;
     max-width: 300px;
 }
 #feature-right-img1{
-    width: 70%;
+    width: 100%;
     max-width: 300px;
 }
 #feature-right-img2{
-    width: 70%;
+    width: 100%;
     max-width: 300px;
 }
 .button-no-border{

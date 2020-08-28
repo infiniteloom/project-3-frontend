@@ -227,29 +227,27 @@
         <!-- HOME PAGE BODY SECTION -->
         <!-- QUILL DEBUG DIV -->
         <div>
-            <button v-on:click="randomReviews">TEST</button>
         <!-- FEATURED ARTICLES SECTION POST MVP -->
             <div class="featured-articles-container">
                 <div class="featured-articles-body-container"  >                
                     <div class="featured-left-col col-6 col-xs-12" >
-                        <div class="featured-left-article" v-if="randomReviews" >
+                        <div class="featured-left-article" v-if="randomReviewsArr[0]" >
                             <img id="feature-left-img" :src="randomReviewsArr[0].profile_pic_url">
                             <p v-html="randomReviewsArr[0].review_text.substring(0, 100) + '...'"></p>
-
-                            <div width="100%">
-                                <button class="button-no-border" width="100%">Read More</button>
+                            <div class="button-no-border-container">
+                                <button class="button-no-border">Read More</button>
                             </div>
                         </div>
                     </div>
                     <div class="featured-right-col col-6 col-xs-12">
-                        <div class="featured-right-article" v-if="randomReviews">
+                        <div class="featured-right-article"  v-if="randomReviewsArr[0]" >
                             <img id="feature-right-img1" :src="randomReviewsArr[1].profile_pic_url">
                             <p v-html="randomReviewsArr[1].review_text.substring(0, 100) + '...'"> </p>      
                             <div width="100%">
                                 <button class="button-no-border" width="100%">Read More</button>
                             </div>
                         </div>
-                        <div class="featured-right-article" v-if="randomReviews">
+                        <div class="featured-right-article"  v-if="randomReviewsArr[0]" >
                             <img id="feature-right-img2" :src="randomReviewsArr[2].profile_pic_url">
                             <p v-html="randomReviewsArr[2].review_text.substring(0, 100) + '...'"></p>       
                             <div width="100%">

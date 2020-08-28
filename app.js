@@ -205,8 +205,8 @@ const app = new Vue({
                 this.reviews = data
                 console.log(data)
             })
-
             .then(()=> this.randomReviews())
+            
             // .then(this.randomReviews)
     },
     //using the search value to filter out matches to album title
