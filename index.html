@@ -155,17 +155,15 @@
 
                     <!-- Edit/Delete Buttons DIV -->
                     <div id="editDelete" v-if="loggedin && singleReview" class="d-flex justify-content-end">
-                        <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                        <button id="edit"  class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
+                        <button type="button" class="show-edit-button">Edit</button>
+                        <button type="button" id="delete" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
                     </div>
-                    <!-- <div id="return-link">
-                        <a v-on:click="()=>this.singleReview=null">Return to All Reviews</a>
-                    </div> -->
                 </div>
                 <!-- Edit and delete buttons only show if auth /logged in -->
                 <div v-if="loggedin && editReview">
-                    <button>Edit</button>
-                    <button>Delete</button>
+
+                    <button type="button" id="delete" class="col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                    <button class="publish-changes-button"  class="col-xs-12 col-sm-12 col-md-2">Publish Changes</button>
                 </div>
             
             <!-- END QUILL DEBUG DIV -->

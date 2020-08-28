@@ -100,10 +100,15 @@ const app = new Vue({
             this.dash=true
         },
         handleDelete: function (event) {
-            console.log(event.target.id)
-            console.log(`the id is ${this.singleReview.id}`)
+            // console.log(event.target.id)
+            // if(!this.selectedReview){
+            //     console.log('no selected review')
+            //     this.selectedReview = this.singleReview.id
+            // }
+           
+            // console.log(`the id is ${this.selectedReview}`)
 
-            // const URL = this.prodURL ? this.prodURL : this.devURL;
+            const URL = this.prodURL ? this.prodURL : this.devURL;
             const ID = this.singleReview.id;
             fetch(`${URL}/reviews/${ID}`, {
                 method: "delete",

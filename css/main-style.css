@@ -519,6 +519,12 @@ body {
     background-color:rgb(239, 239, 239);
     border:2px solid rgb(239, 239, 239);
 }
+.publish-changes-button, .show-edit-button{
+    font-size:12px;
+    background-color:white;
+    margin:5px;
+    border: none;
+}
 #close, #delete {
     border:1px solid rgb(165, 0, 0);
     font-size:12px;
