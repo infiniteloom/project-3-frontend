@@ -230,18 +230,20 @@
 
 
         <!-- FEATURED ARTICLES SECTION POST MVP -->
-            <!-- <div class="featured-articles-container">
-                <div class="featured-left-col col-6 col-xs-12">
-                    <div class="featured-left-article" v-for="review in randomReviews">
-                        {{review_review.text.substring(0, 100)}}
+            <div class="featured-articles-container">
+                <div class="featured-left-col col-6 col-xs-12" >
+                    <button v-on:click="randomReviews">TESTING</button>
+                    <div class="featured-left-article">
+                        <!-- {{randomInd}} -->
+                        {{randomReviews[0].review_text.substring(0, 100)}}
                     </div>
                 </div>
                 <div class="featured-right-col col-6 col-xs-12">
                     <div class="featured-right-article">
-                        {{review_review.text.substring(0, 100)}}
+                        {{randomReviews[1].review_text.substring(0, 100)}}
                     </div>
                 </div>
-            </div> -->
+            </div>
 
 
 

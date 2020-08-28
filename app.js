@@ -18,6 +18,7 @@ const app = new Vue({
     CarouselComponent,
     },
     data: {
+        randomReviewsArr: [],
         reviews: [],
         singleReview: null,
         createReview: null,
@@ -167,6 +168,24 @@ const app = new Vue({
                 })
             document.querySelector('.navbar-collapse').classList.remove('show')
             window.scrollTo(0,0)
+        },
+        randomReviews: function (){
+            let randomInd = []
+            let random
+            while(randomInd.length < 6){
+                // console.log(`in while loop, array reads at the beginning:  ${randomInd}`)
+                random = Math.floor(Math.random()*this.reviews.length)
+                // console.log('this is the value of random num ' + random)
+                
+                if(randomInd.lastIndexOf(random) < 0){
+                    randomInd.push(random)
+                }
+            }
+            let randomImg1 = this.reviews[0]
+            let randomImg2 = this.reviews[1]
+            let randomImg3 = this.reviews[2]
+            this.randomReviewsArr.push(randomImg1, randomImg2, randomImg3)
+            console.log(this.randomReviewsArr)
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -180,6 +199,7 @@ const app = new Vue({
                 this.reviews = data
                 console.log(data)
             })
+            // .then(this.randomReviews())
     },
     //using the search value to filter out matches to album title
     computed: {
@@ -189,9 +209,34 @@ const app = new Vue({
                 //if an album search matches the value of the search, it is kept in the array. if not, it is took out
                 return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
             })
-        },
+        }
         // randomReviews: function (){
-        //     return this.reviews.
+        //     let randomInd = []
+        //     let random
+        //     while(randomInd.length < 6){
+        //         console.log(`in while loop, array reads at the beginning:  ${randomInd}`)
+        //         random = Math.floor(Math.random()*this.reviews.length)
+        //         // console.log(randomInd.lastIndexOf(random))
+        //         // randomInd.push(random)
+        //         console.log('this is the value of random num ' + random)
+                
+
+        //         // if(randomInd.lastIndexOf(random)<0){
+        //         if(randomInd.lastIndexOf(random) < 0){
+        //             // console.log('this is the index number of random before pushing ' + randomInd.lastIndexOf(random))
+        //             // randomInd[randomInd.length] = random
+        //             // console.log('this is the index number of random after pushing ' + randomInd.lastIndexOf(random))
+        //             randomInd.push(random)
+        //         }else{
+        //             console.log('there is an index of random in the array')
+        //         }
+        //         // randomInd[randomInd.length] = random
+        //         // randomInd.push(random)
+        //     }
+        //     // randomReviews = [this.reviews[randomInd[0]], this.reviews[randomInd[1]], this.reviews[randomInd[2]]
+        //     //
+            
+        //     return randomInd
         // }
     }
 
