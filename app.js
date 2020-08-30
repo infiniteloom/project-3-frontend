@@ -5,6 +5,7 @@ const devURL='http://localhost:3000'
 const prodURL='https://amusicjournal.herokuapp.com'
 const URL = prodURL ? prodURL : devURL
 
+
 const CarouselComponent = {
   template: `
     <img-src/>
@@ -18,6 +19,7 @@ const app = new Vue({
     CarouselComponent,
     },
     data: {
+        passwordFieldType: 'password',
         randomReviewsArr: [],
         reviews: [],
         singleReview: null,
@@ -46,6 +48,12 @@ const app = new Vue({
         },
     },
     methods: {
+
+        switchVisibility() {
+      this.passwordFieldType = this.passwordFieldType === 'createPW' ? 'text' : 'createPW'
+    },
+
+
         handleLogin: function (event) {
             event.preventDefault()
             // const URL = this.prodURL ? this.prodURL : this.devURL
