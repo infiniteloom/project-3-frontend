@@ -269,6 +269,8 @@
         <!-- QUILL DEBUG DIV -->
         <div>
             <!-- FEATURED ARTICLES SECTION POST MVP -->
+
+            <!-- Left column (single article) -->
             <div class="featured-articles-container" v-if="!aboutme && !dash && !singleReview && !createReview">
                 <div class="featured-articles-body-container">                
                     <div class="featured-left-col col-lg-7 col-md-8 col-s-12 col-xs-12">
@@ -286,7 +288,7 @@
                     </div>
 
 
-
+                    <!-- Right column (two articles) -->
                     <div class="featured-right-col col-lg-5 col-md-4 col-s-12 col-xs-12">
                         <div class="featured-right-article" v-if="randomReviewsArr[0]">
 
