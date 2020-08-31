@@ -494,6 +494,15 @@ html {
     background-image: linear-gradient(rgb(0, 0, 0, 0.749),rgba(116, 118, 90, 0.133));
     /* padding-top: 80px; */
     text-align: center;
+<<<<<<< HEAD
+=======
+  
+}
+
+    
+
+  
+>>>>>>> 8eced0bac14539a424943ce3aba58bbd476afecb
   
 }
 
@@ -522,6 +531,10 @@ html {
       .carousel-item img{
         padding-top:50px;
         padding-bottom:90px;
+<<<<<<< HEAD
+=======
+        moreResponsive
+>>>>>>> 8eced0bac14539a424943ce3aba58bbd476afecb
         min-height:550px;
         max-height: 550px; 
       }
@@ -534,6 +547,10 @@ html {
             padding-bottom:90px;
             min-height:400px; 
             max-height:400px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8eced0bac14539a424943ce3aba58bbd476afecb
           }
         }
       /* } */
