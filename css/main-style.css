@@ -494,14 +494,16 @@ html {
     background-image: linear-gradient(rgb(0, 0, 0, 0.749),rgba(116, 118, 90, 0.133));
     /* padding-top: 80px; */
     text-align: center;
-  }
   
+}
+
   .carousel-item img{
+
     padding-top:50px;
     padding-bottom:90px;
-    min-height:450px;
-    max-height: 450px;
-  
+    min-height: 400px; 
+    max-height:400px;
+
   }
   /* .carousel-control-prev-icon{
   color: lightgray;
@@ -520,10 +522,21 @@ html {
       .carousel-item img{
         padding-top:50px;
         padding-bottom:90px;
-        min-height:450px;
-        max-height: 600px; 
+        min-height:550px;
+        max-height: 550px; 
       }
     }
+
+    @media (max-width: 320px){
+        .carousel-item img{
+            margin: 0 auto;
+            padding-top:50px;
+            padding-bottom:90px;
+            min-height:400px; 
+            max-height:400px;
+          }
+        }
+      /* } */
   
   
   
