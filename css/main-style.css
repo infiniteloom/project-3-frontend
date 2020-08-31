@@ -60,10 +60,6 @@ body {
 #navbar-toggler:focus {
   outline:0;
 }
-.reviewTextFeature {
-  width:100%;
-  max-width: 600px;
-}
 .h4-style {
   color:black;
   font-size:12px;
@@ -572,45 +568,41 @@ X-SMALL MOBILE
   width: 90%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin:0 auto;
   background-color: white;
 }
+/* Left column styling */
 .featured-left-col{
-  max-width: 400px;
-}
-.feature-article-text{
-  max-width: 600px;
+  width: 60%;
 }
 .feature-article-text :first-child{
   margin-top: 10px;
 }
 #feature-left-img{
   width: 100%;
-  max-width: 600px;
 }
 .featured-left-article{
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  max-width: 600px;
+  margin-right: 20px;
 }
+/* Right column styling */
 .featured-right-col{
-  max-width: 400px;
+  width: 40%;
+  padding-left: 20px;
   border-left: 3px solid rgb(238, 238, 238);
 }
 .featured-right-article{
   display: flex;
   flex-wrap: wrap;
-  max-width: 400px;
 }
 #feature-right-img1{
   width: 100%;
-  max-width: 400px;
 }
 #feature-right-img2{
   width: 100%;
-  max-width: 400px;
 }
 .button-no-border{
   background-color: transparent;
@@ -619,41 +611,27 @@ X-SMALL MOBILE
 
 
 /* Featured articles media query for mid-size */
-@media (min-width: 680px) { 
-  .featured-articles-container{
-    width: 100%;
-  }
-  #feature-left-img{ 
-    max-width: 500px; 
-  } 
-  #feature-right-img{
-    max-width: 500px;
-  }
-  .feature-left-text{
-    max-width: 500px;
-  }
-}
-    
-
-/* Featured articles media query for small-size */
-@media (max-width: 576px) { 
-  .featured-articles-container{
-    width: 100%;
-  }
+@media (max-width: 680px) { 
   .featured-articles-body-container{
     display: flex; 
     flex-direction: column;
     align-items: space-between;
   }
   .featured-left-col{
-    padding:5px;
-    max-width: 400px;
+    width: 100%;
+    margin: 0;
+  }
+  .featured-left-article{
+    padding-right: 0;
+    margin-right: 0;
   }
   .featured-right-col{
-    max-width: 400px;
-    /* border-left: 0px solid rgb(238, 238, 238); */
+    width: 100%;
+    border-left: none;
+    padding-left: 0px;
   }
 }
+    
 
 
 

@@ -273,7 +273,7 @@
             <!-- Left column (single article) -->
             <div class="featured-articles-container" v-if="!aboutme && !dash && !singleReview && !createReview">
                 <div class="featured-articles-body-container">                
-                    <div class="featured-left-col col-lg-7 col-md-8 col-s-12 col-xs-12">
+                    <div class="featured-left-col">
                         <div class="featured-left-article" v-if="randomReviewsArr[0]" >
                             <img id="feature-left-img" :src="randomReviewsArr[0].profile_pic_url">
                             <div class="feature-article-text">
@@ -289,7 +289,7 @@
 
 
                     <!-- Right column (two articles) -->
-                    <div class="featured-right-col col-lg-5 col-md-4 col-s-12 col-xs-12">
+                    <div class="featured-right-col">
                         <div class="featured-right-article" v-if="randomReviewsArr[0]">
 
                             <img id="feature-right-img1" :src="randomReviewsArr[1].profile_pic_url">
