@@ -46,9 +46,9 @@ POST MVP:
 - Multiple visitors will be able to create accounts, login and leave their comments on reviews. 
 
 
-INSPIRATION: 
-Pitchfork.com
-https://www.goldflakepaint.co.uk/
+INSPIRATION:  
+https://www.Pitchfork.com  
+https://www.goldflakepaint.co.uk/ 
 
 
 ## App Build-out Links 
@@ -113,9 +113,9 @@ Wireframing Resources:
 
 ## Functional Components
 - Sticky header nav bar with links 
-    - Brand logo links to home page
-    - 'Reviews' jumps down the page to 'Recent Reviews'
-    - 'About' renders 'About' view (post-MVP)
+- Brand logo links to home page
+- 'Reviews' jumps down the page to 'Recent Reviews'
+- 'About' renders 'About' view (post-MVP)
     
 - Submit / Edit / Delete / Create Buttons For blog posts when signed in
 
