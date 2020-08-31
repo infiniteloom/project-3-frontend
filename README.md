@@ -158,12 +158,19 @@ VIEWS:
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
+This function allowed the search field to work. It takes the input and makes it all lower case to match with the data. 
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+    computed: {
+        filteredReviews: function () {
+            //filtering through each review through the reviews array
+            return this.reviews.filter((review) => {
+                //if an album search matches the value of the search, it is kept in the array. if not, it is took out
+                return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
+            })
+        }
+     }
+});
 ```
 
 ## Issues and Resolutions
