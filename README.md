@@ -141,7 +141,7 @@ VIEWS:
 | Create-a-blog post form | H | 2hrs | 4hrs | 4hrs |
 | Create randomizing images for carousel function in app.js | L | 1rs| 2hrs | 3hrs |
 | Edit Footer | L | 1hr | 4hr | 4hr|
-| Total | H | 20hrs| -hrs | -hrs |
+| Total | H | 20hrs| 26.5hrs | 27.5hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
@@ -149,7 +149,7 @@ VIEWS:
 | Create About Project Page | L | 1hr | 2hr | 2hr|
 | Sorting Functions | L | 3hr | 3hr | 3hr|
 | Stylizing the Gallery on Landing Page | L | 2hr | 2hr | 2hr|
-| Total | H | 6hrs| -hrs | -hrs |
+| Total | H | 6hrs| 7hrs | 7hrs |
 
 ## Additional Libraries
 - Vue
