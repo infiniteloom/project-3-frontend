@@ -12,6 +12,10 @@ a {
   color: black;
 }
 
+.item-contact>a:hover {
+  color: rgb(207, 255, 185);
+  text-decoration: none;
+}
 a:hover {
   color: rgb(207, 255, 185);
   text-decoration: none;
@@ -594,6 +598,19 @@ X-SMALL MOBILE
     /* background-color: rgb(238, 238, 238); */
     margin: 70px auto;
 }
+
+.featureTitle{
+color:black;
+
+padding-top:20px;
+font-size:16px;
+text-transform: uppercase;
+line-height: 1.1em;
+font-family: reason-new, sans-serif;  
+font-weight: 500;
+font-style: normal;
+}
+
 .featured-left-article{
   display: flex;
   justify-content: center;
