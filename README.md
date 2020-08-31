@@ -21,7 +21,9 @@ An app to help visitors discover new music, featuring reviews of albums and inte
 
 USER STORIES:
     EDITOR/BLOG ADMIN (logged in)
+    
         - The editor/blog admin will be able to login and have access to create, edit and destroy articles. 
+        
         - User story #AdminCarla:
             Carla loves to write about new music. She signs in to her blog by entering the url a-music-journal.netlify.app/login 
             and filling in the correct username/password. 
@@ -34,9 +36,13 @@ USER STORIES:
             She scrolls to the duplicate review in her grid gallery, clicks through and scrolls to the bottom of the individual
             review to find the 'edit post' button again. Scrolling to the bottom of the editable fields, she finds the 'delete post'
             button which she clicks. She is asked if she is sure she wants to delete this post and she clicks 'yes, delete.'
+            
     PUBLIC USER (not logged in)
+    
         - Public users will visit the public-facing side of the site (no edit/delete/create options per post) and browse articles on new music. 
+        
         - Public users can click through the landing page gallery items to view individual articles.
+        
         - User story #Hannah: 
             Hannah is a fan of music. Hannah visits a-music-journal.netlify.app and loads the landing page. She scrolls down to 
             scan the images and titles of new albums she might be interested in and clicks on one image. This image takes her to 
@@ -174,9 +180,7 @@ This function allowed the search field to work. It takes the input and makes it 
 ```
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
 
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: Merging issues                               
+**RESOLUTION**: Going over the code getting to know what was the issue if it was something with syntax, spacing or just getting to know the merging process. 
 
