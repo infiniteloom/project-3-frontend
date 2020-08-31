@@ -1,116 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/main-style.css">
+        <link rel="stylesheet" href="css/main-style.css">
 
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- FONT AWESOME -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <!-- <link href="css/mdb.min.css" rel="stylesheet"> -->
-    <link href="https://use.typekit.net/thb6kbk.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- Bootstrap core CSS -->
+        <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+        <!-- Material Design Bootstrap -->
+        <!-- <link href="css/mdb.min.css" rel="stylesheet"> -->
+        <link href="https://use.typekit.net/thb6kbk.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 
-    <!-- Quill Theme included stylesheets -->
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <!-- Quill Theme included stylesheets -->
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- Main Quill library -->
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js" defer></script>
-    <!-- Core Quill build with no theme, formatting, non-essential modules -->
-    <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.core.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- Main Quill library -->
+        <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"defer></script>
+        <!-- Core Quill build with no theme, formatting, non-essential modules -->
+        <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+        <script src="https://cdn.quilljs.com/1.3.6/quill.core.js"></script>
+    
 
-    <script src="app.js" defer></script>
-</head>
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
 
-<body>
-    <div id="app">
-
-        <!-- Sticky nav bar -->
-        <div class="sticky-top">
+       <!-- Sticky nav bar -->
+       <div class="sticky-top">
             <header>
                 <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-1">
 
                     <div class="container-fluid">
 
                         <form class="signUpNewsletter col-3 text-md-left" id="searchBar">
-                            <!-- Search bar div group-->
-                            <div class="input-group">
-
-                                <svg type="button" data-toggle="collapse" data-target=".navbar-collapse" id="search"
-                                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35"
-                                    viewBox="0 0 128 128" style=" fill:#ffffff;">
-                                    <path
-                                        d="M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5 79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219 79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391 52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C 87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219 29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C 45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391 27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391 46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C 54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781 26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C 82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609 L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5 98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961 112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C 96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9 80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L 106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922 102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391 91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z">
-                                    </path>
-                                </svg>
-
-
-                                <input name="" class="gt-email form-control" id="searchField"
-                                    placeholder="Search Artist" type="text" v-model="createUN">
-
-
+                        <!-- Search bar div group--> 
+                            <div class="input-group" id="input-group">
+            
+                                <!-- <svg type="button" data-toggle="collapse" data-target=".navbar-collapse" id="search" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="35" height="35"
+                                viewBox="0 0 128 128"
+                                style=" fill:#ffffff;">    <path d="M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5 79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219 79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391 52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C 87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219 29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C 45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391 27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391 46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C 54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781 26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C 82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609 L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5 98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961 112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C 96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9 80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L 106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922 102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391 91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z"></path></svg>        -->
+                                
+                                
+                                <input name="" class="gt-email form-control" id="searchField" placeholder="&#xf002;" type="text" v-model="search">
+                           
                             </div>
-
                         </form>
 
-                        <!-- site brand /logo -->
-                        <a class="navbar-brand mx-auto" id="siteTitle" v-on:click="reset">
-                            A Music Journal
-                        </a>
-                        <!-- burger mobile menu icon -->
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target=".navbar-collapse">
-                            <span id="navbar-toggler-icon" class="navbar-toggler-icon"></span></button>
-
-                        <div class="navbar-collapse collapse">
-                            <!-- menu items -->
-                            <div class="navbar-nav">
-                                <div class="nav-item"> <a href="#" class="nav-link" id="reviewsLink"
-                                        v-on:click="reset">Reviews</a> </div>
-                                <div class="nav-item"> <a class="nav-link" id="aM" href="#"
-                                        v-on:click="openAboutMe">About</a> </div>
-                                <div class="nav-item"><a class="nav-link" v-if="loggedin" v-on:click="callDash"
-                                        href="#app">Dashboard</a></div>
-                                <!-- <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li> -->
-                                <form class="mobileSearch col-sm-12 text-md-left" id="searchBarMobile">
-                                    <!-- Search bar div group-->
-                                    <div class="input-group">
-
-                                        <svg type="button" data-toggle="collapse" data-target=".navbar-collapse"
-                                            id="search" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35"
-                                            height="35" viewBox="0 0 128 128" style=" fill:#ffffff;">
-                                            <path
-                                                d="M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5 79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219 79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391 52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C 87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219 29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C 45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391 27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391 46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C 54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781 26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C 82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609 L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5 98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961 112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C 96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9 80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L 106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922 102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391 91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z">
-                                            </path>
-                                        </svg>
-
-
-                                        <input name="" class="gt-email form-control" id="searchField"
-                                            placeholder="Search Artist" type="text" v-model="createUN">
-
-
-                                    </div>
-
-                                </form>
-                            </div>
+                    <!-- site brand /logo -->
+                    <a class="navbar-brand" id="siteTitle" v-on:click="reset">
+                        A Music Journal
+                    </a>
+                    <!-- burger mobile menu icon -->
+                    <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span id="navbar-toggler-icon" class="navbar-toggler-icon"></span></button>
+                    
+                    <div class="navbar-collapse collapse">
+                        <!-- menu items --> 
+                        <div class="navbar-nav">
+                            <div class="nav-item"> <a href="#home-page-body"  class="nav-link" id="reviewsLink" v-on:click="reset">Reviews</a> </div>
+                            <div class="nav-item"> <a class="nav-link" id="aM" href="#" v-on:click="openAboutMe">About</a> </div>
+                            <div class="nav-item"><a class="nav-link" v-if="loggedin" v-on:click="callDash" href="#app">Dashboard</a></div>
+                            <!-- <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li> -->
+                            <form class="mobileSearch col-sm-12 text-md-left" id="searchBarMobile">
+                                <!-- Search bar div group--> 
+                                 <div class="input-group">
+    
+                                    <!-- <svg type="button" data-toggle="collapse" data-target=".navbar-collapse" id="search" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                    width="35" height="35"
+                                    viewBox="0 0 128 128"
+                                    style=" fill:#ffffff;">    <path d="M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5 79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219 79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391 52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C 87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219 29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C 45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391 27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391 46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C 54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781 26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C 82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609 L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5 98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961 112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C 96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9 80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L 106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922 102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391 91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z"></path></svg>       
+                                     -->
+                                    
+                                    <input name="" class="gt-email form-control" id="searchFieldMobile" placeholder="&#xf002;" type="text" v-model="search">
+                                    
+                                    
+                                </div>
+    
+                            </form>
                         </div>
                     </div>
                 </nav>
@@ -154,17 +139,16 @@
 
 
         <!-- SINGLE REVIEW VIEW SECTION -->
-        <!-- START QUILL DEBUG -->
-        <div>
-            <!-- This would be the div that displays a single review -->
-            <div v-if="singleReview && !createReview && !editReview" v-bind:id="singleReview.id" v-show="!aboutme"
-                class="single-review-container">
+            <!-- START QUILL DEBUG -->
+            <div>
+                <!-- This would be the div that displays a single review -->
+                <div v-if="singleReview && !createReview && !editReview" v-bind:id="singleReview.id" v-show="!aboutme" class="single-review-container">
 
-                <!-- Single review header  -->
-                <div class="single-review-data-display-container">
-                    <div class="single-review-data-display">
-                        <div class="single-review-text col-6">
-                            <p>
+                    <!-- Single review header  -->
+                    <div class="single-review-data-display-container">
+                        <div class="single-review-data-display">
+                            <div class="single-review-text col-lg-6 col-sm-8">
+                                <p class="single-review-artist">
                                 {{singleReview.artist_name}}<br>
                                 <span id="single-review-title">{{singleReview.album_title}}</span><br>
                             </p>
@@ -274,7 +258,7 @@
                     class="btn btn-primary publish-post">Publish</button>
                 <!-- edit form's publish button -->
                 <button v-if="editReview" v-on:click="updateReview" type="button"
-                    class="btn btn-primary publish-post publish-changes-button">Update Review</button>
+                    class="publish-post publish-changes-button">Update Review</button>
             </div>
 
         </div>
@@ -286,30 +270,39 @@
         <div>
             <!-- FEATURED ARTICLES SECTION POST MVP -->
             <div class="featured-articles-container" v-if="!aboutme && !dash && !singleReview && !createReview">
-                <div class="featured-articles-body-container">
-                    <div class="featured-left-col col-6 col-xs-12">
-                        <div class="featured-left-article" v-if="randomReviewsArr[0]">
+                <div class="featured-articles-body-container">                
+                    <div class="featured-left-col col-lg-7 col-md-8 col-s-12 col-xs-12">
+                        <div class="featured-left-article" v-if="randomReviewsArr[0]" >
                             <img id="feature-left-img" :src="randomReviewsArr[0].profile_pic_url">
-                            <p v-html="randomReviewsArr[0].review_text.substring(0, 400) + '...'"></p>
+                            <p>Tickets on Sale for {{randomReviewsArr[0].artist_name}}'s Virtual Show</p>
+                            <p class="reviewTextFeature" v-html="randomReviewsArr[0].review_text.substring(0, 1200) + '...'"></p>
                             <div class="button-no-border-container">
                                 <button class="button-no-border" v-bind:id="randomReviewsArr[0].id"
                                     v-on:click="openSingleReview">Read More</button>
                             </div>
                         </div>
                     </div>
-                    <div class="featured-right-col col-6 col-xs-12">
+
+
+
+                    <div class="featured-right-col col-lg-5 col-md-4 col-s-12 col-xs-12">
                         <div class="featured-right-article" v-if="randomReviewsArr[0]">
+
                             <img id="feature-right-img1" :src="randomReviewsArr[1].profile_pic_url">
-                            <p v-html="randomReviewsArr[1].review_text.substring(0, 100) + '...'"> </p>
-                            <div width="100%">
+                            <p>{{randomReviewsArr[1].artist_name}}'s Latest Record Tops the Charts</p>
+                            <p class="reviewTextFeature" v-html="randomReviewsArr[1].review_text.substring(0, 300) + '...'"> </p>
+
+                            <div class="button-no-border-container">
                                 <button class="button-no-border" v-bind:id="randomReviewsArr[1].id"
                                     v-on:click="openSingleReview" width="100%">Read More</button>
                             </div>
                         </div>
-                        <div class="featured-right-article" v-if="randomReviewsArr[0]">
+
+                        <div class="featured-right-article"  id="featureBottom"   v-if="randomReviewsArr[0]">
                             <img id="feature-right-img2" :src="randomReviewsArr[2].profile_pic_url">
-                            <p v-html="randomReviewsArr[2].review_text.substring(0, 100) + '...'"></p>
-                            <div width="100%">
+                            <p>{{randomReviewsArr[2].artist_name}} Announces Post-Covid Tour, 2023</p>
+                            <p class="reviewTextFeature" v-html="randomReviewsArr[2].review_text.substring(0, 200) + '...'"></p>  
+                            <div class="button-no-border-container">
                                 <button class="button-no-border" v-bind:id="randomReviewsArr[2].id"
                                     v-on:click="openSingleReview" width="100%">Read More</button>
                             </div>
@@ -321,7 +314,7 @@
 
 
 
-            <div class="home-page-body" v-if="!singleReview && !aboutme && !dash">
+            <div class="home-page-body" id="home-page-body" v-if="!singleReview && !aboutme && !dash">
 
                 <div class="wideRow recent-reviews-title">
                     <p class="recentReviewsText">RECENT REVIEWS</p>
@@ -341,8 +334,8 @@
                     <div v-for="review of filteredReviews"
                         class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                         <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
-                        <p>{{review.artist_name}} <br>
-                            <span class="album-title"> {{review.album_title}}</span></p>
+                        <p class="artist_name">{{review.artist_name}} <br>
+                        <span class="album-title"> {{review.album_title}}</span></p>
                     </div>
 
                 </div>
@@ -371,7 +364,7 @@
             <div class="dash-header-container">
                 <div class="dash-header-buttons  col-6 col-xs-12">
                     <button type="button" class="dash-buttons" id="dash-create-button"
-                        v-on:click="()=>createReview=true">Create New Review</button>
+                        v-on:click="showCreateNewReview">Create New Review</button>
                     <button type="button" class="dash-buttons" v-on:click="showUpdateReview" id="dash-edit-button">Edit
                         Post</button>
                     <button type="button" class="dash-delete dash-buttons" id="selectedReview" data-toggle="modal"
@@ -423,7 +416,7 @@
                 <h3><b>Meet the Team</b></h3>
             </div>
             <div class="andre member">
-                <div class="andre-pic">
+                <div class="bio-pic andre-pic">
                 </div>
                 <div class="andre bio">
                     <h6><b>Andre Heslop</b></h6>
@@ -435,7 +428,7 @@
             </div>
             <hr>
             <div class="magda member">
-                <div class="magda-pic">
+                <div class="bio-pic magda-pic">
                 </div>
                 <div class="magda bio">
                     <h6><b>Magdalena Krzyanowski</b></h6>
@@ -447,7 +440,7 @@
             </div>
             <hr>
             <div class="kenal member">
-                <div class="kenal-pic">
+                <div class="bio-pic kenal-pic">
                 </div>
                 <div class="kenal bio">
                     <h6><b>Kenal Ortega</b></h6>
@@ -459,7 +452,7 @@
             </div>
             <hr>
             <div class="lea member">
-                <div class="lea-pic">
+                <div class="bio-pic  lea-pic">
                 </div>
                 <div class="lea bio">
                     <h6><b>Lea Thomas</b></h6>
@@ -471,7 +464,7 @@
             </div>
             <hr>
             <div class="biz member">
-                <div class="biz-pic">
+                <div class="bio-pic  biz-pic">
                 </div>
                 <div class="biz bio">
                     <h6><b>Besrat Zerehaimanot</b></h6>
@@ -483,7 +476,7 @@
             </div>
             <hr>
             <div class="jeremy member">
-                <div class="jeremy-pic">
+                <div class="bio-pic jeremy-pic">
                 </div>
                 <div class="jeremy bio">
                     <h6><b>Jeremy Rose</b></h2>
@@ -504,7 +497,7 @@
 
         <!-- RETURN TO ALL REVIEWS  -->
         <div class="return-link" v-if="singleReview || aboutme || dash">
-            <a v-on:click="reset" href="#app">Return to All Reviews</a>
+            <a v-on:click="reset" href="#app" class="return-to-top"> Return to All Reviews</a>
         </div>
 
 
@@ -544,52 +537,71 @@
                         </ul>
                     </div>
 
+                    <div class="row justify-content-between" >
+                        <div class="col-sm-6 text-md-center"  id="nologin" v-if="!loggedin">
+                            <div id="accordion">
+                            
+                                <button class="btn-go3" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">EDITOR LOGIN</button>
+                                <!-- login area -->
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <!-- <div id="loginform">
+                                        <form class="signUpNewsletter col-12 text-md-center">
+                                            <input name="" id="username" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
+                                            <input name="" id="password" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
+                                            <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                                        </form>
+                                    </div> -->
+                                    <div id="loginform">
+                                        <form class="signUpNewsletter col-12 text-md-center">
+                                            <input name="" class="gt-email form-control" placeholder="Username" type="text"
+                                                v-model="createUN">
+        
+                                            <input :type="passwordFieldType" name="" class="gt-email form-control" placeholder="Password" type="text"
+                                                v-model="createPW">
+<!--         
+        
+                                            <a type="createPW" @click="switchVisibility">show / hide</a> -->
+        
+        
+                                            <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                                        </form>
+                                    </div>
+                                    
 
-                    <div class="row justify-content-between">
-                        <div class="col-sm-6 text-md-center" id="nologin" v-if="!loggedin">
-                            <h4>EDITOR LOGIN</h4>
-                            <!-- login area -->
-                            <div id="loginform">
-                                <form class="signUpNewsletter col-12 text-md-center">
-                                    <input name="" class="gt-email form-control" placeholder="Username" type="text"
-                                        v-model="createUN">
-
-                                    <input :type="passwordFieldType" name="" class="gt-email form-control" placeholder="Password" type="text"
-                                        v-model="createPW">
-
-
-                                    <a type="createPW" @click="switchVisibility">show / hide</a>
-
-
-                                    <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
-                                </form>
-                            </div>
-
-                            <!-- login error -->
-                            <div id="errorlogin" v-if="loginerror">
-                                <h6 class="text-uppercase font-weight-bold">Invalid username or password. Please check
-                                    your
-                                    entry and try again.</h1>
+                                    <!-- login error -->
+                                    <div id="errorlogin" v-if="loginerror">
+                                        <h6 class="loginError">Invalid username or password. Please check your
+                                            entry and try again.</h1>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    
 
+
+
+                        
                         <!-- log out button -->
                         <div id="yeslogin" v-if="loggedin" class="col-12 text-md-center">
-                            <button v-on:click="handleLogout">Logout</button>
+                            <!-- <button v-on:click="handleLogout" class="btn-go">Logout</button> -->
+                            <input name="" class="btn-go2" value="Logout" type="button" v-on:click="handleLogout">
                         </div>
+
+                        <!-- <div id="yeslogin" v-if="loggedin" class="col-12 text-md-center">
+                            <button v-on:click="handleLogout">Logout</button>
+                        </div> -->
+                        <!-- </div> -->
 
 
 
 
                         <div class="col-sm-6 text-md-center" v-if="!loggedin">
-                            <h4>CONTACT US</h4>
+                            <h4 class="h4-style">CONTACT US</h4>
                             <div class="item-contact">
-                                <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a>
-                                <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a>
-                                <a href="mailto:info@brandcatmedia.com"><span
-                                        class="link-id">E</span>:<span>info@brandcatmedia.com</span></a>
+                                <a href="tel:630-885-9200"><span class="link">P:630-885-9200</span></a>
+                                <a href="tel:630-839.2006"><span class="link">F:630-839.2006</span></a>
+                                <a href="mailto:info@brandcatmedia.com"><span class="link">E:info@brandcatmedia.com</span></a>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -608,48 +620,6 @@
         </footer>
 
 
-
-
-
-
-        <!-- ACCORDIAN LOGIN SECTION -->
-        <!-- <div class="accordion" id="accordionExample275">
-                                    <div class="card z-depth-0 bordered">
-
-                                        <div class="card-header" id="headingOne2">
-                                            <h5 class="mb-0">
-                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2"
-                                                aria-expanded="true" aria-controls="collapseOne2">
-                                                Admin Login
-                                            </button>
-                                            </h5>
-                                            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                        </div>
-
-                                        <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
-                                            data-parent="#accordionExample275">
-                                            <div class="card-body">
-                                                <input type="text" placeholder="username" v-model="createUN">
-                                                <input type="password" placeholder="password" v-model="createPW">
-                                            </div>
-                                            <div id="login-form-button-container">
-                                                <button id="login-form-button" v-on:click="handleLogin">Login</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div> -->
-
-        <!-- login error message -->
-        <!-- <div id="errorlogin" v-if="loginerror">
-                                    <p class="text-uppercase ">Invalid username or password.<br> Please check your
-                                        entry and try again.</p>
-                                </div>
-                            </div>
-                        </div> -->
-
-
-        <!-- Modal -->
 
 
         <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
