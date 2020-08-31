@@ -579,8 +579,11 @@ X-SMALL MOBILE
 .featured-left-col{
   max-width: 400px;
 }
-.feature-left-text{
+.feature-article-text{
   max-width: 600px;
+}
+.feature-article-text :first-child{
+  margin-top: 10px;
 }
 #feature-left-img{
   width: 100%;
@@ -598,8 +601,8 @@ X-SMALL MOBILE
 }
 .featured-right-article{
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  max-width: 400px;
 }
 #feature-right-img1{
   width: 100%;
