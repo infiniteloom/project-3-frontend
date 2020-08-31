@@ -526,6 +526,7 @@ html {
       .carousel-item img{
         padding-top:50px;
         padding-bottom:90px;
+        moreResponsive
         min-height:550px;
         max-height: 550px; 
       }

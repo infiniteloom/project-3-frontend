@@ -5,6 +5,7 @@ const devURL='http://localhost:3000'
 const prodURL='https://amusicjournal.herokuapp.com'
 const URL = prodURL ? prodURL : devURL
 
+
 const CarouselComponent = {
   template: `
     <img-src/>
@@ -18,6 +19,7 @@ const app = new Vue({
     CarouselComponent,
     },
     data: {
+        passwordFieldType: 'password',
         randomReviewsArr: [],
         reviews: [],
         singleReview: null,
@@ -46,6 +48,12 @@ const app = new Vue({
         },
     },
     methods: {
+
+        switchVisibility() {
+      this.passwordFieldType = this.passwordFieldType === 'createPW' ? 'text' : 'createPW'
+    },
+
+
         handleLogin: function (event) {
             event.preventDefault()
             // const URL = this.prodURL ? this.prodURL : this.devURL
@@ -141,13 +149,17 @@ const app = new Vue({
         },
         showUpdateReview: function(){
             if(this.dash){
-                this.singleReview = this.reviews[this.selectedReview]
+                // maybe not super scalable for large quantities of images/objects. but for now hey :)
+                this.singleReview = this.reviews.filter(select => select.id == this.selectedReview)[0]
+                
             }
             this.editReview = true;
             this.new_review = {...this.singleReview};
             quill.root.innerHTML = this.singleReview.review_text
         },
         showCreateNewReview: function () {
+            this.new_review = {}
+            quill.root.innerHTML = null
             this.createReview = true
         },
         createNewReview: function (event) {

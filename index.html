@@ -45,33 +45,25 @@
 
        <!-- Sticky nav bar -->
        <div class="sticky-top">
-        <header>
-            <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-1">
+            <header>
+                <nav id="topNav" class="navbar navbar-fixed-top navbar-expand-lg navbar-1">
 
-                <div class="container-fluid">
+                    <div class="container-fluid">
 
-                    <form class="signUpNewsletter col-3 text-md-left" id="searchBar">
-                    <!-- Search bar div group--> 
-                     <div class="input-group" id="input-group">
-
-
-                         
-                        <!-- <svg type="button" data-toggle="collapse" data-target=".navbar-collapse" id="search" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                        width="35" height="35"
-                        viewBox="0 0 128 128"
-                        style=" fill:#ffffff;">    <path d="M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5 79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219 79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391 52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C 87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219 29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C 45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391 27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391 46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C 54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781 26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C 82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609 L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5 98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961 112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C 96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9 80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L 106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922 102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391 91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z"></path></svg>        -->
-                        
-                        
-                        <input name="" class="gt-email form-control" id="searchField" placeholder="&#xf002;" type="text" v-model="search">
-
-                    
-
-                        
-  
-
-                    </div>
-
-                </form>
+                        <form class="signUpNewsletter col-3 text-md-left" id="searchBar">
+                        <!-- Search bar div group--> 
+                            <div class="input-group" id="input-group">
+            
+                                <!-- <svg type="button" data-toggle="collapse" data-target=".navbar-collapse" id="search" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="35" height="35"
+                                viewBox="0 0 128 128"
+                                style=" fill:#ffffff;">    <path d="M 52.349609 14.400391 C 42.624609 14.400391 32.9 18.1 25.5 25.5 C 10.7 40.3 10.7 64.399219 25.5 79.199219 C 32.9 86.599219 42.600391 90.300781 52.400391 90.300781 C 62.200391 90.300781 71.900781 86.599219 79.300781 79.199219 C 94.000781 64.399219 93.999219 40.3 79.199219 25.5 C 71.799219 18.1 62.074609 14.400391 52.349609 14.400391 z M 52.300781 20.300781 C 60.500781 20.300781 68.700391 23.399219 74.900391 29.699219 C 87.400391 42.199219 87.4 62.5 75 75 C 62.5 87.5 42.199219 87.5 29.699219 75 C 17.199219 62.5 17.199219 42.199219 29.699219 29.699219 C 35.899219 23.499219 44.100781 20.300781 52.300781 20.300781 z M 52.300781 26.300781 C 45.400781 26.300781 38.9 29 34 34 C 29.3 38.7 26.700391 44.800391 26.400391 51.400391 C 26.300391 53.100391 27.600781 54.4 29.300781 54.5 L 29.400391 54.5 C 31.000391 54.5 32.300391 53.199609 32.400391 51.599609 C 32.600391 46.499609 34.699219 41.799219 38.199219 38.199219 C 41.999219 34.399219 47.000781 32.300781 52.300781 32.300781 C 54.000781 32.300781 55.300781 31.000781 55.300781 29.300781 C 55.300781 27.600781 54.000781 26.300781 52.300781 26.300781 z M 35 64 A 3 3 0 0 0 32 67 A 3 3 0 0 0 35 70 A 3 3 0 0 0 38 67 A 3 3 0 0 0 35 64 z M 83.363281 80.5 C 82.600781 80.5 81.850781 80.800391 81.300781 81.400391 C 80.100781 82.600391 80.100781 84.499609 81.300781 85.599609 L 83.800781 88.099609 C 83.200781 89.299609 82.900391 90.6 82.900391 92 C 82.900391 94.4 83.8 96.700391 85.5 98.400391 L 98.300781 111 C 100.10078 112.8 102.39922 113.69922 104.69922 113.69922 C 106.99922 113.69922 109.29961 112.79961 111.09961 111.09961 C 114.59961 107.59961 114.59961 101.90039 111.09961 98.400391 L 98.300781 85.599609 C 96.600781 83.899609 94.300391 83 91.900391 83 C 90.500391 83 89.2 83.300391 88 83.900391 L 85.5 81.400391 C 84.9 80.800391 84.125781 80.5 83.363281 80.5 z M 91.900391 88.900391 C 92.700391 88.900391 93.5 89.200781 94 89.800781 L 106.69922 102.5 C 107.89922 103.7 107.89922 105.59922 106.69922 106.69922 C 105.49922 107.89922 103.6 107.89922 102.5 106.69922 L 89.800781 94.099609 C 89.200781 93.499609 88.900391 92.700391 88.900391 91.900391 C 88.900391 91.100391 89.200781 90.300781 89.800781 89.800781 C 90.400781 89.200781 91.100391 88.900391 91.900391 88.900391 z"></path></svg>        -->
+                                
+                                
+                                <input name="" class="gt-email form-control" id="searchField" placeholder="&#xf002;" type="text" v-model="search">
+                           
+                            </div>
+                        </form>
 
                     <!-- site brand /logo -->
                     <a class="navbar-brand" id="siteTitle" v-on:click="reset">
@@ -84,8 +76,7 @@
                     <div class="navbar-collapse collapse">
                         <!-- menu items --> 
                         <div class="navbar-nav">
-                            <div class="nav-item"> <a
-                            href="#"  class="nav-link" id="reviewsLink" v-on:click="reset">Reviews</a> </div>
+                            <div class="nav-item"> <a href="#home-page-body"  class="nav-link" id="reviewsLink" v-on:click="reset">Reviews</a> </div>
                             <div class="nav-item"> <a class="nav-link" id="aM" href="#" v-on:click="openAboutMe">About</a> </div>
                             <div class="nav-item"><a class="nav-link" v-if="loggedin" v-on:click="callDash" href="#app">Dashboard</a></div>
                             <!-- <li class="nav-item"><a id="toggle-show-create-form"  class="nav-link" v-on:click="showCreateNewReview">Create New Post</a></li> -->
@@ -107,10 +98,9 @@
                             </form>
                         </div>
                     </div>
-                </div>
-            </nav>
-        </header>
-    </div>
+                </nav>
+            </header>
+        </div>
 
 
 
@@ -119,32 +109,35 @@
 
 
         <!-- CAROUSEL HEADER - Selection can be randomized from gallery in app.js-->
-            <!-- EXTRA DIV TO DEBUG QUILL -->
+        <!-- EXTRA DIV TO DEBUG QUILL -->
+        <div>
+            <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
             <div>
-                <!--This is the header image carousel - Selection can be randomized from gallery in app.js-->
-                <div>
-                    <div v-if="!singleReview && !createReview && !dash" v-show="!aboutme"  id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item" id="carousel1" v-for="(review,index) in reviews" :class="{active: index==0 }">
-                                <img :src="review.profile_pic_url">
-                                <!-- first image in carousel randomly selected from db -->
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            <!-- END QUILL DEBUG -->
-            </div>
+                <div v-if="!singleReview && !createReview && !dash" v-show="!aboutme" id="carouselExampleControls"
+                    class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item" id="carousel1" v-for="(review,index) in reviews"
+                            :class="{active: index==0 }">
+                            <img :src="review.profile_pic_url">
 
-         
-                
+                            <!-- first image in carousel randomly selected from db -->
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <!-- END QUILL DEBUG -->
+        </div>
+
+
+
         <!-- SINGLE REVIEW VIEW SECTION -->
             <!-- START QUILL DEBUG -->
             <div>
@@ -158,141 +151,160 @@
                                 <p class="single-review-artist">
                                 {{singleReview.artist_name}}<br>
                                 <span id="single-review-title">{{singleReview.album_title}}</span><br>
-                                </p>
-                            </div>
-                            <div class="single-review-image col-6">
-                                <img :src="singleReview.img_url">
-                                <p class="review-image-caption">{{singleReview.record_label}} •
+                            </p>
+                        </div>
+                        <div class="single-review-image col-6">
+                            <img :src="singleReview.img_url">
+                            <p class="review-image-caption">{{singleReview.record_label}} •
                                 {{singleReview.release_date}}</p>
-                            </div>
                         </div>
-                    </div>
-                    <!-- Single review text body  -->
-                    <div class="single-review-body">
-                        <div class="review-text-pt1">
-                            <p  v-html="singleReview.review_text"></p>
-                        </div>
-                        <div class="quote-and-pic">
-                            <div class="single-review-quote col-3">
-                                <p><b><i>"This is the dopest part of the review, which is why it's on full display, duh" -
-                                            Whoever</i></b></p>
-                            </div>
-                            <div class="review-profile-pic col-9">
-                                <img :src="singleReview.profile_pic_url">
-                            </div>
-                        </div>
-                        <div class="review-text-pt2">
-                            <p  v-html="singleReview.review_text"></p>
-                        </div>
-                    </div>
-
-                    <!-- INITIAL logged in state: Edit/Delete Buttons DIV -->
-                    <div id="editDelete" v-if="loggedin && singleReview" class="d-flex justify-content-end">
-                        <button type="button" id="delete" class=" col-xs-12 col-sm-12 col-md-2" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
-                        <button id="edit"  class="show-edit-button col-xs-12 col-sm-12 col-md-2" v-on:click="showUpdateReview">Edit Review</button>
                     </div>
                 </div>
-                <!-- Edit and delete buttons only show if auth /logged in -->
-                <!-- <div v-if="loggedin && editReview">
+                <!-- Single review text body  -->
+                <div class="single-review-body">
+                    <div class="review-text-pt1">
+                        <p v-html="singleReview.review_text"></p>
+                    </div>
+                    <div class="quote-and-pic">
+                        <div class="single-review-quote col-3">
+                            <p><b><i>"This is the dopest part of the review, which is why it's on full display, duh" -
+                                        Whoever</i></b></p>
+                        </div>
+                        <div class="review-profile-pic col-9">
+                            <img :src="singleReview.profile_pic_url">
+                        </div>
+                    </div>
+                    <div class="review-text-pt2">
+                        <p v-html="singleReview.review_text"></p>
+                    </div>
+                </div>
+
+                <!-- INITIAL logged in state: Edit/Delete Buttons DIV -->
+                <div id="editDelete" v-if="loggedin && singleReview" class="d-flex justify-content-end">
+                    <button type="button" id="delete" class=" col-xs-12 col-sm-12 col-md-2" data-toggle="modal"
+                        data-target="#modalVerify">Delete Post</button>
+                    <button id="edit" class="show-edit-button col-xs-12 col-sm-12 col-md-2"
+                        v-on:click="showUpdateReview">Edit Review</button>
+                </div>
+            </div>
+            <!-- Edit and delete buttons only show if auth /logged in -->
+            <!-- <div v-if="loggedin && editReview">
                     <button>Edit</button>
                     <button>Delete</button>
                 </div> -->
 
             <!-- END QUILL DEBUG DIV -->
-            </div>
+        </div>
         <!-- END SINGLE REVIEW VIEW -->
 
 
 
 
-        
+
 
         <!-- CREATE NEW REVIEW VIEW -->
-            <!-- This needs to be toggled to show when admin clicks on create new review button  -->
-            <div :class="'create-form-container ' + ((createReview || editReview)? 'is-visible' : 'is-hidden')" id="create-form">
-                <!-- Artist name and album title fields -->
-                <div class="form-group">
-                    <div class="create-form-field">
-                        <label for="artist-name-field">Artist Name</label>
-                        <input v-model="new_review.artist_name"  class="form-control" id="artist-name-field" aria-describedby="emailHelp" placeholder="Enter artist name">
-                    </div>
-                    <div class="create-form-field">
-                        <label for="album-title-field">Album Title</label>
-                        <input v-model="new_review.album_title" class="form-control" id="album-title" placeholder="Enter album title">
-                    </div>
+        <!-- This needs to be toggled to show when admin clicks on create new review button  -->
+        <div :class="'create-form-container ' + ((createReview || editReview)? 'is-visible' : 'is-hidden')"
+            id="create-form">
+            <!-- Artist name and album title fields -->
+            <div class="form-group">
+                <div class="create-form-field">
+                    <label for="artist-name-field">Artist Name</label>
+                    <input v-model="new_review.artist_name" class="form-control" id="artist-name-field"
+                        aria-describedby="emailHelp" placeholder="Enter artist name">
                 </div>
-                <!-- Record label and release date fields -->
-                <div class="form-group">
-                    <div class="create-form-field">
-                        <label for="record-label-field">Record Label</label>
-                        <input  v-model="new_review.record_label"  class="form-control" id="record-label" placeholder="Enter record label">
-                    </div>
-                    <div class="create-form-field">    
-                        <label for="release-date-field">Release Date</label>
-                        <input  v-model="new_review.release_date" type="date" class="form-control" id="release-date">
-                    </div>
+                <div class="create-form-field">
+                    <label for="album-title-field">Album Title</label>
+                    <input v-model="new_review.album_title" class="form-control" id="album-title"
+                        placeholder="Enter album title">
                 </div>
-                <!-- Album art url and profile pic url (stand in until we apply AWS) -->
-                <div class="form-group ">
-                    <div class="create-form-field">
-                        <label for="album-art-url-field">Album Art URL</label>
-                        <input  v-model="new_review.img_url"  class="form-control" id="album-art-url" placeholder="http://www.albumarturl.com">
-                    </div>
-                    <div class="create-form-field">    
-                        <label for="profile-pic-field">Profile Pic URL</label>
-                        <input  v-model="new_review.profile_pic_url" type="text" class="form-control" id="profile-pic" placeholder="http://www.profilepic.com">
-                    </div>
+            </div>
+            <!-- Record label and release date fields -->
+            <div class="form-group">
+                <div class="create-form-field">
+                    <label for="record-label-field">Record Label</label>
+                    <input v-model="new_review.record_label" class="form-control" id="record-label"
+                        placeholder="Enter record label">
                 </div>
-
-                <!-- Quill editable field -->
-                <div class="editor-container">
-                    <div id="editor">
-                    </div>
+                <div class="create-form-field">
+                    <label for="release-date-field">Release Date</label>
+                    <input v-model="new_review.release_date" type="date" class="form-control" id="release-date">
                 </div>
-
-                <!-- Publish button to create review -->
-                <div class="publish-button-container">
-                    <!-- create form's publish button -->
-                    <button v-if="!editReview" v-on:click="createNewReview" type="button" class="btn btn-primary publish-post">Publish</button>
-                    <!-- edit form's publish button -->
-                    <button v-if="editReview" v-on:click="updateReview" type="button" class="btn btn-primary publish-post publish-changes-button">Update Review</button>
+            </div>
+            <!-- Album art url and profile pic url (stand in until we apply AWS) -->
+            <div class="form-group ">
+                <div class="create-form-field">
+                    <label for="album-art-url-field">Album Art URL</label>
+                    <input v-model="new_review.img_url" class="form-control" id="album-art-url"
+                        placeholder="http://www.albumarturl.com">
                 </div>
-
+                <div class="create-form-field">
+                    <label for="profile-pic-field">Profile Pic URL</label>
+                    <input v-model="new_review.profile_pic_url" type="text" class="form-control" id="profile-pic"
+                        placeholder="http://www.profilepic.com">
+                </div>
             </div>
 
-            
-        
+            <!-- Quill editable field -->
+            <div class="editor-container">
+                <div id="editor">
+                </div>
+            </div>
+
+            <!-- Publish button to create review -->
+            <div class="publish-button-container">
+                <!-- create form's publish button -->
+                <button v-if="!editReview" v-on:click="createNewReview" type="button"
+                    class="btn btn-primary publish-post">Publish</button>
+                <!-- edit form's publish button -->
+                <button v-if="editReview" v-on:click="updateReview" type="button"
+                    class="publish-post publish-changes-button">Update Review</button>
+            </div>
+
+        </div>
+
+
+
         <!-- HOME PAGE BODY SECTION -->
         <!-- QUILL DEBUG DIV -->
         <div>
-        <!-- FEATURED ARTICLES SECTION POST MVP -->
+            <!-- FEATURED ARTICLES SECTION POST MVP -->
             <div class="featured-articles-container" v-if="!aboutme && !dash && !singleReview && !createReview">
                 <div class="featured-articles-body-container">                
                     <div class="featured-left-col col-lg-7 col-md-8 col-s-12 col-xs-12">
                         <div class="featured-left-article" v-if="randomReviewsArr[0]" >
                             <img id="feature-left-img" :src="randomReviewsArr[0].profile_pic_url">
+                            <p>Tickets on Sale for {{randomReviewsArr[0].artist_name}}'s Virtual Show</p>
                             <p class="reviewTextFeature" v-html="randomReviewsArr[0].review_text.substring(0, 1200) + '...'"></p>
                             <div class="button-no-border-container">
-                                <button class="button-no-border">Read More</button>
+                                <button class="button-no-border" v-bind:id="randomReviewsArr[0].id"
+                                    v-on:click="openSingleReview">Read More</button>
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="featured-right-col col-lg-5 col-md-4 col-s-12 col-xs-12">
-                        <div class="featured-right-article"  v-if="randomReviewsArr[0]" >
-                            
-                            
+                        <div class="featured-right-article" v-if="randomReviewsArr[0]">
+
                             <img id="feature-right-img1" :src="randomReviewsArr[1].profile_pic_url">
+                            <p>{{randomReviewsArr[1].artist_name}}'s Latest Record Tops the Charts</p>
                             <p class="reviewTextFeature" v-html="randomReviewsArr[1].review_text.substring(0, 300) + '...'"> </p>
-                                  
+
                             <div class="button-no-border-container">
-                                <button class="button-no-border" width="100%">Read More</button>
+                                <button class="button-no-border" v-bind:id="randomReviewsArr[1].id"
+                                    v-on:click="openSingleReview" width="100%">Read More</button>
                             </div>
                         </div>
-                        <div class="featured-right-article" id="featureBottom"  v-if="randomReviewsArr[0]" >
+
+                        <div class="featured-right-article"  id="featureBottom"   v-if="randomReviewsArr[0]">
                             <img id="feature-right-img2" :src="randomReviewsArr[2].profile_pic_url">
-                            <p class="reviewTextFeature" v-html="randomReviewsArr[2].review_text.substring(0, 200) + '...'"></p>     
+                            <p>{{randomReviewsArr[2].artist_name}} Announces Post-Covid Tour, 2023</p>
+                            <p class="reviewTextFeature" v-html="randomReviewsArr[2].review_text.substring(0, 200) + '...'"></p>  
                             <div class="button-no-border-container">
-                                <button class="button-no-border" width="100%">Read More</button>
+                                <button class="button-no-border" v-bind:id="randomReviewsArr[2].id"
+                                    v-on:click="openSingleReview" width="100%">Read More</button>
                             </div>
                         </div>
                     </div>
@@ -301,25 +313,26 @@
 
 
 
-          
-            <div class="home-page-body"  v-if="!singleReview && !aboutme && !dash">
+
+            <div class="home-page-body" id="home-page-body" v-if="!singleReview && !aboutme && !dash">
 
                 <div class="wideRow recent-reviews-title">
                     <p class="recentReviewsText">RECENT REVIEWS</p>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 </div>
-    
+
                 <!-- SEARCH BOX stores value of input, in this case, the search property -->
                 <div class="searchbox-container">
-                    <input id="searchbox" type="text" v-model="search" placeholder="search" />  
+                    <input id="searchbox" type="text" v-model="search" placeholder="search" />
                 </div>
 
                 <!-- GALLERY VIEW START  -->
                 <!--This is where the grid gallery of recent reviews / album art will be rendered from database in app.js -->
-                <div v-if="!singleReview  && !createReview && !dash"  v-show="!aboutme" class="gallery" id="gallery">
+                <div v-if="!singleReview  && !createReview && !dash" v-show="!aboutme" class="gallery" id="gallery">
                     <!-- updated array, based on search term -->
                     <!-- RENDER REVIEWS FROM DATABASE  -->
-                    <div v-for="review of filteredReviews" class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
+                    <div v-for="review of filteredReviews"
+                        class="gallery-item img-fluid col-6 col-md-4 col-lg-3 col-xlg-2">
                         <img :src="review.img_url" width="100%" v-bind:id="review.id" v-on:click="openSingleReview">
                         <p class="artist_name">{{review.artist_name}} <br>
                         <span class="album-title"> {{review.album_title}}</span></p>
@@ -342,7 +355,7 @@
 
 
         <!-- ADMIN DASHBOARD / LIST VIEW -->
-    
+
         <div v-if="!singleReview  && dash && !createReview" class="dash-list-container">
             <!-- Recent reviews title -->
             <div>
@@ -350,38 +363,42 @@
             </div>
             <div class="dash-header-container">
                 <div class="dash-header-buttons  col-6 col-xs-12">
-                    <button type="button" class="dash-buttons" id="dash-create-button"  v-on:click="()=>createReview=true">Create New Review</button>
-                    <button type="button" class="dash-buttons" v-on:click="showUpdateReview" id="dash-edit-button">Edit Post</button>
-                    <button type="button"  class="dash-delete dash-buttons" id="selectedReview" data-toggle="modal" data-target="#modalVerify">Delete Post</button>
+                    <button type="button" class="dash-buttons" id="dash-create-button"
+                        v-on:click="showCreateNewReview">Create New Review</button>
+                    <button type="button" class="dash-buttons" v-on:click="showUpdateReview" id="dash-edit-button">Edit
+                        Post</button>
+                    <button type="button" class="dash-delete dash-buttons" id="selectedReview" data-toggle="modal"
+                        data-target="#modalVerify">Delete Post</button>
                 </div>
                 <div class="dash-searchbox-container col-6 col-xs-12">
-                    <input id="dash-searchbox" type="text" v-model="search" placeholder="search" />  
+                    <input id="dash-searchbox" type="text" v-model="search" placeholder="search" />
                 </div>
             </div>
 
-        <!--RENDER DATA IN LIST VIEW -->
+            <!--RENDER DATA IN LIST VIEW -->
             <div v-for="review of filteredReviews" class="dash-item-container img-fluid col-12">
                 <div class="dash-item">
                     <div class="dash-check-col col-1">
-                        <input type="radio" v-model="selectedReview" v-bind:value="review.id" >
+                        <input type="radio" v-model="selectedReview" v-bind:value="review.id">
                     </div>
-                    <div class="dash-left-col-container" >
-                        <div >
-                            <img class="dash-left-img" :src="review.img_url" v-bind:id="review.id" v-on:click="openSingleReview">
+                    <div class="dash-left-col-container">
+                        <div>
+                            <img class="dash-left-img" :src="review.img_url" v-bind:id="review.id"
+                                v-on:click="openSingleReview">
                         </div>
                         <div class="dash-left-caption">
-                        <!-- Need to only select the first 10 digits of created_at and flip to read dd/mm/yyyy then use sort to organize -->
+                            <!-- Need to only select the first 10 digits of created_at and flip to read dd/mm/yyyy then use sort to organize -->
                             <p>{{review.created_at.substring(0,10)}}</p>
                         </div>
                     </div>
                     <div class="dash-right-col-container">
                         <p>Artist: {{review.artist_name}}<br>
-                            Album:  <span class="album-title"></span>{{review.album_title}}</span>
+                            Album: <span class="album-title"></span>{{review.album_title}}</span>
                         </p>
                         <!-- <p class="excerpt">"{{review.review_text.substring(0,100)}}..."</p> -->
                     </div>
                 </div>
-            <!-- end vue loop -->
+                <!-- end vue loop -->
             </div>
         </div>
 
@@ -399,12 +416,10 @@
                 <h3><b>Meet the Team</b></h3>
             </div>
             <div class="andre member">
-                <div class="bio-pic box">
-                    <div class="andre-pic">
-                    </div>
+                <div class="bio-pic andre-pic">
                 </div>
                 <div class="andre bio">
-                    <h6>Andre Heslop</h6>
+                    <h6><b>Andre Heslop</b></h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -413,12 +428,10 @@
             </div>
             <hr>
             <div class="magda member">
-                <div class="bio-pic box">
-                    <div class="magda-pic">
-                    </div>
+                <div class="bio-pic magda-pic">
                 </div>
                 <div class="magda bio">
-                    <h6>Magdalena Krzyanowski</h6>
+                    <h6><b>Magdalena Krzyanowski</b></h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -427,12 +440,10 @@
             </div>
             <hr>
             <div class="kenal member">
-                <div class="bio-pic box">
-                    <div class="kenal-pic">
-                    </div>
+                <div class="bio-pic kenal-pic">
                 </div>
                 <div class="kenal bio">
-                    <h6>Kenal Ortega</h6>
+                    <h6><b>Kenal Ortega</b></h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -441,12 +452,10 @@
             </div>
             <hr>
             <div class="lea member">
-                <div class="bio-pic box">
-                    <div class="lea-pic">
-                    </div>
+                <div class="bio-pic  lea-pic">
                 </div>
                 <div class="lea bio">
-                    <h6>Lea Thomas</h6>
+                    <h6><b>Lea Thomas</b></h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -455,12 +464,10 @@
             </div>
             <hr>
             <div class="biz member">
-                <div class="bio-pic box">
-                    <div class="biz-pic">
-                    </div>
+                <div class="bio-pic  biz-pic">
                 </div>
                 <div class="biz bio">
-                    <h6>Besrat Zerehaimanot</h6>
+                    <h6><b>Besrat Zerehaimanot</b></h6>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
                         consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
                         consequatur! Tempora saepe maxime libero similique illum!
@@ -469,16 +476,15 @@
             </div>
             <hr>
             <div class="jeremy member">
-                <div class="bio-pic box">
-                    <div class="jeremy-pic">
-                    </div>
+                <div class="bio-pic jeremy-pic">
                 </div>
                 <div class="jeremy bio">
-                    <h6>Jeremy Rose</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
-                        consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates, vel
-                        consequatur! Tempora saepe maxime libero similique illum!
-                    </p>
+                    <h6><b>Jeremy Rose</b></h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt nesciunt repellat temporibus
+                            consectetur praesentium ut, eligendi nam quae doloribus architecto aspernatur voluptates,
+                            vel
+                            consequatur! Tempora saepe maxime libero similique illum!
+                        </p>
                 </div>
             </div>
 
@@ -497,173 +503,151 @@
 
 
 
-            <!--
+        <!--
             ////////////////////////////////
             //// FOOOTER //////////////////
             ///////////////////////////////-->
 
-            <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
-                <div class="return-top-link-container">
-                    <a v-if="!singleReview" class="return-to-top" href="#app">Return to top</a>
-                </div>
-                <div class="footer-top-layout text-center text-md-center">
-                    <div class="container">
-                        <div class="row">
+        <footer id="footer-Section" class="page-footer font-small mdb-color pt-4">
+            <div class="return-top-link-container">
+                <a v-if="!singleReview" id="return-to-top" href="#app">Return to top</a>
+            </div>
+            <div class="footer-top-layout text-center text-md-center">
+                <div class="container">
+                    <div class="row">
 
-                            <div class="col-xl-12">
-                                <h4 id="footerTitle">A Music Journal</h4>
-                                <p>An app to help visitors discover new music, featuring reviews of albums and interviews with
-                                    artists.</p>
-                                <!-- <div class="post-blog-date">
+                        <div class="col-xl-12">
+                            <h4 id="footerTitle">A Music Journal</h4>
+                            <p>An app to help visitors discover new music, featuring reviews of albums and interviews
+                                with
+                                artists.</p>
+                            <!-- <div class="post-blog-date">
                                     <p>AUGUST 2020</p>
                                 </div> -->
-                            </div>
-
                         </div>
 
-                        <div class="col-md-12">
-                            <ul class="social-network social-circle">
-                                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
-                            </ul>
-                        </div>
+                    </div>
 
+                    <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
 
-                        <div class="row justify-content-between" >
-                            <div class="col-sm-6 text-md-center"  id="nologin" v-if="!loggedin">
-                                <div id="accordion">
-                             
+                    <div class="row justify-content-between" >
+                        <div class="col-sm-6 text-md-center"  id="nologin" v-if="!loggedin">
+                            <div id="accordion">
+                            
                                 <button class="btn-go3" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">EDITOR LOGIN</button>
                                 <!-- login area -->
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div id="loginform">
-                                    <form class="signUpNewsletter col-12 text-md-center">
-                                        <input name="" id="username" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
-                                        <input name="" id="password" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
-                                        <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
-                                    </form>
-                                </div>
-                            
-                                
+                                    <!-- <div id="loginform">
+                                        <form class="signUpNewsletter col-12 text-md-center">
+                                            <input name="" id="username" class="gt-email form-control" placeholder="Username" type="text" v-model="createUN">
+                                            <input name="" id="password" class="gt-email form-control" placeholder="Password" type="text" v-model="createPW">
+                                            <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                                        </form>
+                                    </div> -->
+                                    <div id="loginform">
+                                        <form class="signUpNewsletter col-12 text-md-center">
+                                            <input name="" class="gt-email form-control" placeholder="Username" type="text"
+                                                v-model="createUN">
+        
+                                            <input :type="passwordFieldType" name="" class="gt-email form-control" placeholder="Password" type="text"
+                                                v-model="createPW">
+<!--         
+        
+                                            <a type="createPW" @click="switchVisibility">show / hide</a> -->
+        
+        
+                                            <input name="" class="btn-go" value="Login" type="button" v-on:click="handleLogin">
+                                        </form>
+                                    </div>
+                                    
 
-                                <!-- login error -->
-                                <div id="errorlogin" v-if="loginerror">
-                                    <h6 class="loginError">Invalid username or password. Please check your
-                                        entry and try again.</h1>
+                                    <!-- login error -->
+                                    <div id="errorlogin" v-if="loginerror">
+                                        <h6 class="loginError">Invalid username or password. Please check your
+                                            entry and try again.</h1>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
+
+
+
                         
-
-
-
-                            
-                            <!-- log out button -->
-                            <div id="yeslogin" v-if="loggedin" class="col-12 text-md-center">
-                                <!-- <button v-on:click="handleLogout" class="btn-go">Logout</button> -->
-                                <input name="" class="btn-go2" value="Logout" type="button" v-on:click="handleLogout">
-                            </div>
-
-
-
-
-                            <div class="col-sm-6 text-md-center" v-if="!loggedin">
-                                <h4 class="h4-style">CONTACT US</h4>
-                                <div class="item-contact">
-                                    <a href="tel:630-885-9200"><span class="link">P:630-885-9200</span></a>
-                                    <a href="tel:630-839.2006"><span class="link">F:630-839.2006</span></a>
-                                    <a href="mailto:info@brandcatmedia.com"><span class="link">E:info@brandcatmedia.com</span></a>
-                                </div>
-
-                            </div>
+                        <!-- log out button -->
+                        <div id="yeslogin" v-if="loggedin" class="col-12 text-md-center">
+                            <!-- <button v-on:click="handleLogout" class="btn-go">Logout</button> -->
+                            <input name="" class="btn-go2" value="Logout" type="button" v-on:click="handleLogout">
                         </div>
-                    </div>    
 
-                    <!--     copyright -->
-                    <div class="footer-bottom-layout">
-                        <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
-                        Ortega, Lea Thomas, Besrat Zerehaimanot.
+                        <!-- <div id="yeslogin" v-if="loggedin" class="col-12 text-md-center">
+                            <button v-on:click="handleLogout">Logout</button>
+                        </div> -->
+                        <!-- </div> -->
+
+
+
+
+                        <div class="col-sm-6 text-md-center" v-if="!loggedin">
+                            <h4 class="h4-style">CONTACT US</h4>
+                            <div class="item-contact">
+                                <a href="tel:630-885-9200"><span class="link">P:630-885-9200</span></a>
+                                <a href="tel:630-839.2006"><span class="link">F:630-839.2006</span></a>
+                                <a href="mailto:info@brandcatmedia.com"><span class="link">E:info@brandcatmedia.com</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                 <!-- Return to top  -->
 
-                       
-
-            </footer>
-
-
-
-
-
-
-                                <!-- ACCORDIAN LOGIN SECTION -->
-                                <!-- <div class="accordion" id="accordionExample275">
-                                    <div class="card z-depth-0 bordered">
-
-                                        <div class="card-header" id="headingOne2">
-                                            <h5 class="mb-0">
-                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2"
-                                                aria-expanded="true" aria-controls="collapseOne2">
-                                                Admin Login
-                                            </button>
-                                            </h5>
-                                            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                                        </div>
-
-                                        <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
-                                            data-parent="#accordionExample275">
-                                            <div class="card-body">
-                                                <input type="text" placeholder="username" v-model="createUN">
-                                                <input type="password" placeholder="password" v-model="createPW">
-                                            </div>
-                                            <div id="login-form-button-container">
-                                                <button id="login-form-button" v-on:click="handleLogin">Login</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div> -->
-
-                                <!-- login error message -->
-                                <!-- <div id="errorlogin" v-if="loginerror">
-                                    <p class="text-uppercase ">Invalid username or password.<br> Please check your
-                                        entry and try again.</p>
-                                </div>
-                            </div>
-                        </div> -->
-
-
-        <!-- Modal -->
-
-
-        <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
-            <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2" data-dismiss="modal">Close</button>
-                            <button  class="col-xs-12 col-sm-12 col-md-4 confirm-delete-button" v-bind:id="selectedReview" v-on:click="handleDelete" data-dismiss="modal">Yes, I'm sure</button>
-                        </div>
+                <!--     copyright -->
+                <div class="footer-bottom-layout">
+                    <div class="copyright-tag">© 2020 Copyright: Andre Heslop, Magdalena Krzyanowski, Kenal
+                        Ortega, Lea Thomas, Besrat Zerehaimanot.
                     </div>
                 </div>
             </div>
+            <!-- Return to top  -->
+
+
+
+        </footer>
+
+
+
+
+        <!-- CONFIRM DELETE POST MODAL WITH ALERT AND BUTTON TO CONFIRM -->
+        <div class="modal fade" id="modalVerify" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="close" class="col-xs-12 col-sm-12 col-md-2"
+                            data-dismiss="modal">Close</button>
+                        <button class="col-xs-12 col-sm-12 col-md-4 confirm-delete-button" v-bind:id="selectedReview"
+                            v-on:click="handleDelete" data-dismiss="modal">Yes, I'm sure</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
 
 
         <!-- END VUE APP DIV -->
-        </div>
+    </div>
 
 
 
