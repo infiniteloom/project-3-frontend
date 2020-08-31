@@ -6,11 +6,11 @@
 |---|---| ---|
 |Day 1| Deploy on netlify | Complete
 |Day 1| Project Description | Complete
-|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
+|Day 1| Wireframes / Priority Matrix / Timeline | Complete
 |Day 2| Design landing page with bootstrap grid gallery | Complete
 |Day 3| Continue design of landing page with bootstrap grid gallery | Complete
 |Day 3| Design individual review view | Complete
-|Day 4| MVP & Bug Fixes | Incomplete
+|Day 4| MVP & Bug Fixes | Complete
 |Day 5| Final Touches and Present | Incomplete
 
 
@@ -101,7 +101,6 @@ Wireframing Resources:
 - Toggle view from grid gallery /landing page to individual review view
 - Carousel gallery header
 - Deploy on netlify
-- Tags
 
 #### PostMVP 
 
@@ -134,23 +133,22 @@ VIEWS:
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Hamburger Mobile | H | .5hr | .5hr | .5hr|
-| Bootstrap Grid Gallery w/Rendered Data | H | 3hr | -hr | -hr|
-| Bootstrap Responsive Nav | H | 2H | -hr | -hr|
-| Bootstrap Carousel Header w/rendered Data | H | 3hrs| -hr | -hr |
-| Toggling views for logged-in/not logged-in | H | 3hr | -hr | -hr|
-| Create views for create new post window | H | 2hrs| -hrs | -hrs |
-| Create AWS /image upload drop field | M | 2hrs | -hrs | -hrs |
-| Create-a-blog post form | H | 2hrs | -hrs | -hrs |
-| Create randomizing images for carousel function in app.js | L | 1rs| -hrs | -hrs |
-| Edit Footer | L | 1hr | -hr | -hr|
+| Bootstrap Grid Gallery w/Rendered Data | H | 3hr | 3hr | 3hr|
+| Bootstrap Responsive Nav | H | 2H | 4hr | 4hr|
+| Bootstrap Carousel Header w/rendered Data | H | 3hrs| 3hr | 3hr |
+| Toggling views for logged-in/not logged-in | H | 3hr | 3hr | 3hr|
+| Create views for create new post window | H | 2hrs| 3hrs | 3hrs |
+| Create-a-blog post form | H | 2hrs | 4hrs | 4hrs |
+| Create randomizing images for carousel function in app.js | L | 1rs| 2hrs | 3hrs |
+| Edit Footer | L | 1hr | 4hr | 4hr|
 | Total | H | 20hrs| -hrs | -hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Create About Project Page | L | 1hr | -hr | -hr|
-| Sorting Functions | L | 3hr | -hr | -hr|
-| Stylizing the Gallery on Landing Page | L | 2hr | -hr | -hr|
+| Create About Project Page | L | 1hr | 2hr | 2hr|
+| Sorting Functions | L | 3hr | 3hr | 3hr|
+| Stylizing the Gallery on Landing Page | L | 2hr | 2hr | 2hr|
 | Total | H | 6hrs| -hrs | -hrs |
 
 ## Additional Libraries
