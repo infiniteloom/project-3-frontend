@@ -98,6 +98,7 @@ const app = new Vue({
             .then(data => {
                 this.singleReview = data
                 console.log(data)
+                window.scrollTo(0,0)
             })
         },
         openAboutMe: function (event) {  // TEAM ABOUT ME PAGE
@@ -234,6 +235,12 @@ const app = new Vue({
             let randomImg3 = this.reviews[randomInd[2]]
             this.randomReviewsArr.push(randomImg1, randomImg2, randomImg3)
             console.log(this.randomReviewsArr)
+        },
+        jumpToSearch: function(e){
+            this.reset()
+            setTimeout(() => window.scrollTo(0,document.getElementById("recentReviews").offsetTop-200),100)
+            
+            document.querySelector(".navbar-collapse").classList.toggle("show")
         }
     },
     // Used the beforeMount lifecycle method instead of beforeCreate to fix how the app was retrieving the URL
@@ -261,6 +268,7 @@ const app = new Vue({
             })
         }
     }
+
 });
 
 

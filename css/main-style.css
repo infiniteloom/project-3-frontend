@@ -12,6 +12,10 @@ a {
   color: black;
 }
 
+.item-contact>a:hover {
+  color: rgb(207, 255, 185);
+  text-decoration: none;
+}
 a:hover {
   color: rgb(207, 255, 185);
   text-decoration: none;
@@ -560,8 +564,31 @@ X-SMALL MOBILE
 ///  FEATURED STORIES STYLING  //
 //////////////////////////// */
 .featured-articles-container {
-  width: 90%;
-  margin: 70px auto;
+    width: 90%;
+    margin: 70px auto;
+}
+
+.featureTitle{
+color:black;
+
+padding-top:20px;
+font-size:16px;
+text-transform: uppercase;
+line-height: 1.1em;
+font-family: reason-new, sans-serif;  
+font-weight: 500;
+font-style: normal;
+}
+
+.featured-left-article{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.featured-right-article{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .featured-articles-body-container {
@@ -1016,78 +1043,6 @@ h3 b {
 }
 
 
-
-
-/* ACCORDION LOGIN SECTION */
-/* .login-container{
-    margin: 0 auto;
-  }
-  .card{
-    border: none;
-    border-radius: 0px;
-  }
-  .card-header{
-    border:none;
-  }
-  .card-header:hover{
-    text-decoration: none;
-  }
-  #headingOne2{
-    background-color: #343a40;
-    padding: 0;
-    margin: 0;
-  }
-  #headingOne2 button{
-    color: white;
-    padding: 0;
-    margin-bottom: .5rem;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  #collapseOne2.collapse.show {
-    background-color: #343a40;
-  }
-  .card-body{
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: #343a40;
-    padding: 0;
-    border: none;
-  }
-  .card-body input{
-    height: 1.5em;
-    border-radius: 3px;
-    padding: 5px;
-    width: 100%;
-    margin: 2px 0 2px 0;
-    max-width: 200px;
-  }
-  #login-form-button-container{
-    display: flex;
-    align-items: flex-end;
-    width: 100%;
-    background-color: #343a40;
-    max-width: 200px;
-    margin-top: 5px;
-  }
-  #login-form-button{
-    font-size: .8em;
-    border-radius: 3px;
-  }
-  @media (max-width: 960px) {
-    #login-form-button-container{
-        justify-content: center;
-    }
-    #loginform{
-        align-items: center;
-    }
-  
-  } */
-  
-  
   
 .footer-top-layout {
   background: #1c1c1c none repeat scroll 0 0;
