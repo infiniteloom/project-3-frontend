@@ -620,10 +620,12 @@ X-SMALL MOBILE
   width: 40%;
   padding-left: 20px;
   border-left: 3px solid rgb(238, 238, 238);
+  height: auto;
 }
 .featured-right-article{
   display: flex;
   flex-wrap: wrap;
+  height: auto;
 }
 #feature-right-img1{
   width: 100%;
@@ -649,6 +651,7 @@ X-SMALL MOBILE
   .featured-left-col{
     width: 100%;
     margin: 0;
+    height: auto;
   }
   .featured-left-article{
     padding-right: 0;
@@ -656,17 +659,9 @@ X-SMALL MOBILE
   }
   .featured-right-col{
     width: 100%;
+    height: auto;
     border-left: none;
     padding-left: 0px;
-  }
-  #feature-right-img1{
-    height: auto;
-  }
-  #feature-right-img2{
-    height: auto;
-  }
-  #feature-left-img{
-    height: auto;
   }
 }
     
