@@ -593,7 +593,7 @@ X-SMALL MOBILE
 .featured-articles-body-container {
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: flex-start;
   margin:0 auto;
   background-color: white;
