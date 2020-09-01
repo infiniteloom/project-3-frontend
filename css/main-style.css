@@ -656,6 +656,15 @@ X-SMALL MOBILE
     border-left: none;
     padding-left: 0px;
   }
+  #feature-right-img1{
+    height: auto;
+  }
+  #feature-right-img2{
+    height: auto;
+  }
+  #feature-left-img{
+    height: auto;
+  }
 }
     
 
