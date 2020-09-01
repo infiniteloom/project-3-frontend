@@ -608,6 +608,7 @@ X-SMALL MOBILE
 #feature-left-img{
   width: 100%;
   height: auto  !important;
+  max-height: 100%;
 }
 .featured-left-article{
   display: flex;
@@ -630,10 +631,12 @@ X-SMALL MOBILE
 #feature-right-img1{
   width: 100%;
   height: auto  !important;
+  max-height: 100%;
 }
 #feature-right-img2{
   width: 100%;
   height: auto  !important;
+  max-height: 100%;
 }
 .button-no-border{
   background-color: transparent;
