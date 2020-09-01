@@ -649,7 +649,7 @@ X-SMALL MOBILE
   .featured-articles-body-container{
     display: flex; 
     flex-direction: column;
-    align-items: space-between;
+    /* align-items: space-between; */
   }
   .featured-left-col{
     width: 100%;
