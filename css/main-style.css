@@ -608,7 +608,7 @@ X-SMALL MOBILE
 #feature-left-img{
   width: 100%;
   height: auto  !important;
-  max-height: 100%;
+  object-fit: contain;
 }
 .featured-left-article{
   display: flex;
@@ -631,12 +631,12 @@ X-SMALL MOBILE
 #feature-right-img1{
   width: 100%;
   height: auto  !important;
-  max-height: 100%;
+  object-fit: contain;
 }
 #feature-right-img2{
   width: 100%;
   height: auto  !important;
-  max-height: 100%;
+  object-fit: contain;
 }
 .button-no-border{
   background-color: transparent;
