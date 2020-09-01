@@ -607,6 +607,7 @@ X-SMALL MOBILE
 }
 #feature-left-img{
   width: 100%;
+  height: auto;
 }
 .featured-left-article{
   display: flex;
@@ -626,9 +627,11 @@ X-SMALL MOBILE
 }
 #feature-right-img1{
   width: 100%;
+  height: auto;
 }
 #feature-right-img2{
   width: 100%;
+  height: auto;
 }
 .button-no-border{
   background-color: transparent;
