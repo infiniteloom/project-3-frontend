@@ -615,7 +615,7 @@ X-SMALL MOBILE
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-right: 20px;
-  height: auto  !important;
+  /* height: auto  !important; */
 }
 /* Right column styling */
 .featured-right-col{
@@ -626,7 +626,7 @@ X-SMALL MOBILE
 .featured-right-article{
   display: flex;
   flex-wrap: wrap;
-  height: auto  !important;
+  /* height: auto  !important; */
 }
 #feature-right-img1{
   width: 100%;
