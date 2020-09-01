@@ -607,7 +607,7 @@ X-SMALL MOBILE
 }
 #feature-left-img{
   width: 100%;
-  height: auto  !important;
+  /* height: auto  !important; */
   object-fit: contain;
 }
 .featured-left-article{
@@ -630,12 +630,12 @@ X-SMALL MOBILE
 }
 #feature-right-img1{
   width: 100%;
-  height: auto  !important;
+  /* height: auto  !important; */
   object-fit: contain;
 }
 #feature-right-img2{
   width: 100%;
-  height: auto  !important;
+  /* height: auto  !important; */
   object-fit: contain;
 }
 .button-no-border{
