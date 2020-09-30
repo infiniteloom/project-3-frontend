@@ -1,5 +1,20 @@
 # Project Overview
 
+## Project Schedule
+
+|  Day | Deliverable | Status
+|---|---| ---|
+|Day 1| Deploy on netlify | Complete
+|Day 1| Project Description | Complete
+|Day 1| Wireframes / Priority Matrix / Timeline | Complete
+|Day 2| Design landing page with bootstrap grid gallery | Complete
+|Day 3| Continue design of landing page with bootstrap grid gallery | Complete
+|Day 3| Design individual review view | Complete
+|Day 4| MVP & Bug Fixes | Complete
+|Day 5| Final Touches and Present | Complete
+
+
+
 ## Project Description
 MUSIC JOURNAL
 An app to help visitors discover new music, featuring reviews of albums and interviews with artists. 
@@ -37,7 +52,7 @@ https://www.goldflakepaint.co.uk/
 
 
 ## App Build-out Links 
-[Live Site](https://a-music-journal.netlify.app)
+[Front-end deployed URL](https://a-music-journal.netlify.app)
 
 [Front-end GitHub Repo](https://github.com/infiniteloom/project-3-frontend)
 
@@ -73,9 +88,93 @@ Wireframing Resources:
 - [Figma](https://www.figma.com/)
 
 
+## Time/Priority Matrix 
+
+[Time and Priority Matrix](https://res.cloudinary.com/dinqukx6a/image/upload/v1598235735/Project%203/Music_Journal_Front_EndTPM_isr7ab.jpg)
+
+#### MVP
+
+- Sticky header
+- Menu item/gallery item on:hover effects
+- Render data from api
+- Make page mobile responsive  
+- Toggle view from grid gallery /landing page to individual review view
+- Carousel gallery header
+- Deploy on netlify
+
+#### PostMVP 
+
+- Staggering the gallery so images are not square grids? 
+- On:scroll animation effects CSS
+- About page, listing site contributors and mission
+- Footer with social links and return to top
+- Genre searchability 
+- Sorting by date-added, artist name
+
+## Functional Components
+- Sticky header nav bar with links 
+- Brand logo links to home page
+- 'Reviews' jumps down the page to 'Recent Reviews'
+- 'About' renders 'About' view (post-MVP)
+    
+- Submit / Edit / Delete / Create Buttons For blog posts when signed in
+
+- Footer with project info and 'return to top'
+
+VIEWS:
+- Login view for blog admin
+- Intro/landing page
+- Regular view of blog posts without log-in
+- Create a new blog post form
+- Create AWS /image upload drop field (work with backend to configure)
+
+
+#### MVP
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Hamburger Mobile | H | .5hr | .5hr | .5hr|
+| Bootstrap Grid Gallery w/Rendered Data | H | 3hr | 3hr | 3hr|
+| Bootstrap Responsive Nav | H | 2H | 4hr | 4hr|
+| Bootstrap Carousel Header w/rendered Data | H | 3hrs| 3hr | 3hr |
+| Toggling views for logged-in/not logged-in | H | 3hr | 3hr | 3hr|
+| Create views for create new post window | H | 2hrs| 3hrs | 3hrs |
+| Create-a-blog post form | H | 2hrs | 4hrs | 4hrs |
+| Create randomizing images for carousel function in app.js | L | 1rs| 2hrs | 3hrs |
+| Edit Footer | L | 1hr | 4hr | 4hr|
+| Total | H | 20hrs| 26.5hrs | 27.5hrs |
+
+#### PostMVP
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Create About Project Page | L | 1hr | 2hr | 2hr|
+| Sorting Functions | L | 3hr | 3hr | 3hr|
+| Stylizing the Gallery on Landing Page | L | 2hr | 2hr | 2hr|
+| Total | H | 6hrs| 7hrs | 7hrs |
 
 ## Additional Libraries
 - Vue
 - Quill 
 - Bootstrap
+
+## Code Snippet
+
+This function allowed the search field to work. It takes the input and makes it all lower case to match with the data. 
+
+```
+    computed: {
+        filteredReviews: function () {
+            //filtering through each review through the reviews array
+            return this.reviews.filter((review) => {
+                //if an album search matches the value of the search, it is kept in the array. if not, it is took out
+                return review.album_title.toLowerCase().match(this.search.toLowerCase()) || review.artist_name.toLowerCase().match(this.search.toLowerCase())
+            })
+        }
+     }
+});
+```
+
+## Issues and Resolutions
+
+**ERROR**: Merging issues                               
+**RESOLUTION**: Going over the code getting to know what was the issue if it was something with syntax, spacing or just getting to know the merging process. 
 
