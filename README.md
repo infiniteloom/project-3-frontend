@@ -11,7 +11,7 @@
 |Day 3| Continue design of landing page with bootstrap grid gallery | Complete
 |Day 3| Design individual review view | Complete
 |Day 4| MVP & Bug Fixes | Complete
-|Day 5| Final Touches and Present | Incomplete
+|Day 5| Final Touches and Present | Complete
 
 
 
